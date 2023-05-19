@@ -1,0 +1,131 @@
+.bg-footer {
+  background-color: rgb(225, 225, 225);
+}
+
+.icons-style {
+  padding: 10px;
+  font-size: 1.875rem;
+  color: black;
+  text-decoration: none;
+}
+.icons-style:hover {
+  background-color: rgb(224, 225, 240);
+  border-radius: 8px;
+  color: rgb(55, 64, 215);
+}
+
+.icons-style-md {
+  padding: 10px;
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+}
+.icons-style-md:hover {
+  background-color: rgb(224, 225, 240);
+  border-radius: 8px;
+  color: rgb(55, 64, 215);
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+.menu {
+  padding-left: 1rem;
+}
+.menu__item {
+  list-style-type: none;
+}
+.menu__item__content {
+  color: rgb(56, 56, 56);
+  display: flex;
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+.menu__item__content--tag {
+  color: rgb(56, 56, 56);
+  display: flex;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
+}
+.menu__item__content--tag:hover {
+  background-color: rgb(224, 225, 240);
+  border-radius: 0.3rem;
+  color: rgb(50, 57, 169);
+  text-decoration: underline;
+}
+.menu__item__content img {
+  bottom: 1px;
+  height: 25px;
+  position: relative;
+  width: 25px;
+  right: 8px;
+}
+.menu__item__content:hover {
+  background-color: rgb(224, 225, 240);
+  border-radius: 0.3rem;
+  color: rgb(50, 57, 169);
+  text-decoration: underline;
+}
+
+.tags-container__title {
+  padding-left: 1.3rem;
+}
+
+.navbar {
+  border-bottom: solid 1px gray;
+  max-height: 4.5rem;
+}
+.navbar .search-bar {
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 1px rgb(120, 120, 120);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .search-bar:hover {
+  border: solid 2px rgb(55, 64, 215);
+}
+.navbar .search-bar input {
+  border-color: transparent;
+  border-style: none;
+  border-width: 0px;
+  outline: none;
+  padding: 0;
+}
+.navbar .search-bar input::-moz-placeholder {
+  padding: 20px;
+  font-size: 1.5rem;
+  color: rgb(135, 135, 135);
+}
+.navbar .search-bar input::placeholder {
+  padding: 20px;
+  font-size: 1.5rem;
+  color: rgb(135, 135, 135);
+}
+.navbar .search-bar a {
+  display: flex;
+  align-items: center;
+}
+.navbar .items-center a {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+.hamburger__item {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+}/*# sourceMappingURL=styles.css.map */

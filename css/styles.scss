@@ -1,0 +1,133 @@
+$primary: rgb(55, 64, 215);
+$hover-color: rgb(224, 225, 240);
+$secondary-hover-color: rgb(243, 243, 243);
+$footer-color: rgb(225, 225, 225);
+
+//TODO Create breakpoints for icons in bar
+@mixin icons-style($font-size) {
+    padding: 10px;
+    font-size: $font-size;
+    color: black;
+    text-decoration: none;
+    &:hover {
+        background-color: $hover-color;
+        border-radius: 8px;
+        color: $primary;
+    }
+}
+
+.bg-footer {
+    background-color: $footer-color;
+}
+
+.icons-style {
+    @include icons-style(1.875rem);
+}
+
+.icons-style-md {
+    @include icons-style(1.5rem);
+}
+
+h4 {
+    margin-bottom: 0;
+}
+
+.menu {
+    padding-left: 1rem;
+    &__item {
+        list-style-type: none;
+        &__content {
+            color: rgb(56, 56, 56);
+            display: flex;
+            font-size: 1.3rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+
+            &--tag {
+                color: rgb(56, 56, 56);
+                display: flex;
+                font-size: 1.2rem;
+                margin: 0;
+                padding: 0.5rem 0.7rem;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: rgb(224, 225, 240);
+                    border-radius: 0.3rem;
+                    color: rgb(50, 57, 169);
+                    text-decoration: underline;
+                }
+            }
+
+            & img {
+                bottom: 1px;
+                height: 25px;
+                position: relative;
+                width: 25px;
+                right: 8px;
+            }
+            &:hover {
+                background-color: rgb(224, 225, 240);
+                border-radius: 0.3rem;
+                color: rgb(50, 57, 169);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.tags-container__title {
+    padding-left: 1.3rem;
+}
+
+.navbar {
+    border-bottom: solid 1px gray;
+    max-height: 4.5rem;
+    .search-bar {
+        align-items: center;
+        background-color: white;
+        border-radius: 8px;
+        border: solid 1px rgb(120, 120, 120);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &:hover {
+            border: solid 2px $primary;
+        }
+        & input {
+            border-color: transparent;
+            border-style: none;
+            border-width: 0px;
+            outline: none;
+            padding: 0;
+            &::placeholder {
+                padding: 20px;
+                font-size: 1.5rem;
+                color: rgb(135, 135, 135);
+            }
+        }
+        & a {
+            display: flex;
+            align-items: center;
+        }
+    }
+    & .items-center {
+        & a {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.hamburger {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    &__item {
+        width: 25px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 0;
+    }
+}
