@@ -15,13 +15,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
     />
-    <title>Document</title>
+    <title>Dev.to Clone</title>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-white">
+    <!-- * Navigation Bar -->
+    <nav class="navbar sticky-top navbar-light bg-white">
       <div class="container">
-        <div class="d-flex gap-4">
-          <button class="hamburger d-md-none">
+        <div class="d-flex gap-4 w-50">
+          <button
+            class="hamburger d-md-none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvas-menu"
+            aria-controls="offcanvas-menu"
+          >
             <div class="hamburger__item"></div>
             <div class="hamburger__item"></div>
             <div class="hamburger__item"></div>
@@ -29,532 +35,896 @@
           <img
             src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
             alt="Logo"
-            width="70"
-            height="50"
+            width="50"
+            height="40"
           />
-          <div class="search-bar d-none d-md-flex">
+          <!-- TODO arreglar el border radius de la search-bar -->
+          <form class="search-bar d-none d-md-flex flex-grow-1">
             <input class="search" type="text" placeholder="Search..." />
             <a href="."><i class="iconoir-search icons-style"></i> </a>
-          </div>
+          </form>
         </div>
-        <div class="items-center d-flex gap-4">
+        <div class="d-flex gap-md-4 gap-1 pt-2">
+          <button
+            type="button"
+            class="btn d-none d-md-inline btn-outline-purple"
+          >
+            Create Post
+          </button>
           <a href="" class="d-md-none"
-            ><i class="iconoir-search icons-style"></i
+            ><i class="iconoir-search icons-style-md"></i
           ></a>
-          <a href=""><i class="iconoir-bell icons-style"></i></a>
-          <a href=""> <i class="iconoir-profile-circle icons-style"></i> </a>
+          <a href=""><i class="iconoir-bell icons-style-md"></i></a>
+          <div>
+            <img
+              src="https://randomuser.me/api/portraits/lego/6.jpg"
+              alt="user"
+              width="30"
+              height="30"
+              class="circle-profile-picture mt-1"
+            />
+          </div>
         </div>
       </div>
     </nav>
-    <div class="row bg-light">
-      <div class="container mt-3 mb-3">
-        <div class="container bg-light">
-          <div class="row">
-            <aside class="col-md-4 col-lg-3 d-none d-md-block">
-              <div class="top-menu-section">
-                <ul class="menu">
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/home.svg" alt="" />
-                      Home
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/reading-list.svg" alt="" />
-                      Reading List
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/listings.svg" alt="" />
-                      Listings
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/podcast.svg" alt="" />
-                      Podcasts
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/videos.svg" alt="" />
-                      Videos
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/tags.svg" alt="" />
-                      Tags
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/faq.svg" alt="" />
-                      FAQ
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/shop.svg" alt="" />
-                      Forem Shop
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/sponsors.svg" alt="" />
-                      Sponsors
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/about.svg" alt="" />
-                      About
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/contact.svg" alt="" />
-                      Contact
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/guides.svg" alt="" />
-                      Guides
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img
-                        src="./assets/icons/software-comparisons.svg"
-                        alt=""
-                      />
-                      Software Comparisons
-                    </a>
-                  </li>
-                </ul>
-              </div>
+    <!-- * End of Navigation Bar -->
 
-              <div class="bottom-menu-section">
-                <ul class="menu">
-                  <h4>Other</h4>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/code-conduct.svg" alt="" />
-                      Code of Conduct
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/privacy-policy.svg" alt="" />
-                      Privacy policy
-                    </a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="." class="menu__item__content">
-                      <img src="./assets/icons/terms-use.svg" alt="" />
-                      Terms of Use
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div
-                class="social-container d-flex justify-content-center align-items-center"
-              >
-                <div
-                  class="social-container__icons d-flex justify-content-around align-items-center"
-                >
-                  <a
-                    href="."
-                    class="fa-brands fa-twitter icons-style-md"
-                    target="_blank"
-                  ></a>
-                  <a
-                    href="."
-                    class="fa-brands fa-facebook icons-style-md"
-                    target="_blank"
-                  ></a>
-                  <a
-                    href="."
-                    class="fa-brands fa-github icons-style-md"
-                    target="_blank"
-                  ></a>
-                  <a
-                    href="."
-                    class="fa-brands fa-instagram icons-style-md"
-                    target="_blank"
-                  ></a>
-                  <a
-                    href="."
-                    class="fa-brands fa-twitch icons-style-md"
-                    target="_blank"
-                  ></a>
-                  <a
-                    href="."
-                    class="fa-brands fa-mastodon icons-style-md"
-                    target="_blank"
-                  ></a>
-                </div>
-              </div>
-
-              <div class="tags-container">
-                <div
-                  class="tags-container__title d-flex align-items-center justify-content-between"
-                >
-                  <h4>My Tags</h4>
-                  <a
-                    href="."
-                    class="fa-solid fa-gear icons-style"
-                    target="_blank"
-                  >
-                  </a>
-                </div>
-                <div class="tags-container__list">
+    <!-- * Start of Main container -->
+    <div class="container-fluid bg-light">
+      <div class="row">
+        <div class="col-12">
+          <div class="container pt-3 pb-3 bg-light">
+            <div class="row">
+              <!-- * start of menu aside  -->
+              <aside class="col-md-4 col-lg-3 d-none d-md-flex flex-column">
+                <div class="top-menu-section">
                   <ul class="menu">
                     <li class="menu__item">
-                      <a href="" class="menu__item__content--tag"
-                        >#javascript</a
-                      >
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/home.svg" alt="" />
+                        Home
+                      </a>
                     </li>
                     <li class="menu__item">
-                      <a href="" class="menu__item__content--tag">#css</a>
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/reading-list.svg" alt="" />
+                        Reading List
+                      </a>
                     </li>
                     <li class="menu__item">
-                      <a href="" class="menu__item__content--tag">#kodemia</a>
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/listings.svg" alt="" />
+                        Listings
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/podcast.svg" alt="" />
+                        Podcasts
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/videos.svg" alt="" />
+                        Videos
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/tags.svg" alt="" />
+                        Tags
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/faq.svg" alt="" />
+                        FAQ
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/shop.svg" alt="" />
+                        Forem Shop
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/sponsors.svg" alt="" />
+                        Sponsors
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/about.svg" alt="" />
+                        About
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/contact.svg" alt="" />
+                        Contact
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/guides.svg" alt="" />
+                        Guides
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img
+                          src="./assets/icons/software-comparisons.svg"
+                          alt=""
+                        />
+                        Software Comparisons
+                      </a>
                     </li>
                   </ul>
                 </div>
-              </div>
 
-              <div class="cards-container d-flex flex-column gap-4">
-                <div class="card">
-                  <div class="card-body">
-                    <div
-                      class="card-top d-flex justify-content-between align-items-center"
-                    >
-                      <h5 class="card-title mb-2 text-muted">Dev Community</h5>
-                      <a href="" class="iconoir-more-horiz icons-style-md"></a>
-                    </div>
-                    <div class="card-content d-flex flex-column gap-2">
-                      <h3>
-                        Easiest way to help the DEV community feel more like a
-                        community?
-                      </h3>
-                      <p class="card-text">
-                        Head over to our <a href=".">Welcome Thread</a> greet
-                        some new DEV members!
-                      </p>
-                    </div>
-                  </div>
+                <div class="bottom-menu-section">
+                  <ul class="menu">
+                    <h4>Other</h4>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/code-conduct.svg" alt="" />
+                        Code of Conduct
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/privacy-policy.svg" alt="" />
+                        Privacy policy
+                      </a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="." class="menu__item__content">
+                        <img src="./assets/icons/terms-use.svg" alt="" />
+                        Terms of Use
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <div class="card">
-                  <div class="card-body">
-                    <div
-                      class="card-top d-flex justify-content-between align-items-center"
-                    >
-                      <h5 class="card-title mb-2 text-muted">Dev Community</h5>
-                      <a href="" class="iconoir-more-horiz icons-style-md"></a>
-                    </div>
-                    <div class="card-content d-flex flex-column gap-2">
-                      <p class="card-text">
-                        DEV runs on 100% open source code known as
-                        <a href=".">Forem</a>. Contribute to the codebase or
-                        host your own!
-                      </p>
-                      <h4>Check these out! 👇</h4>
-                      <ul>
-                        <li>
-                          <a href="">Main Forem Repo</a>
-                        </li>
-                        <li>
-                          <a href="">Self-Host Instructions</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </aside>
-            <main class="col-12 col-md-8 col-lg-6">
-              <nav class="nav">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Relevant</a
+
+                <div
+                  class="social-container d-flex justify-content-center align-items-center"
                 >
-                <a class="nav-link" href="#">Latest</a>
-                <a class="nav-link" href="#">Top</a>
-              </nav>
-              <div class="cards-container d-flex flex-column gap-4">
-                <div class="card">
-                  <img
-                    src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  <div class="card-body d-flex">
-                    <a href="">
-                      <i class="iconoir-profile-circle icons-style"></i>
-                    </a>
-                    <div class="d-flex flex-column">
-                      <h5 class="card-title">Renan Ferro</h5>
-                      <h6 class="card-subtitle--date mb-2 text-muted">
-                        May 19 (8 hours ago)
-                      </h6>
-                      <h3 class="card-text mb-3">
-                        Let's make a cool mouse event bubble animation in just
-                        50 lines of JavaScript!
-                      </h3>
-                      <div class="hashtags mb-3">
-                        <a href=".">#javascript</a>
-                        <a href=".">#frontend</a>
-                        <a href=".">#tutorial</a>
-                        <a href=".">#animation</a>
-                      </div>
-                      <div class="interactions d-flex justify-content-between">
-                        <a href="">9 Reactions</a>
-                        <a href=""
-                          ><i class="iconoir-chat-bubble-empty"></i>Add
-                          Comment</a
-                        >
-                        <div class="d-flex gap-1">
-                          <p>4 min read</p>
-                          <a href=""><i class="iconoir-bookmark-empty"></i></a>
-                        </div>
-                      </div>
-                    </div>
+                  <div
+                    class="social-container__icons d-flex w-100 justify-content-around align-items-center"
+                  >
+                    <a
+                      href="."
+                      class="fa-brands fa-twitter icons-style-md"
+                      target="_blank"
+                    ></a>
+                    <a
+                      href="."
+                      class="fa-brands fa-facebook icons-style-md"
+                      target="_blank"
+                    ></a>
+                    <a
+                      href="."
+                      class="fa-brands fa-github icons-style-md"
+                      target="_blank"
+                    ></a>
+                    <a
+                      href="."
+                      class="fa-brands fa-instagram icons-style-md"
+                      target="_blank"
+                    ></a>
+                    <a
+                      href="."
+                      class="fa-brands fa-twitch icons-style-md"
+                      target="_blank"
+                    ></a>
+                    <a
+                      href="."
+                      class="fa-brands fa-mastodon icons-style-md"
+                      target="_blank"
+                    ></a>
                   </div>
                 </div>
-                <div class="card">
-                  <div class="card-body d-flex">
-                    <a href="">
-                      <i class="iconoir-profile-circle icons-style"></i>
-                    </a>
-                    <div class="d-flex flex-column">
-                      <h5 class="card-title">Renan Ferro</h5>
-                      <h6 class="card-subtitle--date mb-2 text-muted">
-                        May 19 (8 hours ago)
-                      </h6>
-                      <h3 class="card-text mb-3">
-                        Let's make a cool mouse event bubble animation in just
-                        50 lines of JavaScript!
-                      </h3>
-                      <div class="hashtags mb-3">
-                        <a href=".">#javascript</a>
-                        <a href=".">#frontend</a>
-                        <a href=".">#tutorial</a>
-                        <a href=".">#animation</a>
-                      </div>
-                      <div class="interactions d-flex justify-content-between">
-                        <a href="">9 Reactions</a>
-                        <a href=""
-                          ><i class="iconoir-chat-bubble-empty"></i>Add
-                          Comment</a
-                        >
-                        <div class="d-flex gap-1">
-                          <p>4 min read</p>
-                          <a href=""><i class="iconoir-bookmark-empty"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </main>
-            <aside class="col-lg-3 d-none d-lg-block">
-              <div class="cards-container d-flex flex-column gap-4">
-                <div class="card">
-                  <div class="card-body">
-                    <div
-                      class="card-top d-flex justify-content-between align-items-center"
+
+                <div class="tags-containe pt-3">
+                  <div
+                    class="tags-container__title d-flex align-items-center justify-content-between"
+                  >
+                    <h4>My Tags</h4>
+                    <a
+                      href="."
+                      class="fa-solid fa-gear icons-style-md"
+                      target="_blank"
                     >
-                      <h5 class="card-title mb-2 text-muted">Dev Community</h5>
-                      <a href="" class="iconoir-more-horiz icons-style-md"></a>
+                    </a>
+                  </div>
+                  <div class="tags-container__list">
+                    <ul class="menu">
+                      <li class="menu__item">
+                        <a href="" class="menu__item__content--tag"
+                          >#javascript</a
+                        >
+                      </li>
+                      <li class="menu__item">
+                        <a href="" class="menu__item__content--tag">#css</a>
+                      </li>
+                      <li class="menu__item">
+                        <a href="" class="menu__item__content--tag">#kodemia</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="cards-container d-flex flex-column gap-4">
+                  <div class="card">
+                    <div
+                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3"
+                    >
+                      <div class="card-top__text">
+                        <p class="card-title text-muted">Dev Community</p>
+                      </div>
+                      <div class="card-title__icon">
+                        <a
+                          href=""
+                          class="iconoir-more-horiz icons-style-sm"
+                        ></a>
+                      </div>
                     </div>
-                    <div class="card-content d-flex flex-column gap-2">
-                      <img
-                        src="https://res.cloudinary.com/practicaldev/image/fetch/s--kUZijgSE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gxs2kw7xsfruxa53bqz3.png"
-                        alt=""
-                      />
-                      <h3><a href=".">Join the GitHub + DEV hackaton!</a></h3>
-                      <p class="card-text">
-                        Utilize GitHub Actions or Codespaces, benefit
-                        open-source, and win up to $1,500 USD by sharing your
-                        project on DEV.
+                    <div class="card-body">
+                      <div class="card-content d-flex flex-column gap-2">
+                        <h3>
+                          Easiest way to help the DEV community feel more like a
+                          community?
+                        </h3>
+                        <p class="card-text">
+                          Head over to our
+                          <a href="." class="hyperlink">Welcome Thread</a> greet
+                          some new DEV members!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div
+                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3"
+                    >
+                      <div class="card-top__text">
+                        <p class="card-title text-muted">Dev Community</p>
+                      </div>
+                      <div class="card-title__icon">
+                        <a
+                          href=""
+                          class="iconoir-more-horiz icons-style-sm"
+                        ></a>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-content d-flex flex-column gap-2">
+                        <p class="card-text">
+                          DEV runs on 100% open source code known as
+                          <a href="." class="hyperlink">Forem</a>. Contribute to
+                          the codebase or host your own!
+                        </p>
+                        <h4>Check these out! 👇</h4>
+                        <ul>
+                          <li>
+                            <a href="" class="hyperlink">Main Forem Repo</a>
+                          </li>
+                          <li>
+                            <a href="" class="hyperlink"
+                              >Self-Host Instructions</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+              <!-- * End of menu aside -->
+
+              <!-- * Start of Main section -->
+              <main class="col-12 col-md-8 col-lg-6">
+                <ul class="nav nav-pills main-menu pb-2">
+                  <li class="nav-item main-menu__item">
+                    <a
+                      class="nav-link main-menu__item__content"
+                      aria-current="page"
+                      href="#"
+                      >Relevant</a
+                    >
+                  </li>
+                  <li class="nav-item main-menu__item">
+                    <a class="nav-link main-menu__item__content" href="#"
+                      >Latest</a
+                    >
+                  </li>
+                  <li class="nav-item main-menu__item">
+                    <a class="nav-link main-menu__item__content" href="#"
+                      >Top</a
+                    >
+                  </li>
+                </ul>
+                <div class="cards-container d-flex flex-column gap-4">
+                  <div class="card">
+                    <img
+                      src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body d-flex">
+                      <a href="">
+                        <img
+                          src="https://randomuser.me/api/portraits/lego/6.jpg"
+                          alt="user"
+                          width="35"
+                          height="35"
+                          class="circle-profile-picture"
+                        />
+                      </a>
+                      <div class="d-flex flex-column">
+                        <h5 class="card-title">Renan Ferro</h5>
+                        <h6 class="card-subtitle--date mb-2 text-muted">
+                          May 19 (8 hours ago)
+                        </h6>
+                        <h3 class="card-text mb-3">
+                          Let's make a cool mouse event bubble animation in just
+                          50 lines of JavaScript!
+                        </h3>
+                        <div class="hashtags mb-3">
+                          <a href=".">#javascript</a>
+                          <a href=".">#frontend</a>
+                          <a href=".">#tutorial</a>
+                          <a href=".">#animation</a>
+                        </div>
+                        <div
+                          class="interactions d-flex justify-content-between"
+                        >
+                          <a href="">9 Reactions</a>
+                          <a href=""
+                            ><i class="iconoir-chat-bubble-empty"></i>Add
+                            Comment</a
+                          >
+                          <div class="d-flex gap-1">
+                            <p>4 min read</p>
+                            <a href=""
+                              ><i class="iconoir-bookmark-empty"></i
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img
+                      src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body d-flex">
+                      <a href="">
+                        <img
+                          src="https://randomuser.me/api/portraits/lego/6.jpg"
+                          alt="user"
+                          width="35"
+                          height="35"
+                          class="circle-profile-picture"
+                        />
+                      </a>
+                      <div class="d-flex flex-column">
+                        <h5 class="card-title">Renan Ferro</h5>
+                        <h6 class="card-subtitle--date mb-2 text-muted">
+                          May 19 (8 hours ago)
+                        </h6>
+                        <h3 class="card-text mb-3">
+                          Let's make a cool mouse event bubble animation in just
+                          50 lines of JavaScript!
+                        </h3>
+                        <div class="hashtags mb-3">
+                          <a href=".">#javascript</a>
+                          <a href=".">#frontend</a>
+                          <a href=".">#tutorial</a>
+                          <a href=".">#animation</a>
+                        </div>
+                        <div
+                          class="interactions d-flex justify-content-between"
+                        >
+                          <a href="">9 Reactions</a>
+                          <a href=""
+                            ><i class="iconoir-chat-bubble-empty"></i>Add
+                            Comment</a
+                          >
+                          <div class="d-flex gap-1">
+                            <p>4 min read</p>
+                            <a href=""
+                              ><i class="iconoir-bookmark-empty"></i
+                            ></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </main>
+              <!-- * End of main section -->
+
+              <!-- * start of cards aside -->
+              <aside class="col-lg-3 d-none d-lg-block">
+                <div class="cards-container d-flex flex-column gap-4">
+                  <div class="card">
+                    <div
+                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3"
+                    >
+                      <div class="card-top__text">
+                        <p class="card-title text-muted">Dev Community</p>
+                      </div>
+                      <div class="card-title__icon">
+                        <a
+                          href=""
+                          class="iconoir-more-horiz icons-style-sm"
+                        ></a>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-content d-flex flex-column gap-2">
+                        <img
+                          src="https://res.cloudinary.com/practicaldev/image/fetch/s--kUZijgSE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gxs2kw7xsfruxa53bqz3.png"
+                          alt=""
+                          class="w-100"
+                        />
+                        <h5>
+                          <a href="." class="hyperlink"
+                            >Join the GitHub + DEV hackaton!</a
+                          >
+                        </h5>
+                        <p class="card-text">
+                          Utilize GitHub Actions or Codespaces, benefit
+                          open-source, and win up to $1,500 USD by sharing your
+                          project on DEV.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div
+                      class="card-header d-flex justify-content-between align-items-center bg-white"
+                    >
+                      <p class="card-title fs-5 mb-0"><b>Listings</b></p>
+                      <a href="" class="hyperlink--nohover">See All</a>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          Globalping - Run free network tests from any location
+                          in the world
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          products
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          Globalping - Run free network tests from any location
+                          in the world
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          products
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          Globalping - Run free network tests from any location
+                          in the world
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          products
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          Globalping - Run free network tests from any location
+                          in the world
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          products
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          Globalping - Run free network tests from any location
+                          in the world
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          products
+                        </p>
+                      </li>
+                    </ul>
+                    <div
+                      class="card-body card-link-container d-flex justify-content-center p-2"
+                    >
+                      <a href="#" class="card-link-container__item"
+                        >Create a Listing</a
+                      >
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div
+                      class="card-header d-flex justify-content-between bg-white align-items-center"
+                    >
+                      <p class="card-title fs-5 mb-0">
+                        <a href="." class="card-title__hash"><b>#discuss</b></a>
                       </p>
                     </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="card">
+                    <div
+                      class="card-header d-flex justify-content-between bg-white align-items-center"
+                    >
+                      <p class="card-title fs-5 mb-0">
+                        <a href="." class="card-title__hash">#watercooler</a>
+                      </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p
+                          class="card-subtitle text-muted list-group-item--subtitle"
+                        >
+                          7 comments
+                        </p>
+                      </li>
+                      <li class="list-group-item">
+                        <p class="card-title list-group-item--title">
+                          If Coding Languages Were Ice Cream Flavors...?
+                        </p>
+                        <p class="card-subtitle list-group-item--new">New</p>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div class="card">
-                  <div
-                    class="card-header d-flex justify-content-between align-items-center"
-                  >
-                    <h4 class="card-title">Listings</h4>
-                    <a href="">See All</a>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        Globalping - Run free network tests from any location in
-                        the world
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">products</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        Globalping - Run free network tests from any location in
-                        the world
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">products</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        Globalping - Run free network tests from any location in
-                        the world
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">products</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        Globalping - Run free network tests from any location in
-                        the world
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">products</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        Globalping - Run free network tests from any location in
-                        the world
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">products</h6>
-                    </li>
-                  </ul>
-                  <div class="card-body d-flex justify-content-center">
-                    <a href="#" class="card-link">Card link</a>
-                  </div>
-                </div>
-                <div class="card">
-                  <div
-                    class="card-header d-flex justify-content-between align-items-center"
-                  >
-                    <h4><a href=".">#discuss</a></h4>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">7 comments</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">5 comments</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">13 comments</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">16 comments</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">28 comments</h6>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card">
-                  <div
-                    class="card-header d-flex justify-content-between align-items-center"
-                  >
-                    <h4><a href=".">#watercooler</a></h4>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">7 comments</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">5 comments</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">13 comments</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">16 comments</h6>
-                    </li>
-                    <li class="list-group-item">
-                      <h5 class="card-title">
-                        If Coding Languages Were Ice Cream Flavors...?
-                      </h5>
-                      <h6 class="card-subtitle--new mb-2 text-muted">New</h6>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </aside>
+              </aside>
+              <!-- * End of cards aside -->
+            </div>
           </div>
         </div>
       </div>
-      <div class="container bg-footer">
-        <div class="container">
-          <div class="row d-flex mt-5">
+    </div>
+    <!-- * End of main container -->
+
+    <!-- * Start of Footer container -->
+    <div class="container-fluid bg-footer pt-5 pb-5">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-12">
             <h6 class="text-center">
-              Dev Community - A constructive and inclusive social network for
-              software developers. With you every step of your journey
+              <a href="" class="hyperlink--footer">Dev Community</a> - A
+              constructive and inclusive social network for software developers.
+              With you every step of your journey
             </h6>
             <div class="container d-flex flex-column justify-content-center">
-              <ul class="d-inline text-center">
-                <li class="d-inline"><a href="">Home</a></li>
-                <li class="d-inline"><a href="">Listings</a></li>
-                <li class="d-inline"><a href="">Podcasts</a></li>
-                <li class="d-inline"><a href="">Videos</a></li>
-                <li class="d-inline"><a href="">Tags</a></li>
-                <li class="d-inline"><a href="">FAQ</a></li>
-                <li class="d-inline"><a href="">Forem Shop</a></li>
-                <li class="d-inline"><a href="">Sponsors</a></li>
-                <li class="d-inline"><a href="">About</a></li>
-                <li class="d-inline"><a href="">Contact</a></li>
-                <li class="d-inline"><a href="">Guides</a></li>
-                <li class="d-inline"><a href="">Software Comparisons</a></li>
+              <ul class="footer-menu inline text-center mb-0">
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Home</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Listings</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Podcasts</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Videos</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Tags</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">FAQ</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Forem Shop</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Sponsors</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">About</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Contact</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Guides</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Software Comparisons</a>
+                </li>
               </ul>
-              <ul class="d-inline text-center">
-                <li class="d-inline"><a href="">Code of Conduct</a></li>
-                <li class="d-inline"><a href="">Privacy Policy</a></li>
-                <li class="d-inline"><a href="">Terms of Use</a></li>
+              <ul class="d-inline text-center mb-1">
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Code of Conduct</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Privacy Policy</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--footer">Terms of Use</a>
+                </li>
               </ul>
             </div>
             <h6 class="text-center">
-              Built on Forem - the open source software that powers DEV and
-              other inclusive communities. Made with
-              <i class="iconoir-heart"></i> by Angel, Karla, Max, Sam and Rob.
+              Built on <a href="" class="hyperlink--footer">Forem</a> - the open
+              source software that powers
+              <a href="" class="hyperlink--footer">DEV</a> and other inclusive
+              communities. Made with <i class="iconoir-heart"></i> and a lot of
+              <i class="iconoir-droplet"></i> Angel, Karla, Max, Sam and Rob.
               Kodemia Community © 2023.
             </h6>
           </div>
         </div>
       </div>
     </div>
+    <!-- * End of Footer Container -->
+    <!-- *Start of offcanvas -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvas-menu"
+      aria-labelledby="offcanvas-menu-title"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvas-menu-title">DEV Community</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="top-menu-section">
+          <ul class="menu">
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/home.svg" alt="" />
+                Home
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/reading-list.svg" alt="" />
+                Reading List
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/listings.svg" alt="" />
+                Listings
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/podcast.svg" alt="" />
+                Podcasts
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/videos.svg" alt="" />
+                Videos
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/tags.svg" alt="" />
+                Tags
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/faq.svg" alt="" />
+                FAQ
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/shop.svg" alt="" />
+                Forem Shop
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/sponsors.svg" alt="" />
+                Sponsors
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/about.svg" alt="" />
+                About
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/contact.svg" alt="" />
+                Contact
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/guides.svg" alt="" />
+                Guides
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/software-comparisons.svg" alt="" />
+                Software Comparisons
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-menu-section">
+          <ul class="menu">
+            <h4>Other</h4>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/code-conduct.svg" alt="" />
+                Code of Conduct
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/privacy-policy.svg" alt="" />
+                Privacy policy
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="." class="menu__item__content">
+                <img src="./assets/icons/terms-use.svg" alt="" />
+                Terms of Use
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="social-container d-flex justify-content-center align-items-center"
+        >
+          <div
+            class="social-container__icons d-flex w-100 justify-content-around align-items-center"
+          >
+            <a
+              href="."
+              class="fa-brands fa-twitter icons-style-md"
+              target="_blank"
+            ></a>
+            <a
+              href="."
+              class="fa-brands fa-facebook icons-style-md"
+              target="_blank"
+            ></a>
+            <a
+              href="."
+              class="fa-brands fa-github icons-style-md"
+              target="_blank"
+            ></a>
+            <a
+              href="."
+              class="fa-brands fa-instagram icons-style-md"
+              target="_blank"
+            ></a>
+            <a
+              href="."
+              class="fa-brands fa-twitch icons-style-md"
+              target="_blank"
+            ></a>
+            <a
+              href="."
+              class="fa-brands fa-mastodon icons-style-md"
+              target="_blank"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- * end of offcanvas -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
