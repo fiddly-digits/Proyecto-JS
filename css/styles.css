@@ -12069,7 +12069,10 @@ textarea.form-control-lg {
 }
 
 .circle-profile-picture {
-  border-radius: 50%;
+  border-radius: 100%;
+}
+.circle-profile-picture--nohover {
+  border-radius: 100%;
 }
 .circle-profile-picture:hover {
   box-shadow: 0 0 0 8px rgba(23, 23, 23, 0.05);
@@ -12114,7 +12117,7 @@ h6,
 .menu__item__content {
   color: rgb(56, 56, 56);
   display: flex;
-  font-size: 1.3rem;
+  font-size: 1rem;
   padding: 0.5rem 0rem;
   text-decoration: none;
   gap: 0.8rem;
@@ -12122,7 +12125,7 @@ h6,
 .menu__item__content--tag {
   color: rgb(56, 56, 56);
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
@@ -12199,10 +12202,6 @@ h6,
   font-size: 1.3rem;
 }
 
-.cards-container .card:not(:first-of-type) .card-img-top {
-  display: none;
-}
-
 .btn-outline-purple {
   --bs-btn-color: rgb(55, 64, 215);
   --bs-btn-border-color: rgb(55, 64, 215);
@@ -12219,7 +12218,6 @@ h6,
   --bs-btn-disabled-border-color: rgb(55, 64, 215);
   --bs-gradient: none;
   height: 2.5rem;
-  width: 7.455rem;
 }
 .btn-outline-purple:hover {
   text-decoration: underline;
@@ -12234,6 +12232,61 @@ h6,
   color: rgb(55, 64, 215);
 }
 
+.card:not(:first-of-type) .card-img-top {
+  display: none;
+}
+.card .hashtags__item {
+  text-decoration: none;
+  color: black;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+.card .hashtags__item:hover {
+  background-color: rgb(243, 243, 243);
+  outline: 1px solid grey;
+}
+.card .interactions .reactions__item {
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: black;
+}
+.card .interactions .reactions__item__bubble {
+  padding-right: 0.375rem;
+}
+.card .interactions .bookmark__item {
+  font-size: 0.875rem;
+  color: gray;
+}
+.card .card-text--article {
+  font-size: 1.5rem;
+}
+.card .card-text--article:hover {
+  color: rgb(55, 64, 215);
+}
+.card .card-subtitle {
+  margin: 0;
+}
+.card .card-subtitle--date {
+  font-size: 0.875rem;
+  color: gray;
+}
+.card .card-subtitle--date:hover {
+  color: black;
+}
+.card .card-title {
+  margin: 0;
+}
+.card .card-title--user {
+  color: black;
+  margin: 0;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.063rem;
+}
+.card .card-title--user:hover {
+  background-color: rgb(224, 225, 240);
+  border-radius: 8px;
+}
 .card .card-title__hash {
   text-decoration: none;
   font-weight: bold;

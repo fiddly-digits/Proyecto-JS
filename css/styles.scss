@@ -40,7 +40,10 @@ $footer-color: rgb(225, 225, 225);
 }
 
 .circle-profile-picture {
-    border-radius: 50%;
+    border-radius: 100%;
+    &--nohover {
+        border-radius: 100%;
+    }
     &:hover {
         box-shadow: 0 0 0 8px rgba(23, 23, 23, 0.05);
     }
@@ -78,7 +81,7 @@ h6 {
         &__content {
             color: rgb(56, 56, 56);
             display: flex;
-            font-size: 1.3rem;
+            font-size: 1rem;
             padding: 0.5rem 0rem;
             text-decoration: none;
             gap: 0.8rem;
@@ -86,7 +89,7 @@ h6 {
             &--tag {
                 color: rgb(56, 56, 56);
                 display: flex;
-                font-size: 1.2rem;
+                font-size: 1rem;
                 margin: 0;
                 padding: 0.5rem 0.7rem;
                 text-decoration: none;
@@ -102,7 +105,6 @@ h6 {
             & img {
                 height: 25px;
                 width: 25px;
-                //padding-right: 1rem;
             }
             &:hover {
                 background-color: rgb(224, 225, 240);
@@ -126,7 +128,6 @@ h6 {
         outline: solid 1px rgb(120, 120, 120);
         display: flex;
         justify-content: space-between;
-        //align-items: center;
         overflow: hidden;
         &:hover {
             outline: solid 2px $primary;
@@ -171,20 +172,9 @@ h6 {
     }
 }
 
-.cards-container {
-    & .card {
-        &:not(:first-of-type) {
-            & .card-img-top {
-                display: none;
-            }
-        }
-    }
-}
-
 .btn-outline-purple {
     @include button-outline-variant($primary, color-contrast($primary, 3%));
     height: 2.5rem;
-    width: 7.455rem;
     &:hover {
         text-decoration: underline;
     }
@@ -204,7 +194,76 @@ h6 {
 }
 
 .card {
+    &:not(:first-of-type) {
+        & .card-img-top {
+            display: none;
+        }
+    }
+
+    .hashtags {
+        &__item {
+            text-decoration: none;
+            color: black;
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            &:hover {
+                background-color: $secondary-hover-color;
+                outline: 1px solid grey;
+            }
+        }
+    }
+
+    .interactions {
+        .reactions {
+            &__item {
+                text-decoration: none;
+                font-size: 0.875rem;
+                color: black;
+                &__bubble {
+                    padding-right: 0.375rem;
+                }
+            }
+        }
+        .bookmark {
+            &__item {
+                font-size: 0.875rem;
+                color: gray;
+            }
+        }
+    }
+
+    .card-text {
+        &--article {
+            font-size: 1.5rem;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+    .card-subtitle {
+        margin: 0;
+        &--date {
+            font-size: 0.875rem;
+            color: gray;
+            &:hover {
+                color: black;
+            }
+        }
+    }
     .card-title {
+        margin: 0;
+        &--user {
+            color: black;
+            margin: 0;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.063rem;
+            &:hover {
+                background-color: $hover-color;
+                border-radius: 8px;
+            }
+        }
+
         &__hash {
             text-decoration: none;
             font-weight: bold;

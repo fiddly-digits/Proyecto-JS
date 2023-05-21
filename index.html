@@ -54,6 +54,9 @@
           <a href="" class="d-md-none"
             ><i class="iconoir-search icons-style-md"></i
           ></a>
+          <button type="button" class="btn d-none btn-outline-purple">
+            Create account
+          </button>
           <a href=""><i class="iconoir-bell icons-style-md"></i></a>
           <div>
             <img
@@ -165,7 +168,7 @@
 
                 <div class="bottom-menu-section">
                   <ul class="menu">
-                    <h4>Other</h4>
+                    <h6><b>Other</b></h6>
                     <li class="menu__item">
                       <a href="." class="menu__item__content">
                         <img src="./assets/icons/code-conduct.svg" alt="" />
@@ -187,11 +190,9 @@
                   </ul>
                 </div>
 
-                <div
-                  class="social-container d-flex justify-content-center align-items-center"
-                >
+                <div class="social-container d-flex">
                   <div
-                    class="social-container__icons d-flex w-100 justify-content-around align-items-center"
+                    class="social-container__icons d-flex justify-content-around align-items-center"
                   >
                     <a
                       href="."
@@ -230,7 +231,7 @@
                   <div
                     class="tags-container__title d-flex align-items-center justify-content-between"
                   >
-                    <h4>My Tags</h4>
+                    <h6><b>My Tags</b></h6>
                     <a
                       href="."
                       class="fa-solid fa-gear icons-style-md"
@@ -359,37 +360,49 @@
                           alt="user"
                           width="35"
                           height="35"
-                          class="circle-profile-picture"
+                          class="circle-profile-picture--nohover"
                         />
                       </a>
-                      <div class="d-flex flex-column">
-                        <h5 class="card-title">Renan Ferro</h5>
-                        <h6 class="card-subtitle--date mb-2 text-muted">
-                          May 19 (8 hours ago)
-                        </h6>
-                        <h3 class="card-text mb-3">
+                      <div class="d-flex flex-column ps-2">
+                        <p class="card-title">
+                          <span class="card-title--user">Renan Ferro</span>
+                        </p>
+                        <p class="card-subtitle">
+                          <span class="card-subtitle--date"
+                            >May 19 (8 hours ago)</span
+                          >
+                        </p>
+                        <h3 class="card-text card-text--article mb-2">
                           Let's make a cool mouse event bubble animation in just
                           50 lines of JavaScript!
                         </h3>
-                        <div class="hashtags mb-3">
-                          <a href=".">#javascript</a>
-                          <a href=".">#frontend</a>
-                          <a href=".">#tutorial</a>
-                          <a href=".">#animation</a>
+                        <div class="hashtags d-flex gap-4 mb-3">
+                          <a href="." class="hashtags__item">#javascript</a>
+                          <a href="." class="hashtags__item">#frontend</a>
+                          <a href="." class="hashtags__item">#tutorial</a>
+                          <a href="." class="hashtags__item">#animation</a>
                         </div>
                         <div
                           class="interactions d-flex justify-content-between"
                         >
-                          <a href="">9 Reactions</a>
-                          <a href=""
-                            ><i class="iconoir-chat-bubble-empty"></i>Add
-                            Comment</a
+                          <div class="reactions d-flex gap-3">
+                            <a href="" class="reactions__item">9 Reactions</a>
+                            <a href="" class="reactions__item"
+                              ><i
+                                class="iconoir-chat-bubble-empty reactions__item__bubble"
+                              ></i
+                              >Add Comment</a
+                            >
+                          </div>
+                          <div
+                            class="bookmark d-flex gap-2 justify-content-center"
                           >
-                          <div class="d-flex gap-1">
-                            <p>4 min read</p>
+                            <p class="bookmark__item">4 min read</p>
                             <a href=""
-                              ><i class="iconoir-bookmark-empty"></i
-                            ></a>
+                              ><i
+                                class="iconoir-bookmark-empty icons-style-sm"
+                              ></i>
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -408,37 +421,110 @@
                           alt="user"
                           width="35"
                           height="35"
-                          class="circle-profile-picture"
+                          class="circle-profile-picture--nohover"
                         />
                       </a>
-                      <div class="d-flex flex-column">
-                        <h5 class="card-title">Renan Ferro</h5>
-                        <h6 class="card-subtitle--date mb-2 text-muted">
-                          May 19 (8 hours ago)
-                        </h6>
-                        <h3 class="card-text mb-3">
+                      <div class="d-flex flex-column ps-2">
+                        <p class="card-title">
+                          <span class="card-title--user">Renan Ferro</span>
+                        </p>
+                        <p class="card-subtitle">
+                          <span class="card-subtitle--date"
+                            >May 19 (8 hours ago)</span
+                          >
+                        </p>
+                        <h3 class="card-text card-text--article mb-2">
                           Let's make a cool mouse event bubble animation in just
                           50 lines of JavaScript!
                         </h3>
-                        <div class="hashtags mb-3">
-                          <a href=".">#javascript</a>
-                          <a href=".">#frontend</a>
-                          <a href=".">#tutorial</a>
-                          <a href=".">#animation</a>
+                        <div class="hashtags d-flex gap-4 mb-3">
+                          <a href="." class="hashtags__item">#javascript</a>
+                          <a href="." class="hashtags__item">#frontend</a>
+                          <a href="." class="hashtags__item">#tutorial</a>
+                          <a href="." class="hashtags__item">#animation</a>
                         </div>
                         <div
                           class="interactions d-flex justify-content-between"
                         >
-                          <a href="">9 Reactions</a>
-                          <a href=""
-                            ><i class="iconoir-chat-bubble-empty"></i>Add
-                            Comment</a
+                          <div class="reactions d-flex gap-3">
+                            <a href="" class="reactions__item">9 Reactions</a>
+                            <a href="" class="reactions__item"
+                              ><i
+                                class="iconoir-chat-bubble-empty reactions__item__bubble"
+                              ></i
+                              >Add Comment</a
+                            >
+                          </div>
+                          <div
+                            class="bookmark d-flex gap-2 justify-content-center"
                           >
-                          <div class="d-flex gap-1">
-                            <p>4 min read</p>
+                            <p class="bookmark__item">4 min read</p>
                             <a href=""
-                              ><i class="iconoir-bookmark-empty"></i
-                            ></a>
+                              ><i
+                                class="iconoir-bookmark-empty icons-style-sm"
+                              ></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img
+                      src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body d-flex">
+                      <a href="">
+                        <img
+                          src="https://randomuser.me/api/portraits/lego/6.jpg"
+                          alt="user"
+                          width="35"
+                          height="35"
+                          class="circle-profile-picture--nohover"
+                        />
+                      </a>
+                      <div class="d-flex flex-column ps-2">
+                        <p class="card-title">
+                          <span class="card-title--user">Renan Ferro</span>
+                        </p>
+                        <p class="card-subtitle">
+                          <span class="card-subtitle--date"
+                            >May 19 (8 hours ago)</span
+                          >
+                        </p>
+                        <h3 class="card-text card-text--article mb-2">
+                          Let's make a cool mouse event bubble animation in just
+                          50 lines of JavaScript!
+                        </h3>
+                        <div class="hashtags d-flex gap-4 mb-3">
+                          <a href="." class="hashtags__item">#javascript</a>
+                          <a href="." class="hashtags__item">#frontend</a>
+                          <a href="." class="hashtags__item">#tutorial</a>
+                          <a href="." class="hashtags__item">#animation</a>
+                        </div>
+                        <div
+                          class="interactions d-flex justify-content-between"
+                        >
+                          <div class="reactions d-flex gap-3">
+                            <a href="" class="reactions__item">9 Reactions</a>
+                            <a href="" class="reactions__item"
+                              ><i
+                                class="iconoir-chat-bubble-empty reactions__item__bubble"
+                              ></i
+                              >Add Comment</a
+                            >
+                          </div>
+                          <div
+                            class="bookmark d-flex gap-2 justify-content-center"
+                          >
+                            <p class="bookmark__item">4 min read</p>
+                            <a href=""
+                              ><i
+                                class="iconoir-bookmark-empty icons-style-sm"
+                              ></i>
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -762,7 +848,7 @@
     <!-- * End of Footer Container -->
     <!-- *Start of offcanvas -->
     <div
-      class="offcanvas offcanvas-start"
+      class="offcanvas offcanvas-start w-50"
       tabindex="-1"
       id="offcanvas-menu"
       aria-labelledby="offcanvas-menu-title"
@@ -862,7 +948,7 @@
 
         <div class="bottom-menu-section">
           <ul class="menu">
-            <h4>Other</h4>
+            <h6><b>Other</b></h6>
             <li class="menu__item">
               <a href="." class="menu__item__content">
                 <img src="./assets/icons/code-conduct.svg" alt="" />
@@ -884,12 +970,8 @@
           </ul>
         </div>
 
-        <div
-          class="social-container d-flex justify-content-center align-items-center"
-        >
-          <div
-            class="social-container__icons d-flex w-100 justify-content-around align-items-center"
-          >
+        <div class="social-container d-flex">
+          <div class="social-container__icons d-flex justify-content-around">
             <a
               href="."
               class="fa-brands fa-twitter icons-style-md"
