@@ -1,0 +1,126 @@
+@import './_colors.scss';
+@import './_mixins.scss';
+
+.card {
+    &:not(:first-of-type) {
+        & .card-img-top {
+            display: none;
+        }
+    }
+
+    .hashtags {
+        &__item {
+            text-decoration: none;
+            color: black;
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            &:hover {
+                background-color: $secondary-hover-color;
+                outline: 1px solid grey;
+            }
+        }
+    }
+
+    .interactions {
+        .reactions {
+            &__item {
+                text-decoration: none;
+                font-size: 0.875rem;
+                color: black;
+                margin: 0.375rem;
+                padding: 0.25rem;
+                &:first-of-type {
+                    margin-left: 0px;
+                }
+                &__bubble {
+                    padding-right: 0.375rem;
+                }
+                &:hover {
+                    border-radius: 0.5rem;
+                    background-color: $secondary-hover-color;
+                }
+            }
+        }
+        .bookmark {
+            align-items: center;
+            &__item {
+                font-size: 0.875rem;
+                color: gray;
+                margin: 0;
+                &__icon {
+                    @include icons-style(1.2rem, 0.8rem);
+                }
+            }
+        }
+    }
+
+    .card-text {
+        &--article {
+            font-size: 1.5rem;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+    .card-subtitle {
+        margin: 0;
+        &--date {
+            font-size: 0.875rem;
+            color: gray;
+            &:hover {
+                color: black;
+            }
+        }
+    }
+    .card-title {
+        margin: 0;
+        &--user {
+            color: black;
+            margin: 0;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.063rem;
+            &:hover {
+                background-color: $secondary-hover-color;
+                border-radius: 8px;
+            }
+        }
+
+        &__hash {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+    .list-group-item {
+        &:hover .list-group-item--title {
+            color: $primary;
+        }
+
+        &--title {
+            font-size: 1rem;
+        }
+        &--subtitle {
+            font-size: 0.875rem;
+        }
+        &--new {
+            display: inline;
+            padding: 0.063rem;
+            font-size: 0.875rem;
+            color: brown;
+            background-color: orange;
+        }
+    }
+    .card-link-container {
+        &:hover .card-link-container__item {
+            color: $primary;
+        }
+        &__item {
+            color: black;
+            text-decoration: none;
+        }
+    }
+}

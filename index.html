@@ -38,33 +38,45 @@
             width="50"
             height="40"
           />
-          <!-- TODO arreglar el border radius de la search-bar -->
           <form class="search-bar d-none d-md-flex flex-grow-1">
-            <input class="search" type="text" placeholder="Search..." />
-            <a href="."><i class="iconoir-search icons-style"></i> </a>
+            <input
+              class="search-bar__input"
+              type="text"
+              placeholder="Search..."
+            />
+            <a href="."><i class="iconoir-search search-bar__icon"></i> </a>
           </form>
         </div>
         <div class="d-flex gap-md-4 gap-1 pt-2">
-          <button
-            type="button"
-            class="btn d-none d-md-inline btn-outline-purple"
-          >
+          <!-- ! Button create post only active when user is logged -->
+          <button type="button" class="btn d-none btn-outline-purple">
             Create Post
           </button>
           <a href="" class="d-md-none"
-            ><i class="iconoir-search icons-style-md"></i
-          ></a>
-          <button type="button" class="btn d-none btn-outline-purple">
+            ><i class="iconoir-search icons-style-md"></i>
+          </a>
+          <button
+            type="button"
+            class="btn d-none d-md-inline btn-outline-purplewhite login"
+          >
+            Log In
+          </button>
+          <button
+            type="button"
+            class="btn d-md-inline btn-outline-purple login"
+          >
             Create account
           </button>
-          <a href=""><i class="iconoir-bell icons-style-md"></i></a>
+          <!-- ! bell icon only active when user is logged -->
+          <a href=""><i class="iconoir-bell d-none icons-style-md"></i></a>
+          <!-- ! profile image only active when user is logged -->
           <div>
             <img
               src="https://randomuser.me/api/portraits/lego/6.jpg"
               alt="user"
               width="30"
               height="30"
-              class="circle-profile-picture mt-1"
+              class="circle-profile-picture mt-1 d-none"
             />
           </div>
         </div>
@@ -80,6 +92,34 @@
             <div class="row">
               <!-- * start of menu aside  -->
               <aside class="col-md-4 col-lg-3 d-none d-md-flex flex-column">
+                <div class="card-registry-container">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-content d-flex flex-column gap-2">
+                        <h5>
+                          DEV Community is a community of 1,067,642 amazing
+                          developers
+                        </h5>
+                        <p class="card-text text-muted">
+                          We're a place where coders share, stay up-to-date and
+                          grow their careers.
+                        </p>
+                        <button
+                          type="button"
+                          class="btn btn-outline-purple login"
+                        >
+                          Create account
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-purplewhite login"
+                        >
+                          Log in
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="top-menu-section">
                   <ul class="menu">
                     <li class="menu__item">
@@ -190,44 +230,39 @@
                   </ul>
                 </div>
 
-                <div class="social-container d-flex">
-                  <div
-                    class="social-container__icons d-flex justify-content-around align-items-center"
-                  >
-                    <a
-                      href="."
-                      class="fa-brands fa-twitter icons-style-md"
-                      target="_blank"
-                    ></a>
-                    <a
-                      href="."
-                      class="fa-brands fa-facebook icons-style-md"
-                      target="_blank"
-                    ></a>
-                    <a
-                      href="."
-                      class="fa-brands fa-github icons-style-md"
-                      target="_blank"
-                    ></a>
-                    <a
-                      href="."
-                      class="fa-brands fa-instagram icons-style-md"
-                      target="_blank"
-                    ></a>
-                    <a
-                      href="."
-                      class="fa-brands fa-twitch icons-style-md"
-                      target="_blank"
-                    ></a>
-                    <a
-                      href="."
-                      class="fa-brands fa-mastodon icons-style-md"
-                      target="_blank"
-                    ></a>
-                  </div>
+                <div class="social-container d-flex justify-content-evenly">
+                  <a
+                    href="."
+                    class="fa-brands fa-twitter icons-style-md"
+                    target="_blank"
+                  ></a>
+                  <a
+                    href="."
+                    class="fa-brands fa-facebook icons-style-md"
+                    target="_blank"
+                  ></a>
+                  <a
+                    href="."
+                    class="fa-brands fa-github icons-style-md"
+                    target="_blank"
+                  ></a>
+                  <a
+                    href="."
+                    class="fa-brands fa-instagram icons-style-md"
+                    target="_blank"
+                  ></a>
+                  <a
+                    href="."
+                    class="fa-brands fa-twitch icons-style-md"
+                    target="_blank"
+                  ></a>
+                  <a
+                    href="."
+                    class="fa-brands fa-mastodon icons-style-md"
+                    target="_blank"
+                  ></a>
                 </div>
-
-                <div class="tags-containe pt-3">
+                <div class="tags-container pt-3">
                   <div
                     class="tags-container__title d-flex align-items-center justify-content-between"
                   >
@@ -398,11 +433,9 @@
                             class="bookmark d-flex gap-2 justify-content-center"
                           >
                             <p class="bookmark__item">4 min read</p>
-                            <a href=""
-                              ><i
-                                class="iconoir-bookmark-empty icons-style-sm"
-                              ></i>
-                            </a>
+                            <i
+                              class="iconoir-bookmark-empty bookmark__item__icon"
+                            ></i>
                           </div>
                         </div>
                       </div>
@@ -848,21 +881,44 @@
     <!-- * End of Footer Container -->
     <!-- *Start of offcanvas -->
     <div
-      class="offcanvas offcanvas-start w-50"
+      class="offcanvas offcanvas-start w-75"
       tabindex="-1"
       id="offcanvas-menu"
       aria-labelledby="offcanvas-menu-title"
     >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvas-menu-title">DEV Community</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
       <div class="offcanvas-body">
+        <div class="offcanvas-header pt-1 px-1">
+          <h5 class="offcanvas-title" id="offcanvas-menu-title">
+            DEV Community
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="card-registry-container">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-content d-flex flex-column gap-2">
+                <h5>
+                  DEV Community is a community of 1,067,642 amazing developers
+                </h5>
+                <p class="card-text text-muted">
+                  We're a place where coders share, stay up-to-date and grow
+                  their careers.
+                </p>
+                <button type="button" class="btn btn-outline-purple login">
+                  Create account
+                </button>
+                <button type="button" class="btn btn-outline-purplewhite login">
+                  Log in
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="top-menu-section">
           <ul class="menu">
             <li class="menu__item">
@@ -970,39 +1026,37 @@
           </ul>
         </div>
 
-        <div class="social-container d-flex">
-          <div class="social-container__icons d-flex justify-content-around">
-            <a
-              href="."
-              class="fa-brands fa-twitter icons-style-md"
-              target="_blank"
-            ></a>
-            <a
-              href="."
-              class="fa-brands fa-facebook icons-style-md"
-              target="_blank"
-            ></a>
-            <a
-              href="."
-              class="fa-brands fa-github icons-style-md"
-              target="_blank"
-            ></a>
-            <a
-              href="."
-              class="fa-brands fa-instagram icons-style-md"
-              target="_blank"
-            ></a>
-            <a
-              href="."
-              class="fa-brands fa-twitch icons-style-md"
-              target="_blank"
-            ></a>
-            <a
-              href="."
-              class="fa-brands fa-mastodon icons-style-md"
-              target="_blank"
-            ></a>
-          </div>
+        <div class="social-container d-flex justify-content-evenly">
+          <a
+            href="."
+            class="fa-brands fa-twitter icons-style"
+            target="_blank"
+          ></a>
+          <a
+            href="."
+            class="fa-brands fa-facebook icons-style"
+            target="_blank"
+          ></a>
+          <a
+            href="."
+            class="fa-brands fa-github icons-style"
+            target="_blank"
+          ></a>
+          <a
+            href="."
+            class="fa-brands fa-instagram icons-style"
+            target="_blank"
+          ></a>
+          <a
+            href="."
+            class="fa-brands fa-twitch icons-style"
+            target="_blank"
+          ></a>
+          <a
+            href="."
+            class="fa-brands fa-mastodon icons-style"
+            target="_blank"
+          ></a>
         </div>
       </div>
     </div>
@@ -1017,5 +1071,6 @@
       src="https://kit.fontawesome.com/42388cee6d.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

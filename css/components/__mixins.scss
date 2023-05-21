@@ -1,0 +1,11 @@
+@mixin icons-style($font-size, $padding-value) {
+    padding: $padding-value;
+    font-size: $font-size;
+    color: black;
+    text-decoration: none;
+    &:hover {
+        background-color: $hover-color;
+        border-radius: 8px;
+        color: $primary;
+    }
+}
