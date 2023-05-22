@@ -40,8 +40,9 @@
         color: $primary;
         text-decoration: none;
         font-size: 0.8rem;
+        cursor: pointer;
     }
-    &--footer {
+    &--nounderscore {
         color: $primary;
         text-decoration: none;
     }
@@ -159,9 +160,14 @@ h6 {
 .btn-outline-purple {
     @include button-outline-variant($primary, color-contrast($primary, 3%));
     height: 2.5rem;
+    text-overflow: ellipsis;
     &:hover {
         text-decoration: underline;
     }
+}
+
+.btn-purple {
+    @include button-variant($primary, darken($primary, 3%));
 }
 
 .btn-outline-purplewhite {
@@ -192,4 +198,53 @@ h6 {
             }
         }
     }
+}
+
+// ! Empiezan los estilos para la vista de login
+
+.registration {
+    //TODO Hover a los elementos del form con color morado
+    &__bottom {
+        &__text-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            &::after {
+                border: 1px solid rgb(239, 234, 234);
+                content: ' ';
+                display: block;
+                position: absolute;
+                top: 25%;
+                width: 100%;
+                border-radius: 0.5rem;
+            }
+            &__text {
+                text-align: center;
+                display: inline;
+                position: relative;
+                text-align: center;
+                font-size: 0.8rem;
+                background-color: white;
+                padding: 0rem 0.2rem;
+                z-index: 2;
+            }
+        }
+    }
+}
+
+//TODO Remap to SASS
+
+.purple-checkbox:checked {
+    background-color: $primary !important;
+    border: 0;
+}
+.purple-checkbox:focus,
+.label::after,
+label.purple-checkbox:focus,
+.purple-checkbox::after,
+.purple-checkbox:not(:disabled):not(.disabled):active:focus {
+    color: black;
+    outline: 0;
+    border: 0;
+    box-shadow: 0 0 0 0.1rem $primary !important;
 }

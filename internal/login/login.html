@@ -10,6 +10,10 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+    />
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Dev.to Clone Log In</title>
   </head>
@@ -17,7 +21,7 @@
     <!-- * Navigation Bar -->
     <nav class="navbar sticky-top navbar-light bg-white">
       <div class="container">
-        <div class="d-flex gap-4 w-50">
+        <div class="d-flex gap-md-4 gap-2 w-50">
           <button
             class="hamburger d-md-none"
             data-bs-toggle="offcanvas"
@@ -43,7 +47,7 @@
             <a href="."><i class="iconoir-search search-bar__icon"></i> </a>
           </form>
         </div>
-        <div class="d-flex gap-md-4 gap-1 pt-2">
+        <div class="d-flex gap-md-4 gap-1 pt-1">
           <!-- ! Button create post only active when user is logged -->
           <button type="button" class="btn d-none btn-outline-purple">
             Create Post
@@ -53,11 +57,14 @@
           </a>
           <button
             type="button"
-            class="btn d-none d-md-inline btn-outline-purplewhite"
+            class="btn d-none d-md-inline btn-outline-purplewhite login"
           >
             Log In
           </button>
-          <button type="button" class="btn d-md-inline btn-outline-purple">
+          <button
+            type="button"
+            class="btn d-md-inline btn-outline-purple login"
+          >
             Create account
           </button>
           <!-- ! bell icon only active when user is logged -->
@@ -79,11 +86,177 @@
 
     <!-- * Start of Main Container  -->
     <div class="container-fluid bg-light">
-      <div class="row">
-        <div class="col-12">
-          <form action="">
-            <input type="text" name="" id="" />
-          </form>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-6">
+          <div class="container p-3">
+            <div class="row">
+              <div class="card pt-3">
+                <div class="registration">
+                  <div
+                    class="registration__top d-flex flex-column align-items-center"
+                  >
+                    <h4>Welcome to DEV Community</h4>
+                    <p>
+                      DEV Community is a community of 1,067,642 amazing
+                      developers
+                    </p>
+                  </div>
+                  <div class="registration__buttons d-grid gap-2 px-5">
+                    <button type="button" class="btn btn-dark">
+                      <i class="fa-brands fa-apple"></i> Continue with Apple
+                    </button>
+                    <button type="button" class="btn btn-success">
+                      <i class="fa-brands fa-spotify"></i>
+                      Continue with Spotify
+                    </button>
+                    <button type="button" class="btn btn-secondary">
+                      <i class="fa-brands fa-github"></i>
+                      Continue with GitHub
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      <i class="fa-brands fa-twitter"></i> Continue with Twitter
+                    </button>
+                  </div>
+                  <div class="registration__bottom d-grid pt-2 pb-4 px-5">
+                    <div class="registration__bottom__text-container">
+                      <p
+                        class="registration__bottom__text-container__text text-center"
+                      >
+                        Already have an account?
+                        <span id="login-anchor" class="hyperlink--nohover"
+                          >Log in.</span
+                        >
+                      </p>
+                    </div>
+                    <form class="registration__bottom__form d-grid gap-2">
+                      <div class="registration__bottom__text-container">
+                        <p
+                          class="registration__bottom__text-container__text text-center"
+                        >
+                          Have a password? Continue with your email address
+                        </p>
+                      </div>
+                      <div class="mb-2">
+                        <label for="inputEmail1" class="form-label"
+                          >Email</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="inputEmail1"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label for="inputPassword1" class="form-label"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="inputPassword1"
+                        />
+                      </div>
+                      <div class="mb-2 form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input purple-checkbox"
+                          id="exampleCheck1"
+                        />
+                        <label
+                          class="form-check-label purple-checkbox"
+                          for="exampleCheck1"
+                          >Remember me</label
+                        >
+                      </div>
+                      <button type="submit" class="btn btn-purple">
+                        Continue
+                      </button>
+                      <a class="hyperlink--nounderscore text-center"
+                        >I forgot my password</a
+                      >
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- * Start of Footer container -->
+    <div class="container-fluid bg-footer pt-5 pb-5">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-12">
+            <h6 class="text-center">
+              <a href="" class="hyperlink--nounderscore">Dev Community</a> - A
+              constructive and inclusive social network for software developers.
+              With you every step of your journey
+            </h6>
+            <div class="container d-flex flex-column justify-content-center">
+              <ul class="footer-menu inline text-center mb-0">
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Home</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Listings</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Podcasts</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Videos</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Tags</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">FAQ</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Forem Shop</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Sponsors</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">About</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Contact</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Guides</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore"
+                    >Software Comparisons</a
+                  >
+                </li>
+              </ul>
+              <ul class="d-inline text-center mb-1">
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Code of Conduct</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Privacy Policy</a>
+                </li>
+                <li class="d-inline footer-menu__list">
+                  <a href="" class="hyperlink--nounderscore">Terms of Use</a>
+                </li>
+              </ul>
+            </div>
+            <h6 class="text-center">
+              Built on <a href="" class="hyperlink--nounderscore">Forem</a> -
+              the open source software that powers
+              <a href="" class="hyperlink--nounderscore">DEV</a> and other
+              inclusive communities. Made with <i class="iconoir-heart"></i> and
+              a lot of <i class="iconoir-droplet"></i> Angel, Karla, Max, Sam
+              and Rob. Kodemia Community © 2023.
+            </h6>
+          </div>
         </div>
       </div>
     </div>
@@ -279,5 +452,6 @@
       src="https://kit.fontawesome.com/42388cee6d.js"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/login.js"></script>
   </body>
 </html>
