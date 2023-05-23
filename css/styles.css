@@ -12278,6 +12278,9 @@ h6,
 .navbar .search-bar:hover {
   outline: solid 1px black;
 }
+.navbar .search-bar:focus-within {
+  outline: solid 2px #6f42c1;
+}
 .navbar .search-bar__input {
   border-color: transparent;
   border-style: none;
@@ -12354,6 +12357,7 @@ h6,
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: rgb(55, 64, 215);
   --bs-btn-disabled-border-color: #2a34d4;
+  height: 3rem;
 }
 
 .btn-outline-purplewhite {
@@ -12389,6 +12393,9 @@ h6,
   color: rgb(55, 64, 215);
 }
 
+.registration__buttons .btn {
+  height: 3rem;
+}
 .registration__bottom__text-container {
   position: relative;
   display: flex;
@@ -12414,18 +12421,65 @@ h6,
   z-index: 2;
 }
 
-.purple-checkbox:checked {
-  background-color: rgb(55, 64, 215) !important;
+#check1:checked {
+  background-color: rgb(55, 64, 215);
   border: 0;
 }
 
-.purple-checkbox:focus,
-.label::after,
-label.purple-checkbox:focus,
-.purple-checkbox::after,
-.purple-checkbox:not(:disabled):not(.disabled):active:focus {
-  color: black;
-  outline: 0;
+#inputEmail1:hover,
+#inputPassword1:hover {
+  outline: solid 1px darkgrey;
+  box-shadow: unset;
+}
+#inputEmail1:focus,
+#inputPassword1:focus {
+  outline: solid 2px rgb(55, 64, 215);
+}
+
+.hashtags-add {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 7px;
+  margin: 12px 0;
+  border-radius: 5px;
   border: 0;
-  box-shadow: 0 0 0 0.1rem rgb(55, 64, 215) !important;
+}
+.hashtags-add__input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.hashtags-add li {
+  color: #333;
+  margin: 4px 3px;
+  list-style: none;
+  border-radius: 5px;
+  background: rgba(213, 213, 213, 0.467);
+  padding: 5px 8px 5px 10px;
+}
+
+.hashtags-add ul li i {
+  height: 20px;
+  width: 20px;
+  color: #808080;
+  margin-left: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #dfdfdf;
+  justify-content: center;
+}
+
+#FormControlTextarea2 {
+  font-size: 1.2rem;
+  resize: none;
+}
+
+#FormControlTextarea1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  resize: none;
 }/*# sourceMappingURL=styles.css.map */

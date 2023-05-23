@@ -118,6 +118,9 @@ h6 {
         &:hover {
             outline: solid 1px black;
         }
+        &:focus-within {
+            outline: solid 2px $purple;
+        }
         &__input {
             border-color: transparent;
             border-style: none;
@@ -168,6 +171,7 @@ h6 {
 
 .btn-purple {
     @include button-variant($primary, darken($primary, 3%));
+    height: 3rem;
 }
 
 .btn-outline-purplewhite {
@@ -203,7 +207,11 @@ h6 {
 // ! Empiezan los estilos para la vista de login
 
 .registration {
-    //TODO Hover a los elementos del form con color morado
+    &__buttons {
+        .btn {
+            height: 3rem;
+        }
+    }
     &__bottom {
         &__text-container {
             position: relative;
@@ -232,19 +240,67 @@ h6 {
     }
 }
 
-//TODO Remap to SASS
-
-.purple-checkbox:checked {
-    background-color: $primary !important;
+#check1:checked {
+    background-color: $primary;
     border: 0;
 }
-.purple-checkbox:focus,
-.label::after,
-label.purple-checkbox:focus,
-.purple-checkbox::after,
-.purple-checkbox:not(:disabled):not(.disabled):active:focus {
-    color: black;
-    outline: 0;
+
+#inputEmail1,
+#inputPassword1 {
+    &:hover {
+        outline: solid 1px darkgrey;
+        box-shadow: unset;
+    }
+    &:focus {
+        outline: solid 2px $primary;
+    }
+}
+
+// ! Inicia estilos particulares del create-post
+
+.hashtags-add {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 7px;
+    margin: 12px 0;
+    border-radius: 5px;
     border: 0;
-    box-shadow: 0 0 0 0.1rem $primary !important;
+    &__input {
+        flex: 1;
+        padding: 5px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+    }
+}
+.hashtags-add li {
+    color: #333;
+    margin: 4px 3px;
+    list-style: none;
+    border-radius: 5px;
+    background: rgba(213, 213, 213, 0.467);
+    padding: 5px 8px 5px 10px;
+}
+
+.hashtags-add ul li i {
+    height: 20px;
+    width: 20px;
+    color: #808080;
+    margin-left: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #dfdfdf;
+    justify-content: center;
+}
+
+#FormControlTextarea2 {
+    font-size: 1.2rem;
+    resize: none;
+}
+
+#FormControlTextarea1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    resize: none;
 }
