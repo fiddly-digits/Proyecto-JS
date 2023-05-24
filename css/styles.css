@@ -12077,6 +12077,8 @@ textarea.form-control-lg {
 }
 .card .card-text--article {
   font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
 }
 .card .card-text--article:hover {
   color: rgb(55, 64, 215);
@@ -12487,4 +12489,63 @@ h6,
 #markdown-mock {
   margin-left: -1rem;
   margin-right: -1rem;
+}
+
+.icon-fav {
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+}
+.icon-fav:hover {
+  color: red;
+  border-radius: 8px;
+}
+
+.icon-bubble {
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+}
+.icon-bubble:hover {
+  color: orange;
+  border-radius: 8px;
+}
+
+.icon-book {
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+}
+.icon-book:hover {
+  color: rgb(55, 64, 215);
+  border-radius: 8px;
+}
+
+.icon-dots {
+  padding: 0.2rem;
+  font-size: 1.875rem;
+  color: gray;
+  text-decoration: none;
+}
+.icon-dots:hover {
+  background-color: rgb(224, 225, 240);
+  border-radius: 100%;
+  color: black;
+}
+
+.counter-text {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.bottom-anchors__item {
+  text-decoration: none;
+  color: gray;
+  font-size: 0.8rem;
+}
+
+#picture-background {
+  background-color: rgb(55, 64, 215);
+  color: rgb(55, 64, 215);
+  position: relative;
 }/*# sourceMappingURL=styles.css.map */

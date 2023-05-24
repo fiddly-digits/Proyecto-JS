@@ -49,7 +49,11 @@
         </div>
         <div class="d-flex gap-md-4 gap-1 pt-1">
           <!-- ! Button create post only active when user is logged -->
-          <button type="button" class="btn d-none btn-outline-purple">
+          <button
+            type="button"
+            class="btn d-none btn-outline-purple"
+            id="create-post-btn"
+          >
             Create Post
           </button>
           <a href="" class="d-md-none"
@@ -58,27 +62,33 @@
           <button
             type="button"
             class="btn d-none d-md-inline btn-outline-purplewhite login"
+            id="log-in-btn"
           >
             Log In
           </button>
           <button
             type="button"
             class="btn d-md-inline btn-outline-purple login"
+            id="create-account-btn"
           >
             Create account
           </button>
           <!-- ! bell icon only active when user is logged -->
-          <a href=""><i class="iconoir-bell d-none icons-style-md"></i></a>
+          <a href="" class="d-none" id="bell-icon"
+            ><i class="iconoir-bell icons-style-md"></i
+          ></a>
           <!-- ! profile image only active when user is logged -->
-          <div>
-            <img
-              src="https://randomuser.me/api/portraits/lego/6.jpg"
-              alt="user"
-              width="30"
-              height="30"
-              class="circle-profile-picture mt-1 d-none"
-            />
-          </div>
+          <img
+            src="https://randomuser.me/api/portraits/lego/6.jpg"
+            alt="user"
+            width="30"
+            height="30"
+            class="circle-profile-picture mt-1 d-none"
+            id="profile-picture"
+            tabindex="0"
+            data-bs-toggle="popover"
+            data-bs-title="Popover title"
+          />
         </div>
       </div>
     </nav>
@@ -407,10 +417,12 @@
                             >May 19 (8 hours ago)</span
                           >
                         </p>
-                        <h3 class="card-text card-text--article mb-2">
-                          Let's make a cool mouse event bubble animation in just
-                          50 lines of JavaScript!
-                        </h3>
+                        <a class="card-text card-text--article mb-2">
+                          <h3>
+                            Let's make a cool mouse event bubble animation in
+                            just 50 lines of JavaScript!
+                          </h3>
+                        </a>
                         <div class="hashtags d-flex flex-wrap gap-4 mb-3">
                           <a href="." class="hashtags__item">#javascript</a>
                           <a href="." class="hashtags__item">#frontend</a>
@@ -468,10 +480,12 @@
                             >May 19 (8 hours ago)</span
                           >
                         </p>
-                        <h3 class="card-text card-text--article mb-2">
-                          Let's make a cool mouse event bubble animation in just
-                          50 lines of JavaScript!
-                        </h3>
+                        <a class="card-text card-text--article mb-2">
+                          <h3>
+                            Let's make a cool mouse event bubble animation in
+                            just 50 lines of JavaScript!
+                          </h3>
+                        </a>
                         <div class="hashtags d-flex flex-wrap gap-4 mb-3">
                           <a href="." class="hashtags__item">#javascript</a>
                           <a href="." class="hashtags__item">#frontend</a>
@@ -529,10 +543,12 @@
                             >May 19 (8 hours ago)</span
                           >
                         </p>
-                        <h3 class="card-text card-text--article mb-2">
-                          Let's make a cool mouse event bubble animation in just
-                          50 lines of JavaScript!
-                        </h3>
+                        <a class="card-text card-text--article mb-2">
+                          <h3>
+                            Let's make a cool mouse event bubble animation in
+                            just 50 lines of JavaScript!
+                          </h3>
+                        </a>
                         <div class="hashtags d-flex flex-wrap gap-4 mb-3">
                           <a href="." class="hashtags__item">#javascript</a>
                           <a href="." class="hashtags__item">#frontend</a>
@@ -687,36 +703,6 @@
                       </p>
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
                       <li class="list-group-item">
                         <p class="card-title list-group-item--title">
                           If Coding Languages Were Ice Cream Flavors...?

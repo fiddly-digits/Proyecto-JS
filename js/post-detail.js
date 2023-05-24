@@ -1,24 +1,11 @@
-// * Pagination - esta funcion agrega enlace los botones que llevan al login
-// * Aca trabaja Rob
-//import { BASE_URL, getUsers } from "./login.js";
-
 let getAccountButtons = document
   .querySelectorAll(".login")
   .forEach((loginButton) => {
     loginButton.onclick = function () {
-      location.href = "./internal/login/login.html";
+      location.href = "../login/login.html";
     };
   });
-
-let getTitleAnchors = document
-  .querySelectorAll(".card-text--article")
-  .forEach((title) => {
-    title.onclick = function () {
-      location.href = "./internal/post-detail/post-detail.html";
-    };
-  });
-
-console.log(document.querySelectorAll(".card-text--article"));
+console.log(document.querySelectorAll(".login"));
 
 // * Login user
 const getUserfromStorage = () => {
