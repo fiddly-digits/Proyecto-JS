@@ -67,7 +67,6 @@ const createHashtagComponent= () => {
 
 //CREANDO TEXTO LISTO
 
-
  const createText= () => {
   let wrapperTextArticle= document.createElement("h3");
   let textArticle= document.createTextNode("Let's make a cool mouse event bubble animation in just 50 lines of JavaScript!"); //Cambiar Despues
@@ -75,8 +74,6 @@ const createHashtagComponent= () => {
   wrapperTextArticle.append(textArticle);
   return wrapperTextArticle;
  }
-
-
 
 //CREANDO SUBTITULO LISTO
 
@@ -92,7 +89,6 @@ const createSubtitle=() =>{
 }
 
 //CREANDO TITULO listo
-
 
 const createTitle= () => {
   let titleContainer= document.createElement("p");
@@ -118,10 +114,8 @@ const createTitle= () => {
   return secondaryContainer;
  }
 
-
  //CREANDO IMAGEN USUARIO
 
- 
  const createUserImage = () => {
   let anchor = document.createElement("a");
   let userImage = document.createElement("img");
@@ -131,7 +125,7 @@ const createTitle= () => {
   userImage.setAttribute("height", "35");
   userImage.classList.add("circle-profile-picture--nohover");
   anchor.appendChild(userImage)
-  return anchor
+  return anchor;
 }
 
 //CREANDO CARD BODY
@@ -168,3 +162,36 @@ const addCardToDom = () => {
     let card = createMainCard();
     mainContainer.appendChild(card);
 }
+
+//LISTA DE HASHTAGS
+//<div class="cards-container-right d-flex flex-column gap-4"> (appeNd)
+
+                  // <div class="card">
+
+                  //   <div class="card-header d-flex justify-content-between bg-white align-items-center">
+                  //     <p class="card-title fs-5 mb-0">
+                  //       <a href="." class="card-title__hash"><b>#discuss</b></a>
+                  //     </p>
+                  //   </div>
+                  //   <ul class="list-group list-group-flush">
+                  //     <li class="list-group-item">
+                  //       <p class="card-title list-group-item--title">If Coding Languages Were Ice Cream Flavors...?</p>
+                  //       <p class="card-subtitle text-muted list-group-item--subtitle">7 comments</p>
+                  //     </li>
+                      
+                  //     <li class="list-group-item">
+                  //       <p class="card-title list-group-item--title">If Coding Languages Were Ice Cream Flavors...?</p>
+                  //       <p class="card-subtitle text-muted list-group-item--subtitle"> 7 comments</p>
+                  //     </li>
+                  //   </ul>
+                  // </div>
+
+//CREANDO UL
+
+
+
+/* <div class="card-header d-flex justify-content-between bg-white align-items-center">
+//     <p class="card-title fs-5 mb-0">
+//       <a href="." class="card-title__hash"><b>#discuss</b></a>
+//     </p>
+//   </div>*/
