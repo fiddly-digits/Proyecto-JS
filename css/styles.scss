@@ -40,8 +40,9 @@
         color: $primary;
         text-decoration: none;
         font-size: 0.8rem;
+        cursor: pointer;
     }
-    &--footer {
+    &--nounderscore {
         color: $primary;
         text-decoration: none;
     }
@@ -117,6 +118,9 @@ h6 {
         &:hover {
             outline: solid 1px black;
         }
+        &:focus-within {
+            outline: solid 2px $purple;
+        }
         &__input {
             border-color: transparent;
             border-style: none;
@@ -159,9 +163,15 @@ h6 {
 .btn-outline-purple {
     @include button-outline-variant($primary, color-contrast($primary, 3%));
     height: 2.5rem;
+    text-overflow: ellipsis;
     &:hover {
         text-decoration: underline;
     }
+}
+
+.btn-purple {
+    @include button-variant($primary, darken($primary, 3%));
+    height: 3rem;
 }
 
 .btn-outline-purplewhite {
@@ -192,4 +202,173 @@ h6 {
             }
         }
     }
+}
+
+// ! Empiezan los estilos para la vista de login
+
+.registration {
+    &__buttons {
+        .btn {
+            height: 3rem;
+        }
+    }
+    &__bottom {
+        &__text-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            &::after {
+                border: 1px solid rgb(239, 234, 234);
+                content: ' ';
+                display: block;
+                position: absolute;
+                top: 25%;
+                width: 100%;
+                border-radius: 0.5rem;
+            }
+            &__text {
+                text-align: center;
+                display: inline;
+                position: relative;
+                text-align: center;
+                font-size: 0.8rem;
+                background-color: white;
+                padding: 0rem 0.2rem;
+                z-index: 2;
+            }
+        }
+    }
+}
+
+#check1:checked {
+    background-color: $primary;
+    border: 0;
+}
+
+#inputEmail1,
+#inputPassword1 {
+    &:hover {
+        outline: solid 1px darkgrey;
+        box-shadow: unset;
+    }
+    &:focus {
+        outline: solid 2px $primary;
+    }
+}
+
+// ! Inicia estilos particulares del create-post
+
+.hashtags-add {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 7px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 0;
+    &__input {
+        flex: 1;
+        padding: 5px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+    }
+}
+.hashtags-add li {
+    color: #333;
+    margin: 4px 3px;
+    list-style: none;
+    border-radius: 5px;
+    background: rgba(213, 213, 213, 0.467);
+    padding: 5px 8px 5px 10px;
+}
+
+.hashtags-add ul li i {
+    height: 20px;
+    width: 20px;
+    color: #808080;
+    margin-left: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #dfdfdf;
+    justify-content: center;
+}
+
+#FormControlTextarea2 {
+    font-size: 1.2rem;
+    resize: none;
+}
+
+#FormControlTextarea1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    resize: none;
+}
+
+#markdown-mock {
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+// ! Inicia estilos particulares del post-detail
+
+.icon-fav {
+    padding: 0.625rem;
+    font-size: 1.875rem;
+    color: black;
+    &:hover {
+        color: red;
+        border-radius: 8px;
+    }
+}
+
+.icon-bubble {
+    padding: 0.625rem;
+    font-size: 1.875rem;
+    color: black;
+    &:hover {
+        color: orange;
+        border-radius: 8px;
+    }
+}
+
+.icon-book {
+    padding: 0.625rem;
+    font-size: 1.875rem;
+    color: black;
+    &:hover {
+        color: $primary;
+        border-radius: 8px;
+    }
+}
+
+.icon-dots {
+    padding: 0.2rem;
+    font-size: 1.875rem;
+    color: gray;
+    text-decoration: none;
+    &:hover {
+        background-color: $hover-color;
+        border-radius: 100%;
+        color: black;
+    }
+}
+
+.counter-text {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.bottom-anchors {
+    &__item {
+        text-decoration: none;
+        color: gray;
+        font-size: 0.8rem;
+    }
+}
+// ! fix position
+#picture-background {
+    background-color: $primary;
+    color: $primary;
+    position: relative;
 }

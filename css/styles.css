@@ -3378,7 +3378,9 @@ textarea.form-control-lg {
   --bs-dropdown-border-color: var(--bs-border-color-translucent);
   --bs-dropdown-border-radius: var(--bs-border-radius);
   --bs-dropdown-border-width: var(--bs-border-width);
-  --bs-dropdown-inner-border-radius: calc(var(--bs-border-radius) - var(--bs-border-width));
+  --bs-dropdown-inner-border-radius: calc(
+    var(--bs-border-radius) - var(--bs-border-width)
+  );
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -4756,15 +4758,12 @@ textarea.form-control-lg {
 }
 
 .page-item:not(:first-child) .page-link {
-  margin-left: calc(var(--bs-border-width) * -1);
+  margin-left: calc(
+  var(--bs-border-width) * -1
+);
 }
-.page-item:first-child .page-link {
-  border-top-left-radius: var(--bs-pagination-border-radius);
-  border-bottom-left-radius: var(--bs-pagination-border-radius);
-}
-.page-item:last-child .page-link {
-  border-top-right-radius: var(--bs-pagination-border-radius);
-  border-bottom-right-radius: var(--bs-pagination-border-radius);
+.page-item .page-link {
+  border-radius: var(--bs-pagination-border-radius);
 }
 
 .pagination-lg {
@@ -5823,7 +5822,9 @@ textarea.form-control-lg {
   --bs-popover-border-width: var(--bs-border-width);
   --bs-popover-border-color: var(--bs-border-color-translucent);
   --bs-popover-border-radius: var(--bs-border-radius-lg);
-  --bs-popover-inner-border-radius: calc(var(--bs-border-radius-lg) - var(--bs-border-width));
+  --bs-popover-inner-border-radius: calc(
+    var(--bs-border-radius-lg) - var(--bs-border-width)
+  );
   --bs-popover-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-popover-header-padding-x: 1rem;
   --bs-popover-header-padding-y: 0.5rem;
@@ -12076,6 +12077,8 @@ textarea.form-control-lg {
 }
 .card .card-text--article {
   font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
 }
 .card .card-text--article:hover {
   color: rgb(55, 64, 215);
@@ -12196,8 +12199,9 @@ textarea.form-control-lg {
   color: rgb(55, 64, 215);
   text-decoration: none;
   font-size: 0.8rem;
+  cursor: pointer;
 }
-.hyperlink--footer {
+.hyperlink--nounderscore {
   color: rgb(55, 64, 215);
   text-decoration: none;
 }
@@ -12276,6 +12280,9 @@ h6,
 .navbar .search-bar:hover {
   outline: solid 1px black;
 }
+.navbar .search-bar:focus-within {
+  outline: solid 2px #6f42c1;
+}
 .navbar .search-bar__input {
   border-color: transparent;
   border-style: none;
@@ -12331,9 +12338,28 @@ h6,
   --bs-btn-disabled-border-color: rgb(55, 64, 215);
   --bs-gradient: none;
   height: 2.5rem;
+  text-overflow: ellipsis;
 }
 .btn-outline-purple:hover {
   text-decoration: underline;
+}
+
+.btn-purple {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgb(55, 64, 215);
+  --bs-btn-border-color: #2a34d4;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #2f36b7;
+  --bs-btn-hover-border-color: #222aaa;
+  --bs-btn-focus-shadow-rgb: 74, 82, 218;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #2c33ac;
+  --bs-btn-active-border-color: #20279f;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: rgb(55, 64, 215);
+  --bs-btn-disabled-border-color: #2a34d4;
+  height: 3rem;
 }
 
 .btn-outline-purplewhite {
@@ -12367,4 +12393,159 @@ h6,
 .main-menu__item__content:hover {
   background-color: white;
   color: rgb(55, 64, 215);
+}
+
+.registration__buttons .btn {
+  height: 3rem;
+}
+.registration__bottom__text-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.registration__bottom__text-container::after {
+  border: 1px solid rgb(239, 234, 234);
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.registration__bottom__text-container__text {
+  text-align: center;
+  display: inline;
+  position: relative;
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: white;
+  padding: 0rem 0.2rem;
+  z-index: 2;
+}
+
+#check1:checked {
+  background-color: rgb(55, 64, 215);
+  border: 0;
+}
+
+#inputEmail1:hover,
+#inputPassword1:hover {
+  outline: solid 1px darkgrey;
+  box-shadow: unset;
+}
+#inputEmail1:focus,
+#inputPassword1:focus {
+  outline: solid 2px rgb(55, 64, 215);
+}
+
+.hashtags-add {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 7px;
+  margin: 12px 0;
+  border-radius: 5px;
+  border: 0;
+}
+.hashtags-add__input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.hashtags-add li {
+  color: #333;
+  margin: 4px 3px;
+  list-style: none;
+  border-radius: 5px;
+  background: rgba(213, 213, 213, 0.467);
+  padding: 5px 8px 5px 10px;
+}
+
+.hashtags-add ul li i {
+  height: 20px;
+  width: 20px;
+  color: #808080;
+  margin-left: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #dfdfdf;
+  justify-content: center;
+}
+
+#FormControlTextarea2 {
+  font-size: 1.2rem;
+  resize: none;
+}
+
+#FormControlTextarea1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  resize: none;
+}
+
+#markdown-mock {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.icon-fav {
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+}
+.icon-fav:hover {
+  color: red;
+  border-radius: 8px;
+}
+
+.icon-bubble {
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+}
+.icon-bubble:hover {
+  color: orange;
+  border-radius: 8px;
+}
+
+.icon-book {
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+}
+.icon-book:hover {
+  color: rgb(55, 64, 215);
+  border-radius: 8px;
+}
+
+.icon-dots {
+  padding: 0.2rem;
+  font-size: 1.875rem;
+  color: gray;
+  text-decoration: none;
+}
+.icon-dots:hover {
+  background-color: rgb(224, 225, 240);
+  border-radius: 100%;
+  color: black;
+}
+
+.counter-text {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.bottom-anchors__item {
+  text-decoration: none;
+  color: gray;
+  font-size: 0.8rem;
+}
+
+#picture-background {
+  background-color: rgb(55, 64, 215);
+  color: rgb(55, 64, 215);
+  position: relative;
 }/*# sourceMappingURL=styles.css.map */

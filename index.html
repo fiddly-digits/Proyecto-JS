@@ -21,7 +21,7 @@
     <!-- * Navigation Bar -->
     <nav class="navbar sticky-top navbar-light bg-white">
       <div class="container">
-        <div class="d-flex gap-4 w-50">
+        <div class="d-flex gap-md-4 gap-2 w-50">
           <button
             class="hamburger d-md-none"
             data-bs-toggle="offcanvas"
@@ -47,9 +47,13 @@
             <a href="."><i class="iconoir-search search-bar__icon"></i> </a>
           </form>
         </div>
-        <div class="d-flex gap-md-4 gap-1 pt-2">
+        <div class="d-flex gap-md-4 gap-1 pt-1">
           <!-- ! Button create post only active when user is logged -->
-          <button type="button" class="btn d-none btn-outline-purple">
+          <button
+            type="button"
+            class="btn d-none btn-outline-purple"
+            id="create-post-btn"
+          >
             Create Post
           </button>
           <a href="" class="d-md-none"
@@ -58,27 +62,33 @@
           <button
             type="button"
             class="btn d-none d-md-inline btn-outline-purplewhite login"
+            id="log-in-btn"
           >
             Log In
           </button>
           <button
             type="button"
             class="btn d-md-inline btn-outline-purple login"
+            id="create-account-btn"
           >
             Create account
           </button>
           <!-- ! bell icon only active when user is logged -->
-          <a href=""><i class="iconoir-bell d-none icons-style-md"></i></a>
+          <a href="" class="d-none" id="bell-icon"
+            ><i class="iconoir-bell icons-style-md"></i
+          ></a>
           <!-- ! profile image only active when user is logged -->
-          <div>
-            <img
-              src="https://randomuser.me/api/portraits/lego/6.jpg"
-              alt="user"
-              width="30"
-              height="30"
-              class="circle-profile-picture mt-1 d-none"
-            />
-          </div>
+          <img
+            src="https://randomuser.me/api/portraits/lego/6.jpg"
+            alt="user"
+            width="30"
+            height="30"
+            class="circle-profile-picture mt-1 d-none"
+            id="profile-picture"
+            tabindex="0"
+            data-bs-toggle="popover"
+            data-bs-title="Popover title"
+          />
         </div>
       </div>
     </nav>
@@ -291,7 +301,7 @@
                   </div>
                 </div>
 
-                <div class="cards-container d-flex flex-column gap-4">
+                <div class="cards-container-menu d-flex flex-column gap-4">
                   <div class="card">
                     <div
                       class="card-top d-flex justify-content-between align-items-center pt-3 px-3"
@@ -381,195 +391,15 @@
                     >
                   </li>
                 </ul>
-                <div class="cards-container d-flex flex-column gap-4">
-                  <div class="card">
-                    <img
-                      src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body d-flex">
-                      <a href="">
-                        <img
-                          src="https://randomuser.me/api/portraits/lego/6.jpg"
-                          alt="user"
-                          width="35"
-                          height="35"
-                          class="circle-profile-picture--nohover"
-                        />
-                      </a>
-                      <div class="d-flex flex-column ps-2">
-                        <p class="card-title">
-                          <span class="card-title--user">Renan Ferro</span>
-                        </p>
-                        <p class="card-subtitle">
-                          <span class="card-subtitle--date"
-                            >May 19 (8 hours ago)</span
-                          >
-                        </p>
-                        <h3 class="card-text card-text--article mb-2">
-                          Let's make a cool mouse event bubble animation in just
-                          50 lines of JavaScript!
-                        </h3>
-                        <div class="hashtags d-flex gap-4 mb-3">
-                          <a href="." class="hashtags__item">#javascript</a>
-                          <a href="." class="hashtags__item">#frontend</a>
-                          <a href="." class="hashtags__item">#tutorial</a>
-                          <a href="." class="hashtags__item">#animation</a>
-                        </div>
-                        <div
-                          class="interactions d-flex justify-content-between"
-                        >
-                          <div class="reactions d-flex gap-3">
-                            <a href="" class="reactions__item">9 Reactions</a>
-                            <a href="" class="reactions__item"
-                              ><i
-                                class="iconoir-chat-bubble-empty reactions__item__bubble"
-                              ></i
-                              >Add Comment</a
-                            >
-                          </div>
-                          <div
-                            class="bookmark d-flex gap-2 justify-content-center"
-                          >
-                            <p class="bookmark__item">4 min read</p>
-                            <i
-                              class="iconoir-bookmark-empty bookmark__item__icon"
-                            ></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <img
-                      src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body d-flex">
-                      <a href="">
-                        <img
-                          src="https://randomuser.me/api/portraits/lego/6.jpg"
-                          alt="user"
-                          width="35"
-                          height="35"
-                          class="circle-profile-picture--nohover"
-                        />
-                      </a>
-                      <div class="d-flex flex-column ps-2">
-                        <p class="card-title">
-                          <span class="card-title--user">Renan Ferro</span>
-                        </p>
-                        <p class="card-subtitle">
-                          <span class="card-subtitle--date"
-                            >May 19 (8 hours ago)</span
-                          >
-                        </p>
-                        <h3 class="card-text card-text--article mb-2">
-                          Let's make a cool mouse event bubble animation in just
-                          50 lines of JavaScript!
-                        </h3>
-                        <div class="hashtags d-flex gap-4 mb-3">
-                          <a href="." class="hashtags__item">#javascript</a>
-                          <a href="." class="hashtags__item">#frontend</a>
-                          <a href="." class="hashtags__item">#tutorial</a>
-                          <a href="." class="hashtags__item">#animation</a>
-                        </div>
-                        <div
-                          class="interactions d-flex justify-content-between"
-                        >
-                          <div class="reactions d-flex gap-3">
-                            <a href="" class="reactions__item">9 Reactions</a>
-                            <a href="" class="reactions__item"
-                              ><i
-                                class="iconoir-chat-bubble-empty reactions__item__bubble"
-                              ></i
-                              >Add Comment</a
-                            >
-                          </div>
-                          <div
-                            class="bookmark d-flex gap-2 justify-content-center"
-                          >
-                            <p class="bookmark__item">4 min read</p>
-                            <a href=""
-                              ><i
-                                class="iconoir-bookmark-empty icons-style-sm"
-                              ></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <img
-                      src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body d-flex">
-                      <a href="">
-                        <img
-                          src="https://randomuser.me/api/portraits/lego/6.jpg"
-                          alt="user"
-                          width="35"
-                          height="35"
-                          class="circle-profile-picture--nohover"
-                        />
-                      </a>
-                      <div class="d-flex flex-column ps-2">
-                        <p class="card-title">
-                          <span class="card-title--user">Renan Ferro</span>
-                        </p>
-                        <p class="card-subtitle">
-                          <span class="card-subtitle--date"
-                            >May 19 (8 hours ago)</span
-                          >
-                        </p>
-                        <h3 class="card-text card-text--article mb-2">
-                          Let's make a cool mouse event bubble animation in just
-                          50 lines of JavaScript!
-                        </h3>
-                        <div class="hashtags d-flex gap-4 mb-3">
-                          <a href="." class="hashtags__item">#javascript</a>
-                          <a href="." class="hashtags__item">#frontend</a>
-                          <a href="." class="hashtags__item">#tutorial</a>
-                          <a href="." class="hashtags__item">#animation</a>
-                        </div>
-                        <div
-                          class="interactions d-flex justify-content-between"
-                        >
-                          <div class="reactions d-flex gap-3">
-                            <a href="" class="reactions__item">9 Reactions</a>
-                            <a href="" class="reactions__item"
-                              ><i
-                                class="iconoir-chat-bubble-empty reactions__item__bubble"
-                              ></i
-                              >Add Comment</a
-                            >
-                          </div>
-                          <div
-                            class="bookmark d-flex gap-2 justify-content-center"
-                          >
-                            <p class="bookmark__item">4 min read</p>
-                            <a href=""
-                              ><i
-                                class="iconoir-bookmark-empty icons-style-sm"
-                              ></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div
+                  class="cards-container-main d-flex flex-column gap-4"
+                ></div>
               </main>
               <!-- * End of main section -->
 
               <!-- * start of cards aside -->
               <aside class="col-lg-3 d-none d-lg-block">
-                <div class="cards-container d-flex flex-column gap-4">
+                <div class="cards-container-right d-flex flex-column gap-4">
                   <div class="card">
                     <div
                       class="card-top d-flex justify-content-between align-items-center pt-3 px-3"
@@ -676,125 +506,6 @@
                       >
                     </div>
                   </div>
-                  <div class="card">
-                    <div
-                      class="card-header d-flex justify-content-between bg-white align-items-center"
-                    >
-                      <p class="card-title fs-5 mb-0">
-                        <a href="." class="card-title__hash"><b>#discuss</b></a>
-                      </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="card">
-                    <div
-                      class="card-header d-flex justify-content-between bg-white align-items-center"
-                    >
-                      <p class="card-title fs-5 mb-0">
-                        <a href="." class="card-title__hash">#watercooler</a>
-                      </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
-                          7 comments
-                        </p>
-                      </li>
-                      <li class="list-group-item">
-                        <p class="card-title list-group-item--title">
-                          If Coding Languages Were Ice Cream Flavors...?
-                        </p>
-                        <p class="card-subtitle list-group-item--new">New</p>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
               </aside>
               <!-- * End of cards aside -->
@@ -811,68 +522,70 @@
         <div class="row d-flex">
           <div class="col-12">
             <h6 class="text-center">
-              <a href="" class="hyperlink--footer">Dev Community</a> - A
+              <a href="" class="hyperlink--nounderscore">Dev Community</a> - A
               constructive and inclusive social network for software developers.
               With you every step of your journey
             </h6>
             <div class="container d-flex flex-column justify-content-center">
               <ul class="footer-menu inline text-center mb-0">
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Home</a>
+                  <a href="" class="hyperlink--nounderscore">Home</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Listings</a>
+                  <a href="" class="hyperlink--nounderscore">Listings</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Podcasts</a>
+                  <a href="" class="hyperlink--nounderscore">Podcasts</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Videos</a>
+                  <a href="" class="hyperlink--nounderscore">Videos</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Tags</a>
+                  <a href="" class="hyperlink--nounderscore">Tags</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">FAQ</a>
+                  <a href="" class="hyperlink--nounderscore">FAQ</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Forem Shop</a>
+                  <a href="" class="hyperlink--nounderscore">Forem Shop</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Sponsors</a>
+                  <a href="" class="hyperlink--nounderscore">Sponsors</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">About</a>
+                  <a href="" class="hyperlink--nounderscore">About</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Contact</a>
+                  <a href="" class="hyperlink--nounderscore">Contact</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Guides</a>
+                  <a href="" class="hyperlink--nounderscore">Guides</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Software Comparisons</a>
+                  <a href="" class="hyperlink--nounderscore"
+                    >Software Comparisons</a
+                  >
                 </li>
               </ul>
               <ul class="d-inline text-center mb-1">
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Code of Conduct</a>
+                  <a href="" class="hyperlink--nounderscore">Code of Conduct</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Privacy Policy</a>
+                  <a href="" class="hyperlink--nounderscore">Privacy Policy</a>
                 </li>
                 <li class="d-inline footer-menu__list">
-                  <a href="" class="hyperlink--footer">Terms of Use</a>
+                  <a href="" class="hyperlink--nounderscore">Terms of Use</a>
                 </li>
               </ul>
             </div>
             <h6 class="text-center">
-              Built on <a href="" class="hyperlink--footer">Forem</a> - the open
-              source software that powers
-              <a href="" class="hyperlink--footer">DEV</a> and other inclusive
-              communities. Made with <i class="iconoir-heart"></i> and a lot of
-              <i class="iconoir-droplet"></i> Angel, Karla, Max, Sam and Rob.
-              Kodemia Community © 2023.
+              Built on <a href="" class="hyperlink--nounderscore">Forem</a> -
+              the open source software that powers
+              <a href="" class="hyperlink--nounderscore">DEV</a> and other
+              inclusive communities. Made with <i class="iconoir-heart"></i> and
+              a lot of <i class="iconoir-droplet"></i> Angel, Karla, Max, Sam
+              and Rob. Kodemia Community © 2023.
             </h6>
           </div>
         </div>

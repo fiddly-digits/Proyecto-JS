@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css"
+    />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Dev.to Clone Create Post</title>
+  </head>
+  <body>
+    <!-- * Navigation Bar -->
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <div
+        class="d-flex align-items-center justify-content-between px-md-5 px-2 w-100"
+      >
+        <div class="d-flex align-items-center justify-content-between w-75">
+          <div class="d-flex align-items-center gap-2">
+            <img
+              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+              alt="Logo"
+              width="50"
+              height="40"
+              class="d-none d-md-inline"
+            />
+            <h6 class="d-none d-sm-block">Create Post</h6>
+          </div>
+          <div class="d-flex w-md-50">
+            <ul class="nav nav-pills main-menu pb-2">
+              <li class="nav-item main-menu__item">
+                <a
+                  class="nav-link main-menu__item__content"
+                  aria-current="page"
+                  href="#"
+                  >Edit</a
+                >
+              </li>
+              <li class="nav-item main-menu__item">
+                <a class="nav-link main-menu__item__content" href="#"
+                  >Preview</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button type="button" class="btn-close mb-2"></button>
+      </div>
+    </nav>
+    <!-- * End of Navigation Bar -->
+
+    <!-- * Start of Main Container  -->
+    <div class="container-fluid bg-light min-vh-100">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-12 col-lg-12">
+          <div class="container p-3">
+            <div class="row">
+              <div class="col-md-9 col-12">
+                <form>
+                  <div
+                    class="card border border-danger-subtle bg-danger-subtle d-none"
+                  >
+                    <div class="card-body">
+                      <h5 class="text-danger mb-2">
+                        Whoops, something went wrong:
+                      </h5>
+                      <p class="mb-0">title: can't be blank</p>
+                      <p class="mb-0">
+                        title: is too long (maximum is 128 characters)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <input
+                        type="text"
+                        class="form-control border border-secondary-subtle d-inline shadow-none"
+                        placeholder="Insert the link of your header img here..."
+                        id="post-image-input"
+                      />
+
+                      <!-- ! preguntar a isra como cae hacia abajo el input -->
+                      <textarea
+                        class="form-control border border-0 shadow-none text-break"
+                        id="FormControlTextarea1"
+                        placeholder="New post title here..."
+                      ></textarea>
+                      <ul class="hashtags-add p-0">
+                        <input
+                          type="text"
+                          class="hashtags-add__input"
+                          spellcheck="false"
+                          id="FormControlHashtags"
+                          placeholder="Add up to 4 tags..."
+                        />
+                      </ul>
+                      <!-- ! Preguntar a Isra como abarca hasta los limites del container-->
+                      <div
+                        class="text-editor d-flex justify-content-between bg-light"
+                        id="markdown-mock"
+                      >
+                        <div class="text-editor-container d-flex">
+                          <a
+                            href="."
+                            class="iconoir-bold icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-italic icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-link icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-numbered-list-left icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-list icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-underline d-none d-lg-flex icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-quote d-none d-lg-flex icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-code d-none d-lg-flex icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-code-brackets-square d-none d-lg-flex icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-flash d-none d-lg-flex icons-style"
+                            target="_blank"
+                          ></a>
+                          <a
+                            href="."
+                            class="iconoir-media-image icons-style"
+                            target="_blank"
+                          ></a>
+                        </div>
+                        <div class="text-editor-container--more">
+                          <a
+                            href="."
+                            class="iconoir-more-vert icons-style"
+                            target="_blank"
+                          ></a>
+                        </div>
+                      </div>
+                      <textarea
+                        class="form-control font-monospace border border-0 shadow-none pt-3"
+                        id="FormControlTextarea2"
+                        rows="3"
+                        placeholder="Write your post content..."
+                        style="height: 500px"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="d-flex aling-items-center my-3 gap-3">
+                    <button
+                      type="button"
+                      class="btn btn-purple"
+                      id="publish-btn"
+                    >
+                      Publish
+                    </button>
+                    <button type="button" class="btn btn-outline-purplewhite">
+                      Save draft
+                    </button>
+                    <a
+                      href="."
+                      class="fa-solid fa-gear icons-style-md"
+                      target="_blank"
+                    >
+                    </a>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-3 d-none d-md-flex">
+                <div class="d-flex flex-column w-100">
+                  <div class="card-body invisible" id="card-post">
+                    <h5 class="card-title">Writing a Great Post Title</h5>
+                    <p class="card-text">
+                      Think of your post title as a super short (but
+                      compelling!) description — like an overview of the actual
+                      post in one short sentence. Use keywords where appropriate
+                      to help ensure people can find your post by search.
+                    </p>
+                  </div>
+                  <div class="card-body invisible" id="card-tagging">
+                    <h5 class="card-title">Tagging Guidelines</h5>
+                    <p class="card-text">
+                      Tags help people find your post. Think of tags as the
+                      topics or categories that best describe your post. Add up
+                      to four comma-separated tags per post. Combine tags to
+                      reach the appropriate subcommunities. Use existing tags
+                      whenever possible. Some tags, such as “help” or
+                      “healthydebate”, have special posting guidelines.
+                    </p>
+                  </div>
+                  <div class="card-body invisible" id="card-editor">
+                    <h5 class="card-title">Editor Basics</h5>
+                    <p class="card-text">
+                      Use Markdown to write and format posts. Commonly used
+                      syntax Embed rich content such as Tweets, YouTube videos,
+                      etc. Use the complete URL: {% embed https://... %}. See a
+                      list of supported embeds. In addition to images for the
+                      post's content, you can also drag and drop a cover image.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/42388cee6d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/create-post.js"></script>
+  </body>
+</html>
