@@ -309,3 +309,66 @@ h6 {
     margin-left: -1rem;
     margin-right: -1rem;
 }
+
+// ! Inicia estilos particulares del post-detail
+
+.icon-fav {
+    padding: 0.625rem;
+    font-size: 1.875rem;
+    color: black;
+    &:hover {
+        color: red;
+        border-radius: 8px;
+    }
+}
+
+.icon-bubble {
+    padding: 0.625rem;
+    font-size: 1.875rem;
+    color: black;
+    &:hover {
+        color: orange;
+        border-radius: 8px;
+    }
+}
+
+.icon-book {
+    padding: 0.625rem;
+    font-size: 1.875rem;
+    color: black;
+    &:hover {
+        color: $primary;
+        border-radius: 8px;
+    }
+}
+
+.icon-dots {
+    padding: 0.2rem;
+    font-size: 1.875rem;
+    color: gray;
+    text-decoration: none;
+    &:hover {
+        background-color: $hover-color;
+        border-radius: 100%;
+        color: black;
+    }
+}
+
+.counter-text {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.bottom-anchors {
+    &__item {
+        text-decoration: none;
+        color: gray;
+        font-size: 0.8rem;
+    }
+}
+// ! fix position
+#picture-background {
+    background-color: $primary;
+    color: $primary;
+    position: relative;
+}

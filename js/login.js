@@ -42,7 +42,13 @@ const compareInputsWithDatabase = async () => {
 let loginButton = document.getElementById("submit-btn");
 loginButton.addEventListener("click", async (event) => {
   let isLogged = await compareInputsWithDatabase();
-  !isLogged
-    ? document.getElementById("card-error").classList.remove("d-none")
-    : window.open(`/index.html?id=${isLogged}`, "_self");
+
+  if (!isLogged) {
+    document.getElementById("card-error").classList.remove("d-none");
+  } else {
+    document.getElementById("check1").checked === true
+      ? localStorage.setItem("userID", isLogged)
+      : sessionStorage.setItem("userID", isLogged);
+    window.open(`/index.html`, "_self");
+  }
 });
