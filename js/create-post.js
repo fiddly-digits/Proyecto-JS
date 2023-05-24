@@ -1,3 +1,5 @@
+const BASE_URL = `https://dev-clone-c0a56-default-rtdb.firebaseio.com/`;
+
 const ul = document.querySelector(".hashtags-add");
 const input = document.querySelector(".hashtags-add__input");
 
@@ -102,3 +104,94 @@ editorForm.onclick = function () {
     .getElementById("card-editor")
     .classList.remove("invisible");
 };
+
+const textAreaTitle = document.getElementById("FormControlTextarea1");
+
+textAreaTitle.addEventListener("keyup", (event) => {
+  let textAreaTitle = document.getElementById("FormControlTextarea1");
+  console.log(textAreaTitle.value);
+});
+
+const textAreaPost = document.getElementById("FormControlTextarea2");
+
+textAreaPost.addEventListener("keyup", (event) => {
+  let textAreaPost = document.getElementById("FormControlTextarea2");
+  console.log(textAreaPost.value);
+});
+
+let postImageInput = document.getElementById("post-image-input");
+console.log(postImageInput.value);
+
+const getHashtagsObject = () => {
+  if (tags.length === 4) {
+    let first = tags[0];
+    let second = tags[1];
+    let third = tags[2];
+    let fourth = tags[3];
+    let hashtags = { first, second, third, fourth };
+    return hashtags;
+  }
+};
+
+let getDate = () => {
+  let currentDate = new Date();
+  let year = currentDate.getFullYear();
+  let month = currentDate.getMonth() + 1;
+  let day = currentDate.getDate();
+
+  // !reparar neecesita un cero antes del mes si es menor a 10
+  return `${day}/${month}/${year}`;
+};
+
+let getRandomRelevancy = () => {
+  let rand = Math.floor(Math.random() * 2 + 1);
+  return rand === 1 ? true : false;
+};
+
+const getUserfromStorage = () => {
+  let userNameLocal = localStorage.getItem("userID");
+  let userNameSession = sessionStorage.getItem("userID");
+  if (userNameLocal) {
+    return userNameLocal;
+  } else if (userNameSession) {
+    return userNameSession;
+  }
+};
+
+const savePost = async () => {
+  let post = createPostObject();
+  let response = await fetch(`${BASE_URL}posts/.json`, {
+    method: "POST",
+    body: JSON.stringify(post),
+  });
+  let data = await response.json();
+  return data;
+};
+
+const publishButton = document.getElementById("publish-btn");
+publishButton.onclick = async function () {
+  await savePost();
+  window.open("/index.html", "_self");
+};
+
+function createPostObject() {
+  const textAreaTitle = document.getElementById("FormControlTextarea1");
+  const textAreaPost = document.getElementById("FormControlTextarea2");
+  const postImageInput = document.getElementById("post-image-input");
+  let postTitle = textAreaTitle.value;
+  let postBody = textAreaPost.value;
+  let postImg = postImageInput.value;
+  let userID = getUserfromStorage();
+  let isRelevant = getRandomRelevancy();
+  let postDate = getDate();
+  let hashtags = getHashtagsObject();
+  return {
+    hashtags,
+    isRelevant,
+    postBody,
+    postDate,
+    postImg,
+    postTitle,
+    userID,
+  };
+}
