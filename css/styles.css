@@ -12482,4 +12482,9 @@ h6,
   font-size: 2.5rem;
   font-weight: bold;
   resize: none;
+}
+
+#markdown-mock {
+  margin-left: -1rem;
+  margin-right: -1rem;
 }/*# sourceMappingURL=styles.css.map */

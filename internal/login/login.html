@@ -88,8 +88,25 @@
     <div class="container-fluid bg-light">
       <div class="row">
         <div class="col-12 col-md-12 col-lg-12">
-          <div class="container p-md-3 p-1 d-flex justify-content-center">
+          <div
+            class="container p-md-3 p-3 d-flex justify-content-center"
+            style="width: 35rem"
+          >
             <div class="row">
+              <div
+                class="card border border-danger-subtle bg-danger-subtle my-2 d-none"
+                id="card-error"
+              >
+                <div class="card-body">
+                  <h6 class="text-danger mb-2">Unable to login.</h6>
+                  <p class="mb-0">
+                    If you haven't created an account, we recommend signing up
+                    with social authentication below. If you haven't received
+                    your confirmation email yet, click here to resend it.
+                  </p>
+                  <p class="mb-0">Contact us if you continue having trouble.</p>
+                </div>
+              </div>
               <div class="card pt-3" style="width: 35rem">
                 <div class="registration">
                   <div
@@ -169,7 +186,11 @@
                           >Remember me</label
                         >
                       </div>
-                      <button type="submit" class="btn btn-purple">
+                      <button
+                        type="button"
+                        id="submit-btn"
+                        class="btn btn-purple"
+                      >
                         Continue
                       </button>
                       <a href="#" class="hyperlink--nounderscore text-center"

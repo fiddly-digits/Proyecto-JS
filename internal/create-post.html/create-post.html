@@ -28,19 +28,19 @@
       <div
         class="d-flex align-items-center justify-content-between px-md-5 px-2 w-100"
       >
-        <div class="d-flex align-items-center gap-3">
-          <img
-            src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
-            alt="Logo"
-            width="50"
-            height="40"
-            class="d-none d-md-inline"
-          />
-          <h6 class="d-none d-sm-block">Create Post</h6>
-        </div>
-        <div class="d-flex align-items-center justify-content-between w-md-50">
-          <div class="d-flex align-items-center justify-content-between">
-            <ul class="nav nav-pills main-menu pb-2 flex-grow-1">
+        <div class="d-flex align-items-center justify-content-between w-75">
+          <div class="d-flex align-items-center gap-2">
+            <img
+              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+              alt="Logo"
+              width="50"
+              height="40"
+              class="d-none d-md-inline"
+            />
+            <h6 class="d-none d-sm-block">Create Post</h6>
+          </div>
+          <div class="d-flex w-md-50">
+            <ul class="nav nav-pills main-menu pb-2">
               <li class="nav-item main-menu__item">
                 <a
                   class="nav-link main-menu__item__content"
@@ -56,14 +56,14 @@
               </li>
             </ul>
           </div>
-          <button type="button" class="btn-close mb-2"></button>
         </div>
+        <button type="button" class="btn-close mb-2"></button>
       </div>
     </nav>
     <!-- * End of Navigation Bar -->
 
     <!-- * Start of Main Container  -->
-    <div class="container-fluid bg-light">
+    <div class="container-fluid bg-light min-vh-100">
       <div class="row justify-content-center">
         <div class="col-12 col-md-12 col-lg-12">
           <div class="container p-3">
@@ -88,8 +88,7 @@
                       <input
                         type="text"
                         class="form-control border border-secondary-subtle d-inline shadow-none"
-                        id="FormControlTextarea3"
-                        placeholder="Inserta el enlace de tu Imagen"
+                        placeholder="Insert the link of your header img here..."
                       />
 
                       <!-- ! preguntar a isra como cae hacia abajo el input -->
@@ -103,12 +102,14 @@
                           type="text"
                           class="hashtags-add__input"
                           spellcheck="false"
+                          id="FormControlHashtags"
                           placeholder="Add up to 4 tags..."
                         />
                       </ul>
                       <!-- ! Preguntar a Isra como abarca hasta los limites del container-->
                       <div
                         class="text-editor d-flex justify-content-between bg-light"
+                        id="markdown-mock"
                       >
                         <div class="text-editor-container d-flex">
                           <a
@@ -201,12 +202,8 @@
                 </form>
               </div>
               <div class="col-md-3 d-none d-md-flex">
-                <h2 id="text-test" class="d-none">SOY OTRO TEXTO</h2>
                 <div class="d-flex flex-column w-100">
-                  <div
-                    class="card-body visually-hidden-focusable"
-                    id="card-post"
-                  >
+                  <div class="card-body invisible" id="card-post">
                     <h5 class="card-title">Writing a Great Post Title</h5>
                     <p class="card-text">
                       Think of your post title as a super short (but
@@ -215,10 +212,7 @@
                       to help ensure people can find your post by search.
                     </p>
                   </div>
-                  <div
-                    class="card-body visually-hidden-focusable"
-                    id="card-tagging"
-                  >
+                  <div class="card-body invisible" id="card-tagging">
                     <h5 class="card-title">Tagging Guidelines</h5>
                     <p class="card-text">
                       Tags help people find your post. Think of tags as the
@@ -229,10 +223,7 @@
                       “healthydebate”, have special posting guidelines.
                     </p>
                   </div>
-                  <div
-                    class="card-body visually-hidden-focusable"
-                    id="card-editor"
-                  >
+                  <div class="card-body invisible" id="card-editor">
                     <h5 class="card-title">Editor Basics</h5>
                     <p class="card-text">
                       Use Markdown to write and format posts. Commonly used

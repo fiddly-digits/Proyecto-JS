@@ -1,8 +1,5 @@
 const ul = document.querySelector(".hashtags-add");
 const input = document.querySelector(".hashtags-add__input");
-const inputImg = document.getElementById("FormControlTextarea3");
-
-inputImg.setAttribute("size", inputImg.getAttribute("placeholder").length);
 
 let maxTags = 4;
 
@@ -25,15 +22,11 @@ function countTags() {
 
 function createTag() {
   ul.querySelectorAll("li").forEach((li) => li.remove());
-  tags
-    .slice()
-    .reverse()
-    .forEach((tag) => {
-      input.querySelector(".hashtags-add__input");
-      let liTag = createElementTag(tag);
-      //! insertar despues del elemento
-      ul.insertBefore(liTag, input);
-    });
+  tags.slice().forEach((tag) => {
+    input.querySelector(".hashtags-add__input");
+    let liTag = createElementTag(tag);
+    ul.insertBefore(liTag, input);
+  });
   countTags();
 }
 
@@ -70,15 +63,42 @@ input.addEventListener("keyup", (event) => {
 });
 
 let titleForm = document.getElementById("FormControlTextarea1");
+console.log(titleForm);
 titleForm.onclick = function () {
   let cardPost = document
     .getElementById("card-post")
-    .classList.remove("visually-hidden-focusable");
+    .classList.remove("invisible");
+  let cardTags = document
+    .getElementById("card-tagging")
+    .classList.add("invisible");
+  let editorCard = document
+    .getElementById("card-editor")
+    .classList.add("invisible");
+};
+
+let tagsForm = document.getElementById("FormControlHashtags");
+tagsForm.onclick = function () {
+  let cardPost = document
+    .getElementById("card-post")
+    .classList.add("invisible");
+  let cardTags = document
+    .getElementById("card-tagging")
+    .classList.remove("invisible");
+  let editorCard = document
+    .getElementById("card-editor")
+    .classList.add("invisible");
 };
 
 let editorForm = document.getElementById("FormControlTextarea2");
+console.log(editorForm);
 editorForm.onclick = function () {
   let cardPost = document
+    .getElementById("card-post")
+    .classList.add("invisible");
+  let cardTags = document
+    .getElementById("card-tagging")
+    .classList.add("invisible");
+  let editorCard = document
     .getElementById("card-editor")
-    .classList.remove("visually-hidden-focusable");
+    .classList.remove("invisible");
 };
