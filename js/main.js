@@ -15,7 +15,8 @@ const addSourceToAnchors = () => {
     .querySelectorAll(".card-text--article")
     .forEach((title) => {
       title.onclick = function () {
-        location.href = "./internal/post-detail/post-detail.html";
+        let postID = this.getAttribute("data-postid");
+        location.href = `./internal/post-detail/post-detail.html?id=${postID}`;
       };
     });
 };
@@ -180,11 +181,12 @@ const createHashtagComponent = (first, second, third, fourth) => {
 
 //CREANDO TEXTO LISTO
 
-const createText = (postTitle) => {
+const createText = (postTitle, postID) => {
   let wrapperAnchor = document.createElement("a");
   let wrapperTextArticle = document.createElement("h3");
   let textArticle = document.createTextNode(postTitle); //Cambiar Despues
   wrapperAnchor.classList.add("card-text", "card-text--article", "mb-2");
+  wrapperAnchor.setAttribute("data-postID", postID);
   wrapperTextArticle.append(textArticle);
   wrapperAnchor.appendChild(wrapperTextArticle);
   return wrapperAnchor;
@@ -224,11 +226,12 @@ const createSecondaryContainer = (
   first,
   second,
   third,
-  fourth
+  fourth,
+  postID
 ) => {
   let interactionsComponent = createInteractionsComponent();
   let hashtagsComponent = createHashtagComponent(first, second, third, fourth);
-  let textComponent = createText(postTitle);
+  let textComponent = createText(postTitle, postID);
   let subtitleComponent = createSubtitle(postDate);
   let titleComponent = createTitle(fullName);
   let secondaryContainer = document.createElement("div");
@@ -266,7 +269,8 @@ const createCardBody = (
   first,
   second,
   third,
-  fourth
+  fourth,
+  postID
 ) => {
   let componentUserImage = createUserImage(picture);
   let componentSecondary = createSecondaryContainer(
@@ -276,7 +280,8 @@ const createCardBody = (
     first,
     second,
     third,
-    fourth
+    fourth,
+    postID
   );
   let cardBody = document.createElement("div");
   cardBody.classList.add("card-body", "d-flex");
@@ -294,7 +299,7 @@ const createMainImage = (postImg) => {
 };
 
 // CREANDO DIV CONTAINER
-const createMainCard = (info) => {
+const createMainCard = (info, postID) => {
   let { postTitle, postImg, postDate, picture, fullName, hashtags } = info;
   let { first, second, third, fourth } = hashtags;
   let card = document.createElement("div");
@@ -307,15 +312,17 @@ const createMainCard = (info) => {
     first,
     second,
     third,
-    fourth
+    fourth,
+    postID
   );
   card.classList.add("card");
+  card.setAttribute("data-card-id", postID);
   card.append(topImage, cardBody);
   return card;
 };
 
 const addCardToDom = async () => {
-  let postsInfo = await getAPost();
+  let postsInfo = await getPosts();
   for (post in postsInfo) {
     let { postTitle, postImg, postDate, userID, hashtags } = postsInfo[post];
     let users = await getUsers();
@@ -334,7 +341,7 @@ const addCardToDom = async () => {
         };
         console.log(postComplete);
         let mainContainer = document.querySelector(".cards-container-main");
-        let card = createMainCard(postComplete);
+        let card = createMainCard(postComplete, post);
         mainContainer.appendChild(card);
         addSourceToAnchors();
       }
@@ -344,13 +351,11 @@ const addCardToDom = async () => {
 };
 
 // ! List
-const createHashList = () => {
+const createHashList = (postTitle) => {
   let ulList = document.createElement("ul");
   let liElement = document.createElement("li");
   let parrText1 = document.createElement("p");
-  let textOfParr1 = document.createTextNode(
-    "If Coding Languages Were Ice Cream Flavors...?"
-  ); //DINAMICO
+  let textOfParr1 = document.createTextNode(postTitle); //DINAMICO
   let parrText2 = document.createElement("p");
   let textOfParr2 = document.createTextNode("7 comments"); //DINAMICO
   ulList.classList.add("list-group", "list-group-flush");
@@ -386,12 +391,12 @@ const createHashList = () => {
 };
 
 //CREANDO TITULO DISCUSS
-const cardHashTitle = () => {
+const cardHashTitle = (title) => {
   let divTitle = document.createElement("div");
   let parrTitle = document.createElement("p");
   let articleTitle = document.createElement("a");
   let boldTitle = document.createElement("b");
-  let textTitle = document.createTextNode("#discuss"); //DINAMICO
+  let textTitle = document.createTextNode(title); //DINAMICO
   divTitle.classList.add(
     "card-header",
     "d-flex",
@@ -409,7 +414,7 @@ const cardHashTitle = () => {
   return divTitle;
 };
 
-const cardHashContainer = () => {
+const cardHashContainer = (hashTitle, postTitle) => {
   let divContainer = document.createElement("div");
   let divSecondary = document.createElement("div");
   divContainer.classList.add(
@@ -419,31 +424,219 @@ const cardHashContainer = () => {
     "gap-4"
   );
   divSecondary.classList.add("card");
-  let list = createHashList();
-  let title = cardHashTitle();
+  let list = createHashList(postTitle);
+  let title = cardHashTitle(hashTitle);
   divSecondary.append(title, list);
   divContainer.append(divSecondary);
   return divContainer;
 };
-
+//TRAER OBJETOS DE BASE DATOS EN MAIN
 const POST_ENDPOINT =
   "https://dev-clone-c0a56-default-rtdb.firebaseio.com/posts/.json";
 
-const getAPost = async () => {
+const getPosts = async () => {
   let response = await fetch(POST_ENDPOINT);
   let data = await response.json();
   return data;
 };
 
-const printPost = async () => {
-  let post = await getAPost();
-  return post;
+addCardToDom();
+
+const filterSearch = async (searchInput) => {
+  let posts = await getPosts();
+  let result = [];
+  for (key in posts) {
+    let { postTitle, postBody } = posts[key];
+    let isTitleCoincident = postTitle
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+    let isPostBodyCoincident = postBody
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+    isTitleCoincident || isPostBodyCoincident ? result.push(key) : null;
+  }
+  return result;
+};
+const SINGLE_POST_ENDPOINT =
+  "https://dev-clone-c0a56-default-rtdb.firebaseio.com/posts/";
+
+let searchBar = document.querySelector(".search-bar__input");
+searchBar.addEventListener("keyup", async (event) => {
+  event.preventDefault();
+  if (event.key == "Enter") {
+    let filteredID = await filterSearch(event.target.value);
+    cleanList();
+    filteredID.forEach(async (id) => {
+      let postInfo = await getAPost(id);
+      console.log(id);
+      let { postTitle, postImg, postDate, userID, hashtags } = postInfo;
+      let users = await getUsers();
+      for (key in users) {
+        if (userID === key) {
+          let { picture, name } = users[key];
+          let { first, last } = name;
+          let fullName = `${first} ${last}`;
+          let postComplete = {
+            postTitle,
+            postImg,
+            postDate,
+            picture,
+            fullName,
+            hashtags,
+          };
+          console.log(postComplete);
+          let mainContainer = document.querySelector(".cards-container-main");
+          let card = createMainCard(postComplete, id);
+          mainContainer.appendChild(card);
+          let getTitleAnchor = document.querySelector(`[data-postid=${id}]`);
+          getTitleAnchor.onclick = function () {
+            location.href = `./internal/post-detail/post-detail.html?id=${id}`;
+          };
+        }
+      }
+    });
+  }
+});
+
+const getAPost = async (postID) => {
+  let response = await fetch(`${SINGLE_POST_ENDPOINT}${postID}/.json`);
+  let data = await response.json();
+  return data;
 };
 
-let hashtagCard = cardHashContainer();
-let cardsContainer = document
-  .querySelector(".cards-container-right")
-  .append(hashtagCard);
+const cleanList = () => {
+  let cardMainList = document.querySelector(".cards-container-main");
+  while (cardMainList.firstChild) {
+    cardMainList.removeChild(cardMainList.lastChild);
+  }
+};
 
-console.log(printPost());
-addCardToDom();
+const filterLatest = async () => {
+  let posts = await getPosts();
+  let result = [];
+  for (key in posts) {
+    let { postDate } = posts[key];
+    result.push({ postDate, key });
+  }
+  return result.sort((a, b) => (a.postDate < b.postDate ? 1 : -1));
+};
+// latest.
+const latestButton = document.getElementById("latest-filter");
+latestButton.addEventListener("click", async (event) => {
+  let top = document.getElementById("anchor-filter-top");
+  let latest = document.getElementById("anchor-filter-latest");
+  let relevant = document.getElementById("anchor-filter-relevant");
+  top.classList.remove("fw-bold");
+  latest.classList.add("fw-bold");
+  relevant.classList.remove("fw-bold");
+  let latestObjects = await filterLatest();
+  cleanList();
+  console.log(latestObjects);
+  latestObjects.forEach(async (object) => {
+    let post = await getAPost(object.key);
+    let { postTitle, postImg, postDate, userID, hashtags } = post;
+    let users = await getUsers();
+    for (key in users) {
+      if (userID === key) {
+        let { picture, name } = users[key];
+        let { first, last } = name;
+        let fullName = `${first} ${last}`;
+        let postComplete = {
+          postTitle,
+          postImg,
+          postDate,
+          picture,
+          fullName,
+          hashtags,
+        };
+        console.log(postComplete);
+        let mainContainer = document.querySelector(".cards-container-main");
+        let card = createMainCard(postComplete, object.key);
+        mainContainer.appendChild(card);
+        let getTitleAnchor = document.querySelector(
+          `[data-postid=${object.key}]`
+        );
+        getTitleAnchor.onclick = function () {
+          location.href = `./internal/post-detail/post-detail.html?id=${object.key}`;
+        };
+      }
+    }
+  });
+});
+// FILTRO TOP
+const topButton = document.getElementById("top-filter");
+topButton.addEventListener("click", async (event) => {
+  let top = document.getElementById("anchor-filter-top");
+  let latest = document.getElementById("anchor-filter-latest");
+  let relevant = document.getElementById("anchor-filter-relevant");
+  top.classList.add("fw-bold");
+  latest.classList.remove("fw-bold");
+  relevant.classList.remove("fw-bold");
+  let posts = await getPosts();
+  cleanList();
+  for (key in posts) {
+    if (posts[key].isRelevant) {
+      let { postTitle, postImg, postDate, userID, hashtags } = posts[key];
+      let users = await getUsers();
+      for (key in users) {
+        if (userID === key) {
+          let { picture, name } = users[key];
+          let { first, last } = name;
+          let fullName = `${first} ${last}`;
+          let postComplete = {
+            postTitle,
+            postImg,
+            postDate,
+            picture,
+            fullName,
+            hashtags,
+          };
+          console.log(postComplete);
+          let mainContainer = document.querySelector(".cards-container-main");
+          let card = createMainCard(postComplete, key);
+          mainContainer.appendChild(card);
+          let getTitleAnchor = document.querySelector(`[data-postid=${key}]`);
+          getTitleAnchor.onclick = function () {
+            location.href = `./internal/post-detail/post-detail.html?id=${key}`;
+          };
+        }
+      }
+    }
+  }
+});
+
+const relevantButton = document.getElementById("relevant-filter");
+relevantButton.addEventListener("click", async (event) => {
+  let top = document.getElementById("anchor-filter-top");
+  let latest = document.getElementById("anchor-filter-latest");
+  let relevant = document.getElementById("anchor-filter-relevant");
+  top.classList.remove("fw-bold");
+  latest.classList.remove("fw-bold");
+  relevant.classList.add("fw-bold");
+  cleanList();
+  await addCardToDom();
+});
+
+const createAsideCard = async (input) => {
+  let posts = await getPosts();
+  let postsFiltered = 1;
+  let postTitleFilter = [];
+  for (key in posts) {
+    let { postTitle, hashtags } = posts[key];
+    for (element in hashtags) {
+      if (hashtags[element] === input) {
+        postsFiltered += 1;
+        postTitleFilter.push(postTitle);
+        if (postsFiltered <= 2) {
+          let card = cardHashContainer(input, postTitleFilter);
+          let cardsContainer = document
+            .querySelector(".cards-container-right")
+            .append(card);
+        }
+      }
+    }
+  }
+};
+
+createAsideCard("#javascript");
+createAsideCard("#kodemia");

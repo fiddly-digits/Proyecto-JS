@@ -140,7 +140,7 @@ let getDate = () => {
   let day = currentDate.getDate();
 
   // !reparar neecesita un cero antes del mes si es menor a 10
-  return `${day}/${month}/${year}`;
+  return `${year}-0${month}-${day + 1}`;
 };
 
 let getRandomRelevancy = () => {
@@ -158,8 +158,8 @@ const getUserfromStorage = () => {
   }
 };
 
-const savePost = async () => {
-  let post = createPostObject();
+const savePost = async (post) => {
+  console.log(post);
   let response = await fetch(`${BASE_URL}posts/.json`, {
     method: "POST",
     body: JSON.stringify(post),
@@ -170,8 +170,12 @@ const savePost = async () => {
 
 const publishButton = document.getElementById("publish-btn");
 publishButton.onclick = async function () {
-  await savePost();
-  window.open("/index.html", "_self");
+  let postObject = createPostObject();
+  console.log(postObject);
+  if (postObject) {
+    await savePost(postObject);
+    window.open("/index.html", "_self");
+  }
 };
 
 function createPostObject() {
@@ -185,6 +189,56 @@ function createPostObject() {
   let isRelevant = getRandomRelevancy();
   let postDate = getDate();
   let hashtags = getHashtagsObject();
+
+  if (!postTitle) {
+    let titleErrorParagraph = document.createElement("p");
+    let titleErrorText = document.createTextNode("title: can't be blank");
+    titleErrorParagraph.classList.add("mb-0");
+    titleErrorParagraph.appendChild(titleErrorText);
+    let errorCardBody = document.getElementById("error-card-body");
+    let errorCard = document.getElementById("error-card");
+    errorCardBody.appendChild(titleErrorParagraph);
+    errorCard.classList.remove("d-none");
+    return false;
+  }
+
+  if (!postBody) {
+    let titleErrorParagraph = document.createElement("p");
+    let titleErrorText = document.createTextNode("Body: can't be blank");
+    titleErrorParagraph.classList.add("mb-0");
+    titleErrorParagraph.appendChild(titleErrorText);
+    let errorCardBody = document.getElementById("error-card-body");
+    let errorCard = document.getElementById("error-card");
+    errorCard.classList.remove("d-none");
+    errorCardBody.appendChild(titleErrorParagraph);
+    return false;
+  }
+
+  if (!postImg) {
+    let titleErrorParagraph = document.createElement("p");
+    let titleErrorText = document.createTextNode("Img: can't be blank");
+    titleErrorParagraph.classList.add("mb-0");
+    titleErrorParagraph.appendChild(titleErrorText);
+    let errorCardBody = document.getElementById("error-card-body");
+    let errorCard = document.getElementById("error-card");
+    errorCardBody.appendChild(titleErrorParagraph);
+    errorCard.classList.remove("d-none");
+    return false;
+  }
+
+  if (tags.length != 4) {
+    let titleErrorParagraph = document.createElement("p");
+    let titleErrorText = document.createTextNode(
+      "hashtags: add at least 4 hashtags"
+    );
+    titleErrorParagraph.classList.add("mb-0");
+    titleErrorParagraph.appendChild(titleErrorText);
+    let errorCardBody = document.getElementById("error-card-body");
+    let errorCard = document.getElementById("error-card");
+    errorCardBody.appendChild(titleErrorParagraph);
+    errorCard.classList.remove("d-none");
+    return false;
+  }
   return {
     hashtags,
     isRelevant,

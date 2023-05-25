@@ -32,20 +32,22 @@
             <div class="hamburger__item"></div>
             <div class="hamburger__item"></div>
           </button>
-          <img
-            src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
-            alt="Logo"
-            width="50"
-            height="40"
-          />
-          <form class="search-bar d-none d-md-flex flex-grow-1">
+          <a href="index.html">
+            <img
+              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+              alt="Logo"
+              width="50"
+              height="40"
+            />
+          </a>
+          <div class="search-bar d-none d-md-flex flex-grow-1">
             <input
               class="search-bar__input"
               type="text"
               placeholder="Search..."
             />
             <a href="."><i class="iconoir-search search-bar__icon"></i> </a>
-          </form>
+          </div>
         </div>
         <div class="d-flex gap-md-4 gap-1 pt-1">
           <!-- ! Button create post only active when user is logged -->
@@ -377,17 +379,26 @@
                       class="nav-link main-menu__item__content"
                       aria-current="page"
                       href="#"
-                      >Relevant</a
+                      id="relevant-filter"
+                      ><p class="mb-0 fw-bold" id="anchor-filter-relevant">
+                        Relevant
+                      </p></a
                     >
                   </li>
                   <li class="nav-item main-menu__item">
-                    <a class="nav-link main-menu__item__content" href="#"
-                      >Latest</a
+                    <a
+                      class="nav-link main-menu__item__content"
+                      href="#"
+                      id="latest-filter"
+                      ><p class="mb-0" id="anchor-filter-latest">Latest</p></a
                     >
                   </li>
                   <li class="nav-item main-menu__item">
-                    <a class="nav-link main-menu__item__content" href="#"
-                      >Top</a
+                    <a
+                      class="nav-link main-menu__item__content"
+                      href="#"
+                      id="top-filter"
+                      ><p class="mb-0" id="anchor-filter-top">Top</p></a
                     >
                   </li>
                 </ul>

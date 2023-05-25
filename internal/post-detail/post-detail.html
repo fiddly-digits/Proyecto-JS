@@ -32,12 +32,14 @@
             <div class="hamburger__item"></div>
             <div class="hamburger__item"></div>
           </button>
-          <img
-            src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
-            alt="Logo"
-            width="50"
-            height="40"
-          />
+          <a href="index.html">
+            <img
+              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+              alt="Logo"
+              width="50"
+              height="40"
+            />
+          </a>
           <form class="search-bar d-none d-md-flex flex-grow-1">
             <input
               class="search-bar__input"
@@ -140,9 +142,10 @@
                         src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
                         class="card-img-top"
                         alt="..."
+                        id="post-main-img"
                       />
-                      <div class="card-body d-flex">
-                        <div class="d-flex flex-column ps-2">
+                      <div class="card-body d-flex w-100">
+                        <div class="d-flex flex-column ps-2 flex-grow-1">
                           <div class="d-flex">
                             <a href="">
                               <img
@@ -151,18 +154,21 @@
                                 width="35"
                                 height="35"
                                 class="circle-profile-picture--nohover mt-1"
+                                id="post-user-picture"
                               />
                             </a>
                             <div class="user-data ps-3 pt-0">
                               <p class="card-title">
-                                <span class="card-title--user"
-                                  >Renan Ferro</span
-                                >
+                                <span
+                                  class="card-title--user"
+                                  id="username"
+                                ></span>
                               </p>
                               <p class="card-subtitle">
-                                <span class="card-subtitle--date"
-                                  >May 19 (8 hours ago)</span
-                                >
+                                <span
+                                  class="card-subtitle--date"
+                                  id="post-date"
+                                ></span>
                               </p>
                             </div>
                           </div>
@@ -173,57 +179,30 @@
                             <p>🙌 0</p>
                             <p>🔥 0</p>
                           </div>
-                          <h1 class="mb-2">
-                            Let's make a cool mouse event bubble animation in
-                            just 50 lines of JavaScript!
-                          </h1>
+                          <h1 class="mb-2" id="post-title"></h1>
                           <div class="hashtags d-flex flex-wrap gap-4 mb-3">
-                            <a href="." class="hashtags__item">#javascript</a>
-                            <a href="." class="hashtags__item">#frontend</a>
-                            <a href="." class="hashtags__item">#tutorial</a>
-                            <a href="." class="hashtags__item">#animation</a>
+                            <a
+                              href="."
+                              class="hashtags__item"
+                              id="first-hash"
+                            ></a>
+                            <a
+                              href="."
+                              class="hashtags__item"
+                              id="second-hash"
+                            ></a>
+                            <a
+                              href="."
+                              class="hashtags__item"
+                              id="third-hash"
+                            ></a>
+                            <a
+                              href="."
+                              class="hashtags__item"
+                              id="fourth-hash"
+                            ></a>
                           </div>
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Necessitatibus, reprehenderit eaque. Tenetur,
-                            eveniet cupiditate natus provident animi odio quos
-                            corporis laudantium eius veritatis vitae
-                            consequuntur aut quasi doloremque nulla eaque. Lorem
-                            ipsum dolor sit amet consectetur adipisicing elit.
-                            Sed odit maxime ipsa. Recusandae sint culpa vero
-                            reiciendis non quisquam autem et ipsa enim molestias
-                            facilis, provident molestiae aliquid deleniti
-                            temporibus. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Libero enim incidunt quas
-                            praesentium suscipit quae id neque obcaecati eveniet
-                            vel dolorem adipisci, impedit unde exercitationem
-                            molestias velit dolor aliquid laboriosam! Lorem
-                            ipsum dolor sit amet, consectetur adipisicing elit.
-                            Iusto natus atque mollitia fuga at ullam iure,
-                            dolores assumenda veniam. Quibusdam eaque laboriosam
-                            repellat aliquam corrupti minus libero, cumque
-                            possimus. Amet. Lorem ipsum dolor sit, amet
-                            consectetur adipisicing elit. Saepe vel quo
-                            repudiandae, voluptatum error tenetur voluptate
-                            nihil similique aut itaque magni temporibus aliquid
-                            veritatis culpa reprehenderit beatae quis sint
-                            illum! Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Quaerat doloribus optio itaque
-                            doloremque expedita blanditiis non commodi ipsum,
-                            ullam provident, impedit, in repellat consectetur
-                            animi sed repudiandae tempore modi repellendus.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Officia vel aut hic ipsam facere molestias
-                            natus. Eum omnis eveniet iure, illo, inventore
-                            corrupti odit maiores nemo, est nisi doloribus unde?
-                          </p>
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Dolor accusamus quisquam minus similique,
-                            distinctio doloremque deserunt facilis consequuntur
-                            minima rerum optio ipsum officiis commodi!
-                            Voluptatibus accusamus nemo expedita velit earum!
-                          </p>
+                          <p id="post-content"></p>
                           <div class="comments">
                             <div
                               class="border-top"
