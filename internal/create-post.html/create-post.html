@@ -72,15 +72,12 @@
                 <form>
                   <div
                     class="card border border-danger-subtle bg-danger-subtle d-none"
+                    id="error-card"
                   >
-                    <div class="card-body">
+                    <div class="card-body" id="error-card-body">
                       <h5 class="text-danger mb-2">
                         Whoops, something went wrong:
                       </h5>
-                      <p class="mb-0">title: can't be blank</p>
-                      <p class="mb-0">
-                        title: is too long (maximum is 128 characters)
-                      </p>
                     </div>
                   </div>
                   <div class="card">
@@ -186,25 +183,21 @@
                       ></textarea>
                     </div>
                   </div>
-                  <div class="d-flex aling-items-center my-3 gap-3">
-                    <button
-                      type="button"
-                      class="btn btn-purple"
-                      id="publish-btn"
-                    >
-                      Publish
-                    </button>
-                    <button type="button" class="btn btn-outline-purplewhite">
-                      Save draft
-                    </button>
-                    <a
-                      href="."
-                      class="fa-solid fa-gear icons-style-md"
-                      target="_blank"
-                    >
-                    </a>
-                  </div>
                 </form>
+                <div class="d-flex aling-items-center my-3 gap-3">
+                  <button type="button" class="btn btn-purple" id="publish-btn">
+                    Publish
+                  </button>
+                  <button type="button" class="btn btn-outline-purplewhite">
+                    Save draft
+                  </button>
+                  <a
+                    href="."
+                    class="fa-solid fa-gear icons-style-md"
+                    target="_blank"
+                  >
+                  </a>
+                </div>
               </div>
               <div class="col-md-3 d-none d-md-flex">
                 <div class="d-flex flex-column w-100">
