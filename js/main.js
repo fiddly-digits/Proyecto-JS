@@ -355,7 +355,7 @@ const createHashList = (postTitle) => {
   let ulList = document.createElement("ul");
   let liElement = document.createElement("li");
   let parrText1 = document.createElement("p");
-  let textOfParr1 = document.createTextNode(postTitle); //DINAMICO
+  let textOfParr1 = document.createTextNode(postTitle[0]); //DINAMICO
   let parrText2 = document.createElement("p");
   let textOfParr2 = document.createTextNode("7 comments"); //DINAMICO
   ulList.classList.add("list-group", "list-group-flush");
@@ -371,9 +371,7 @@ const createHashList = (postTitle) => {
   liElement.append(parrText1, parrText2);
   let liElement2 = document.createElement("li");
   let parrText3 = document.createElement("p");
-  let textOfParr3 = document.createTextNode(
-    "If Coding Languages Were Ice Cream Flavors...?"
-  ); //DINAMICO
+  let textOfParr3 = document.createTextNode(postTitle[1]); //DINAMICO
   let parrText4 = document.createElement("p");
   let textOfParr4 = document.createTextNode("7 comments"); //DINAMICO
   liElement2.classList.add("list-group-item");
@@ -619,23 +617,24 @@ relevantButton.addEventListener("click", async (event) => {
 
 const createAsideCard = async (input) => {
   let posts = await getPosts();
-  let postsFiltered = 1;
+  let postsFiltered = 0;
   let postTitleFilter = [];
   for (key in posts) {
     let { postTitle, hashtags } = posts[key];
     for (element in hashtags) {
       if (hashtags[element] === input) {
         postsFiltered += 1;
-        postTitleFilter.push(postTitle);
         if (postsFiltered <= 2) {
-          let card = cardHashContainer(input, postTitleFilter);
-          let cardsContainer = document
-            .querySelector(".cards-container-right")
-            .append(card);
+          postTitleFilter.push(postTitle);
         }
       }
     }
   }
+  console.log(postTitleFilter);
+  let card = cardHashContainer(input, postTitleFilter);
+  let cardsContainer = document
+    .querySelector(".cards-container-right")
+    .append(card);
 };
 
 createAsideCard("#javascript");

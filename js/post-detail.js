@@ -127,4 +127,30 @@ const fillPostData = async () => {
   titleElement.appendChild(publishTitle);
 };
 
+let fillAuthorData = async () => {
+  let params = new URLSearchParams(window.location.search);
+  let paramsID = params.get("id");
+  let postObject = await getAPost(paramsID);
+  let { userID } = postObject;
+  let userObject = await getUser(userID);
+  let { picture, name, location, work, joined } = userObject;
+  let { first, last } = name;
+  let authorNameElement = document.getElementById("author-name");
+  console.log(authorNameElement);
+  let authorPicElement = document.getElementById("author-pic");
+  let authorLocationElement = document.getElementById("author-location");
+  let authorWorkElement = document.getElementById("author-work");
+  let authorDateElement = document.getElementById("author-date");
+  let authorNameText = document.createTextNode(`${first} ${last}`);
+  let authorLocationText = document.createTextNode(location);
+  let authorWorkText = document.createTextNode(work);
+  let authorJoinedText = document.createTextNode(joined);
+  authorPicElement.setAttribute("src", picture);
+  authorNameElement.appendChild(authorNameText);
+  authorLocationElement.appendChild(authorLocationText);
+  authorWorkElement.appendChild(authorWorkText);
+  authorDateElement.appendChild(authorJoinedText);
+};
+
+fillAuthorData();
 fillPostData();
