@@ -8,13 +8,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
-    />
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
     <title>Dev.to Clone</title>
   </head>
   <body>
@@ -26,8 +24,7 @@
             class="hamburger d-md-none"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvas-menu"
-            aria-controls="offcanvas-menu"
-          >
+            aria-controls="offcanvas-menu">
             <div class="hamburger__item"></div>
             <div class="hamburger__item"></div>
             <div class="hamburger__item"></div>
@@ -37,15 +34,13 @@
               src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
               alt="Logo"
               width="50"
-              height="40"
-            />
+              height="40" />
           </a>
           <form class="search-bar d-none d-md-flex flex-grow-1">
             <input
               class="search-bar__input"
               type="text"
-              placeholder="Search..."
-            />
+              placeholder="Search..." />
             <a href="."><i class="iconoir-search search-bar__icon"></i> </a>
           </form>
         </div>
@@ -54,8 +49,7 @@
           <button
             type="button"
             class="btn d-none btn-outline-purple"
-            id="create-post-btn"
-          >
+            id="create-post-btn">
             Create Post
           </button>
           <a href="" class="d-md-none"
@@ -64,15 +58,13 @@
           <button
             type="button"
             class="btn d-none d-md-inline btn-outline-purplewhite login"
-            id="log-in-btn"
-          >
+            id="log-in-btn">
             Log In
           </button>
           <button
             type="button"
             class="btn d-md-inline btn-outline-purple login"
-            id="create-account-btn"
-          >
+            id="create-account-btn">
             Create account
           </button>
           <!-- ! bell icon only active when user is logged -->
@@ -89,8 +81,7 @@
             id="profile-picture"
             tabindex="0"
             data-bs-toggle="popover"
-            data-bs-title="Popover title"
-          />
+            data-bs-title="Popover title" />
         </div>
       </div>
     </nav>
@@ -105,29 +96,24 @@
               <!-- * start of menu aside  -->
               <aside class="col-md-1 d-none d-md-flex flex-column pt-5">
                 <div
-                  class="container d-flex justify-content-evenly flex-column justify-content-center gap-3"
-                >
+                  class="container d-flex justify-content-evenly flex-column justify-content-center gap-3">
                   <div
-                    class="icon-container d-flex flex-column align-items-center"
-                  >
+                    class="icon-container d-flex flex-column align-items-center">
                     <i class="iconoir-heart icon-fav"> </i>
                     <p class="counter-text mb-0">0</p>
                   </div>
                   <div
-                    class="icon-container d-flex flex-column align-items-center"
-                  >
+                    class="icon-container d-flex flex-column align-items-center">
                     <i class="iconoir-chat-bubble-empty icon-bubble"></i>
                     <p class="counter-text mb-0">0</p>
                   </div>
                   <div
-                    class="icon-container d-flex flex-column align-items-center"
-                  >
+                    class="icon-container d-flex flex-column align-items-center">
                     <i class="iconoir-bookmark-empty icon-book"></i>
                     <p class="counter-text mb-0">0</p>
                   </div>
                   <div
-                    class="icon-container d-flex align-items-center justify-content-center"
-                  >
+                    class="icon-container d-flex align-items-center justify-content-center">
                     <i class="iconoir-more-horiz icon-dots"></i>
                   </div>
                 </div>
@@ -142,8 +128,7 @@
                         src="https://res.cloudinary.com/practicaldev/image/fetch/s---uXKaq95--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ab4mzs8912oxv5vrmxo1.jpg"
                         class="card-img-top"
                         alt="..."
-                        id="post-main-img"
-                      />
+                        id="post-main-img" />
                       <div class="card-body d-flex w-100">
                         <div class="d-flex flex-column ps-2 flex-grow-1">
                           <div class="d-flex">
@@ -154,21 +139,18 @@
                                 width="35"
                                 height="35"
                                 class="circle-profile-picture--nohover mt-1"
-                                id="post-user-picture"
-                              />
+                                id="post-user-picture" />
                             </a>
                             <div class="user-data ps-3 pt-0">
                               <p class="card-title">
                                 <span
                                   class="card-title--user"
-                                  id="username"
-                                ></span>
+                                  id="username"></span>
                               </p>
                               <p class="card-subtitle">
                                 <span
                                   class="card-subtitle--date"
-                                  id="post-date"
-                                ></span>
+                                  id="post-date"></span>
                               </p>
                             </div>
                           </div>
@@ -184,36 +166,30 @@
                             <a
                               href="."
                               class="hashtags__item"
-                              id="first-hash"
-                            ></a>
+                              id="first-hash"></a>
                             <a
                               href="."
                               class="hashtags__item"
-                              id="second-hash"
-                            ></a>
+                              id="second-hash"></a>
                             <a
                               href="."
                               class="hashtags__item"
-                              id="third-hash"
-                            ></a>
+                              id="third-hash"></a>
                             <a
                               href="."
                               class="hashtags__item"
-                              id="fourth-hash"
-                            ></a>
+                              id="fourth-hash"></a>
                           </div>
                           <p id="post-content"></p>
                           <div class="comments">
                             <div
                               class="border-top"
-                              style="margin: 0 -1rem 0 -1.5rem"
-                            ></div>
+                              style="margin: 0 -1rem 0 -1.5rem"></div>
                             <div class="d-flex justify-content-between py-4">
                               <div class="d-flex align-items-center">
                                 <h4 class="pb-1">Top Comments (0)</h4>
                                 <i
-                                  class="iconoir-arrow-separate-vertical icons-style-md"
-                                ></i>
+                                  class="iconoir-arrow-separate-vertical icons-style-md"></i>
                               </div>
                               <button class="btn btn-light border">
                                 Subscribe
@@ -226,20 +202,17 @@
                                   alt="user"
                                   width="35"
                                   height="35"
-                                  class="circle-profile-picture--nohover mt-1"
-                                />
+                                  class="circle-profile-picture--nohover mt-1" />
                               </div>
                               <div class="form flex-grow-1">
                                 <textarea
                                   class="form-control"
                                   placeholder="Leave a comment here"
-                                  id="commentsTextarea"
-                                ></textarea>
+                                  id="commentsTextarea"></textarea>
                               </div>
                             </div>
                             <div
-                              class="bottom-anchors d-flex gap-2 justify-content-center pt-3"
-                            >
+                              class="bottom-anchors d-flex gap-2 justify-content-center pt-3">
                               <a href="" class="bottom-anchors__item"
                                 ><p>Code of Conduct</p></a
                               >
@@ -265,8 +238,7 @@
                               alt="user"
                               width="50"
                               height="50"
-                              class="circle-profile-picture--nohover"
-                            />
+                              class="circle-profile-picture--nohover" />
                             <a href="" class="hyperlink--nounderscore">
                               <h4>Breaking Captchas with Golang</h4>
                               <p>Arnab Sen - May 22</p>
@@ -280,8 +252,7 @@
                               alt="user"
                               width="50"
                               height="50"
-                              class="circle-profile-picture--nohover"
-                            />
+                              class="circle-profile-picture--nohover" />
                             <a href="" class="hyperlink--nounderscore">
                               <h4>Breaking Captchas with Golang</h4>
                               <p>Arnab Sen - May 22</p>
@@ -295,8 +266,7 @@
                               alt="user"
                               width="50"
                               height="50"
-                              class="circle-profile-picture--nohover"
-                            />
+                              class="circle-profile-picture--nohover" />
                             <a href="" class="hyperlink--nounderscore">
                               <h4>Breaking Captchas with Golang</h4>
                               <p>Arnab Sen - May 22</p>
@@ -310,8 +280,7 @@
                               alt="user"
                               width="50"
                               height="50"
-                              class="circle-profile-picture--nohover"
-                            />
+                              class="circle-profile-picture--nohover" />
                             <a href="" class="hyperlink--nounderscore">
                               <h4>Breaking Captchas with Golang</h4>
                               <p>Arnab Sen - May 22</p>
@@ -328,8 +297,7 @@
                   <!-- * start of cards aside -->
                   <aside class="col-lg-4">
                     <div
-                      class="cards-container-post pt-sm-3 d-flex flex-column gap-3"
-                    >
+                      class="cards-container-post pt-sm-3 d-flex flex-column gap-3">
                       <div class="card">
                         <ul class="list-group list-group-flush">
                           <div id="picture-background" class="rounded-top">
@@ -343,8 +311,7 @@
                                 width="45"
                                 height="45"
                                 class="circle-profile-picture--nohover"
-                                id="author-pic"
-                              />
+                                id="author-pic" />
                               <a href="" class="hyperlink--nounderscore mt-4">
                                 <h5 id="author-name"></h5>
                               </a>
@@ -354,8 +321,7 @@
                             <div class="d-flex d-flex w-100">
                               <button
                                 type="button"
-                                class="btn btn-purple flex-grow-1"
-                              >
+                                class="btn btn-purple flex-grow-1">
                                 Follow
                               </button>
                             </div>
@@ -505,8 +471,7 @@
       class="offcanvas offcanvas-start w-75"
       tabindex="-1"
       id="offcanvas-menu"
-      aria-labelledby="offcanvas-menu-title"
-    >
+      aria-labelledby="offcanvas-menu-title">
       <div class="offcanvas-body">
         <div class="offcanvas-header pt-1 px-1">
           <h5 class="offcanvas-title" id="offcanvas-menu-title">
@@ -516,8 +481,7 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+            aria-label="Close"></button>
         </div>
         <div class="card-registry-container">
           <div class="card">
@@ -651,33 +615,27 @@
           <a
             href="."
             class="fa-brands fa-twitter icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-facebook icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-github icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-instagram icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-twitch icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-mastodon icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
         </div>
       </div>
     </div>
@@ -686,12 +644,10 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://kit.fontawesome.com/42388cee6d.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/js/post-detail.js"></script>
+      crossorigin="anonymous"></script>
+    <script src="/js/post-detail.js" type="module"></script>
   </body>
 </html>

@@ -8,16 +8,13 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
-    />
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
     <link
       rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css"
-    />
+      href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css" />
 
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Dev.to Clone Create Post</title>
@@ -26,8 +23,7 @@
     <!-- * Navigation Bar -->
     <nav class="navbar sticky-top navbar-light bg-light">
       <div
-        class="d-flex align-items-center justify-content-between px-md-5 px-2 w-100"
-      >
+        class="d-flex align-items-center justify-content-between px-md-5 px-2 w-100">
         <div class="d-flex align-items-center justify-content-between w-75">
           <div class="d-flex align-items-center gap-2">
             <a href="/index.html">
@@ -35,8 +31,7 @@
                 src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
                 alt="Logo"
                 width="50"
-                height="40"
-              />
+                height="40" />
             </a>
             <h6 class="d-none d-sm-block">Create Post</h6>
           </div>
@@ -73,8 +68,7 @@
                 <form>
                   <div
                     class="card border border-danger-subtle bg-danger-subtle d-none"
-                    id="error-card"
-                  >
+                    id="error-card">
                     <div class="card-body" id="error-card-body">
                       <h5 class="text-danger mb-2">
                         Whoops, something went wrong:
@@ -87,92 +81,76 @@
                         type="text"
                         class="form-control border border-secondary-subtle d-inline shadow-none"
                         placeholder="Insert the link of your header img here..."
-                        id="post-image-input"
-                      />
+                        id="post-image-input" />
 
                       <!-- ! preguntar a isra como cae hacia abajo el input -->
                       <textarea
                         class="form-control border border-0 shadow-none text-break"
                         id="FormControlTextarea1"
-                        placeholder="New post title here..."
-                      ></textarea>
+                        placeholder="New post title here..."></textarea>
                       <ul class="hashtags-add p-0">
                         <input
                           type="text"
                           class="hashtags-add__input"
                           spellcheck="false"
                           id="FormControlHashtags"
-                          placeholder="Add up to 4 tags..."
-                        />
+                          placeholder="Add up to 4 tags..." />
                       </ul>
                       <!-- ! Preguntar a Isra como abarca hasta los limites del container-->
                       <div
                         class="text-editor d-flex justify-content-between bg-light"
-                        id="markdown-mock"
-                      >
+                        id="markdown-mock">
                         <div class="text-editor-container d-flex">
                           <a
                             href="."
                             class="iconoir-bold icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-italic icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-link icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-numbered-list-left icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-list icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-underline d-none d-lg-flex icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-quote d-none d-lg-flex icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-code d-none d-lg-flex icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-code-brackets-square d-none d-lg-flex icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-flash d-none d-lg-flex icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                           <a
                             href="."
                             class="iconoir-media-image icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                         </div>
                         <div class="text-editor-container--more">
                           <a
                             href="."
                             class="iconoir-more-vert icons-style"
-                            target="_blank"
-                          ></a>
+                            target="_blank"></a>
                         </div>
                       </div>
                       <textarea
@@ -180,8 +158,7 @@
                         id="FormControlTextarea2"
                         rows="3"
                         placeholder="Write your post content..."
-                        style="height: 500px"
-                      ></textarea>
+                        style="height: 500px"></textarea>
                     </div>
                   </div>
                 </form>
@@ -195,8 +172,7 @@
                   <a
                     href="."
                     class="fa-solid fa-gear icons-style-md"
-                    target="_blank"
-                  >
+                    target="_blank">
                   </a>
                 </div>
               </div>
@@ -243,12 +219,10 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://kit.fontawesome.com/42388cee6d.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/js/create-post.js"></script>
+      crossorigin="anonymous"></script>
+    <script src="/js/create-post.js" type="module"></script>
   </body>
 </html>

@@ -5,50 +5,50 @@
 //TODO: Divide even more the styles
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .bg-footer {
-    background-color: $footer-color;
+  background-color: $footer-color;
 }
 
 .icons-style {
-    @include icons-style(1.875rem, 0.625rem);
+  @include icons-style(1.875rem, 0.625rem);
 }
 
 .icons-style-md {
-    @include icons-style(1.5rem, 0.5rem);
+  @include icons-style(1.5rem, 0.5rem);
 }
 
 .icons-style-sm {
-    @include icons-style(1rem, 0.25rem);
+  @include icons-style(1rem, 0.25rem);
 }
 
 .circle-profile-picture {
+  border-radius: 100%;
+  &--nohover {
     border-radius: 100%;
-    &--nohover {
-        border-radius: 100%;
-    }
-    &:hover {
-        box-shadow: 0 0 0 8px rgba(23, 23, 23, 0.05);
-    }
+  }
+  &:hover {
+    box-shadow: 0 0 0 8px rgba(23, 23, 23, 0.05);
+  }
 }
 
 .hyperlink {
+  color: $primary;
+  &--nohover {
     color: $primary;
-    &--nohover {
-        color: $primary;
-        text-decoration: none;
-        font-size: 0.8rem;
-        cursor: pointer;
-    }
-    &--nounderscore {
-        color: $primary;
-        text-decoration: none;
-    }
-    &:hover {
-        color: $link-color;
-    }
+    text-decoration: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  &--nounderscore {
+    color: $primary;
+    text-decoration: none;
+  }
+  &:hover {
+    color: $link-color;
+  }
 }
 
 h4,
@@ -57,318 +57,318 @@ h1,
 h3,
 h5,
 h6 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .menu {
-    padding-left: 0;
-    &__item {
-        list-style-type: none;
-        &__content {
-            color: rgb(56, 56, 56);
-            display: flex;
-            font-size: 1rem;
-            padding: 0.5rem 0rem;
-            text-decoration: none;
-            gap: 0.8rem;
+  padding-left: 0;
+  &__item {
+    list-style-type: none;
+    &__content {
+      color: rgb(56, 56, 56);
+      display: flex;
+      font-size: 1rem;
+      padding: 0.5rem 0rem;
+      text-decoration: none;
+      gap: 0.8rem;
 
-            &--tag {
-                color: rgb(56, 56, 56);
-                display: flex;
-                font-size: 1rem;
-                margin: 0;
-                padding: 0.5rem 0.7rem;
-                text-decoration: none;
+      &--tag {
+        color: rgb(56, 56, 56);
+        display: flex;
+        font-size: 1rem;
+        margin: 0;
+        padding: 0.5rem 0.7rem;
+        text-decoration: none;
 
-                &:hover {
-                    background-color: rgb(224, 225, 240);
-                    border-radius: 0.3rem;
-                    color: rgb(50, 57, 169);
-                    text-decoration: underline;
-                }
-            }
-
-            & img {
-                height: 25px;
-                width: 25px;
-            }
-            &:hover {
-                background-color: rgb(224, 225, 240);
-                border-radius: 0.3rem;
-                color: rgb(50, 57, 169);
-                text-decoration: underline;
-            }
+        &:hover {
+          background-color: rgb(224, 225, 240);
+          border-radius: 0.3rem;
+          color: rgb(50, 57, 169);
+          text-decoration: underline;
         }
+      }
+
+      & img {
+        height: 25px;
+        width: 25px;
+      }
+      &:hover {
+        background-color: rgb(224, 225, 240);
+        border-radius: 0.3rem;
+        color: rgb(50, 57, 169);
+        text-decoration: underline;
+      }
     }
+  }
 }
 
 .navbar {
-    border-bottom: solid 1px gray;
-    height: 3.5rem;
-    padding: 0;
-    .search-bar {
-        align-items: normal;
-        height: 2.438rem;
-        background-color: transparent;
-        border-radius: 8px;
-        outline: solid 1px rgb(120, 120, 120);
-        display: flex;
-        justify-content: space-between;
-        overflow: hidden;
-        &:hover {
-            outline: solid 1px black;
-        }
-        &:focus-within {
-            outline: solid 2px $purple;
-        }
-        &__input {
-            border-color: transparent;
-            border-style: none;
-            border-width: 0px;
-            outline: none;
-            padding-left: 10px;
-            font-size: 1.2rem;
-        }
-        &__icon {
-            @include icons-style(1.8rem, 0.36rem 0.5rem 0.46rem 0.5rem);
-        }
+  border-bottom: solid 1px gray;
+  height: 3.5rem;
+  padding: 0;
+  .search-bar {
+    align-items: normal;
+    height: 2.438rem;
+    background-color: transparent;
+    border-radius: 8px;
+    outline: solid 1px rgb(120, 120, 120);
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    &:hover {
+      outline: solid 1px black;
     }
+    &:focus-within {
+      outline: solid 2px $purple;
+    }
+    &__input {
+      border-color: transparent;
+      border-style: none;
+      border-width: 0px;
+      outline: none;
+      padding-left: 10px;
+      font-size: 1.2rem;
+    }
+    &__icon {
+      @include icons-style(1.8rem, 0.36rem 0.5rem 0.46rem 0.5rem);
+    }
+  }
 }
 
 .hamburger {
-    text-decoration: none;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    &__item {
-        width: 25px;
-        height: 3px;
-        background-color: black;
-        margin: 6px 0;
-    }
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  &__item {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 6px 0;
+  }
 }
 
 .footer-menu {
-    &__list {
-        &:not(:first-of-type) {
-            &::before {
-                content: '·';
-                display: inline;
-                font-size: 1.3rem;
-            }
-        }
+  &__list {
+    &:not(:first-of-type) {
+      &::before {
+        content: '·';
+        display: inline;
+        font-size: 1.3rem;
+      }
     }
+  }
 }
 
 .btn-outline-purple {
-    @include button-outline-variant($primary, color-contrast($primary, 3%));
-    height: 2.5rem;
-    text-overflow: ellipsis;
-    &:hover {
-        text-decoration: underline;
-    }
+  @include button-outline-variant($primary, color-contrast($primary, 3%));
+  height: 2.5rem;
+  text-overflow: ellipsis;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .btn-purple {
-    @include button-variant($primary, darken($primary, 3%));
-    height: 3rem;
+  @include button-variant($primary, darken($primary, 3%));
+  height: 3rem;
 }
 
 .btn-outline-purplewhite {
-    @include button-outline-variant(
-        $hover-color,
-        color-contrast($hover-color),
-        $hover-color,
-        $hover-color,
-        color-contrast($hover-color)
-    );
-    border: 0;
-    height: 2.5rem;
-    color: black;
-    &:hover {
-        text-decoration: underline;
-        color: $primary;
-    }
+  @include button-outline-variant(
+    $hover-color,
+    color-contrast($hover-color),
+    $hover-color,
+    $hover-color,
+    color-contrast($hover-color)
+  );
+  border: 0;
+  height: 2.5rem;
+  color: black;
+  &:hover {
+    text-decoration: underline;
+    color: $primary;
+  }
 }
 
 .main-menu {
-    &__item {
-        &__content {
-            color: black;
-            font-size: 1.125rem;
-            &:hover {
-                background-color: white;
-                color: $primary;
-            }
-        }
+  &__item {
+    &__content {
+      color: black;
+      font-size: 1.125rem;
+      &:hover {
+        background-color: white;
+        color: $primary;
+      }
     }
+  }
 }
 
 // ! Empiezan los estilos para la vista de login
 
 .registration {
-    &__buttons {
-        .btn {
-            height: 3rem;
-        }
+  &__buttons {
+    .btn {
+      height: 3rem;
     }
-    &__bottom {
-        &__text-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            &::after {
-                border: 1px solid rgb(239, 234, 234);
-                content: ' ';
-                display: block;
-                position: absolute;
-                top: 25%;
-                width: 100%;
-                border-radius: 0.5rem;
-            }
-            &__text {
-                text-align: center;
-                display: inline;
-                position: relative;
-                text-align: center;
-                font-size: 0.8rem;
-                background-color: white;
-                padding: 0rem 0.2rem;
-                z-index: 2;
-            }
-        }
+  }
+  &__bottom {
+    &__text-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      &::after {
+        border: 1px solid rgb(239, 234, 234);
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 25%;
+        width: 100%;
+        border-radius: 0.5rem;
+      }
+      &__text {
+        text-align: center;
+        display: inline;
+        position: relative;
+        text-align: center;
+        font-size: 0.8rem;
+        background-color: white;
+        padding: 0rem 0.2rem;
+        z-index: 2;
+      }
     }
+  }
 }
 
 #check1:checked {
-    background-color: $primary;
-    border: 0;
+  background-color: $primary;
+  border: 0;
 }
 
 #inputEmail1,
 #inputPassword1 {
-    &:hover {
-        outline: solid 1px darkgrey;
-        box-shadow: unset;
-    }
-    &:focus {
-        outline: solid 2px $primary;
-    }
+  &:hover {
+    outline: solid 1px darkgrey;
+    box-shadow: unset;
+  }
+  &:focus {
+    outline: solid 2px $primary;
+  }
 }
 
 // ! Inicia estilos particulares del create-post
 
 .hashtags-add {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 7px;
-    margin: 12px 0;
-    border-radius: 5px;
-    border: 0;
-    &__input {
-        flex: 1;
-        padding: 5px;
-        border: none;
-        outline: none;
-        font-size: 16px;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  padding: 7px;
+  margin: 12px 0;
+  border-radius: 5px;
+  border: 0;
+  &__input {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
 }
 .hashtags-add li {
-    color: #333;
-    margin: 4px 3px;
-    list-style: none;
-    border-radius: 5px;
-    background: rgba(213, 213, 213, 0.467);
-    padding: 5px 8px 5px 10px;
+  color: #333;
+  margin: 4px 3px;
+  list-style: none;
+  border-radius: 5px;
+  background: rgba(213, 213, 213, 0.467);
+  padding: 5px 8px 5px 10px;
 }
 
 .hashtags-add ul li i {
-    height: 20px;
-    width: 20px;
-    color: #808080;
-    margin-left: 8px;
-    font-size: 12px;
-    cursor: pointer;
-    border-radius: 50%;
-    background: #dfdfdf;
-    justify-content: center;
+  height: 20px;
+  width: 20px;
+  color: #808080;
+  margin-left: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #dfdfdf;
+  justify-content: center;
 }
 
 #FormControlTextarea2 {
-    font-size: 1.2rem;
-    resize: none;
+  font-size: 1.2rem;
+  resize: none;
 }
 
 #FormControlTextarea1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    resize: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  resize: none;
 }
 
 #markdown-mock {
-    margin-left: -1rem;
-    margin-right: -1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 // ! Inicia estilos particulares del post-detail
 
 .icon-fav {
-    padding: 0.625rem;
-    font-size: 1.875rem;
-    color: black;
-    &:hover {
-        color: red;
-        border-radius: 8px;
-    }
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+  &:hover {
+    color: red;
+    border-radius: 8px;
+  }
 }
 
 .icon-bubble {
-    padding: 0.625rem;
-    font-size: 1.875rem;
-    color: black;
-    &:hover {
-        color: orange;
-        border-radius: 8px;
-    }
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+  &:hover {
+    color: orange;
+    border-radius: 8px;
+  }
 }
 
 .icon-book {
-    padding: 0.625rem;
-    font-size: 1.875rem;
-    color: black;
-    &:hover {
-        color: $primary;
-        border-radius: 8px;
-    }
+  padding: 0.625rem;
+  font-size: 1.875rem;
+  color: black;
+  &:hover {
+    color: $primary;
+    border-radius: 8px;
+  }
 }
 
 .icon-dots {
-    padding: 0.2rem;
-    font-size: 1.875rem;
-    color: gray;
-    text-decoration: none;
-    &:hover {
-        background-color: $hover-color;
-        border-radius: 100%;
-        color: black;
-    }
+  padding: 0.2rem;
+  font-size: 1.875rem;
+  color: gray;
+  text-decoration: none;
+  &:hover {
+    background-color: $hover-color;
+    border-radius: 100%;
+    color: black;
+  }
 }
 
 .counter-text {
-    font-size: 0.8rem;
-    color: gray;
+  font-size: 0.8rem;
+  color: gray;
 }
 
 .bottom-anchors {
-    &__item {
-        text-decoration: none;
-        color: gray;
-        font-size: 0.8rem;
-    }
+  &__item {
+    text-decoration: none;
+    color: gray;
+    font-size: 0.8rem;
+  }
 }
 // ! fix position
 #picture-background {
-    background-color: $primary;
-    color: $primary;
-    position: relative;
+  background-color: $primary;
+  color: $primary;
+  position: relative;
 }
