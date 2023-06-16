@@ -22,7 +22,7 @@ const compareInputsWithDatabase = async () => {
   let userLogged = '';
   let loginTry = getLoginObject();
   let users = await getUsers();
-  for (key in users) {
+  for (let key in users) {
     let { login } = users[key];
     let isEmailValidated = loginTry.email === login.email;
     let isPasswordValidated = loginTry.password === login.password;
