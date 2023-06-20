@@ -29,6 +29,7 @@ function createTag() {
     input.querySelector('.hashtags-add__input');
     let liTag = createElementTag(tag);
     ul.insertBefore(liTag, input);
+    addEventToTags(tag);
   });
   countTags();
 }
@@ -39,18 +40,30 @@ function createElementTag(tag) {
   let icon = document.createElement('i');
   let tagText = document.createTextNode(tag);
   icon.classList.add('iconoir-cancel', 'fs-5');
-  icon.setAttribute('onclick', `remove(this, '${tag}')`);
+  //icon.setAttribute('onclick', `remove(this, '${tag}')`);
   listElement.append(tagText, icon);
   console.log(listElement);
   return listElement;
 }
 
 function remove(element, tag) {
+  console.log('ELEMENT', element.parentElement);
   let index = tags.indexOf(tag);
   tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
   element.parentElement.remove();
   countTags();
 }
+
+const addEventToTags = (tag) => {
+  let tagsClose = document.querySelectorAll('.iconoir-cancel');
+  console.log(tagsClose);
+  tagsClose.forEach((tagClose) => {
+    console.log(tagClose);
+    tagClose.addEventListener('click', (event) => {
+      remove(event.target, tag);
+    });
+  });
+};
 
 input.addEventListener('keyup', (event) => {
   if (event.key == 'Enter') {
@@ -59,6 +72,7 @@ input.addEventListener('keyup', (event) => {
       if (tags.length < 4) {
         tags.push(tag);
         createTag();
+        //addEventToTags(tag);
       }
     }
     event.target.value = '';
