@@ -8,13 +8,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
-    />
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
     <title>Dev.to Clone</title>
   </head>
   <body>
@@ -26,34 +24,32 @@
             class="hamburger d-md-none"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvas-menu"
-            aria-controls="offcanvas-menu"
-          >
+            aria-controls="offcanvas-menu">
             <div class="hamburger__item"></div>
             <div class="hamburger__item"></div>
             <div class="hamburger__item"></div>
           </button>
-          <img
-            src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
-            alt="Logo"
-            width="50"
-            height="40"
-          />
-          <form class="search-bar d-none d-md-flex flex-grow-1">
+          <a href="index.html">
+            <img
+              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+              alt="Logo"
+              width="50"
+              height="40" />
+          </a>
+          <div class="search-bar d-none d-md-flex flex-grow-1">
             <input
               class="search-bar__input"
               type="text"
-              placeholder="Search..."
-            />
+              placeholder="Search..." />
             <a href="."><i class="iconoir-search search-bar__icon"></i> </a>
-          </form>
+          </div>
         </div>
         <div class="d-flex gap-md-4 gap-1 pt-1">
           <!-- ! Button create post only active when user is logged -->
           <button
             type="button"
             class="btn d-none btn-outline-purple"
-            id="create-post-btn"
-          >
+            id="create-post-btn">
             Create Post
           </button>
           <a href="" class="d-md-none"
@@ -62,15 +58,13 @@
           <button
             type="button"
             class="btn d-none d-md-inline btn-outline-purplewhite login"
-            id="log-in-btn"
-          >
+            id="log-in-btn">
             Log In
           </button>
           <button
             type="button"
             class="btn d-md-inline btn-outline-purple login"
-            id="create-account-btn"
-          >
+            id="create-account-btn">
             Create account
           </button>
           <!-- ! bell icon only active when user is logged -->
@@ -78,17 +72,36 @@
             ><i class="iconoir-bell icons-style-md"></i
           ></a>
           <!-- ! profile image only active when user is logged -->
-          <img
-            src="https://randomuser.me/api/portraits/lego/6.jpg"
-            alt="user"
-            width="30"
-            height="30"
-            class="circle-profile-picture mt-1 d-none"
-            id="profile-picture"
-            tabindex="0"
-            data-bs-toggle="popover"
-            data-bs-title="Popover title"
-          />
+          <div class="dropdown-center">
+            <img
+              src="https://randomuser.me/api/portraits/lego/6.jpg"
+              alt="user"
+              width="30"
+              height="30"
+              class="circle-profile-picture mt-1 d-none dropdown-toggle"
+              id="profile-picture"
+              tabindex="0"
+              data-bs-toggle="dropdown"
+              aria-expanded="false" />
+            <!-- FIXME: Crea la logica del dropdown -->
+            <ul class="dropdown-menu dropdown-menu-end">
+              <!-- <li>
+                <a class="dropdown-item" href="#"
+                  >Name <br />
+                  Username</a
+                >
+              </li> -->
+              <!-- <li><hr class="dropdown-divider" /></li> -->
+              <li><a class="dropdown-item" href="#">Dashboard</a></li>
+              <li><a class="dropdown-item" href="#">Create Post</a></li>
+              <li><a class="dropdown-item" href="#">Reading List</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" id="sign-out-anchor">Sign Out</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -116,14 +129,12 @@
                         </p>
                         <button
                           type="button"
-                          class="btn btn-outline-purple login"
-                        >
+                          class="btn btn-outline-purple login">
                           Create account
                         </button>
                         <button
                           type="button"
-                          class="btn btn-outline-purplewhite login"
-                        >
+                          class="btn btn-outline-purplewhite login">
                           Log in
                         </button>
                       </div>
@@ -208,8 +219,7 @@
                       <a href="." class="menu__item__content">
                         <img
                           src="./assets/icons/software-comparisons.svg"
-                          alt=""
-                        />
+                          alt="" />
                         Software Comparisons
                       </a>
                     </li>
@@ -244,44 +254,36 @@
                   <a
                     href="."
                     class="fa-brands fa-twitter icons-style-md"
-                    target="_blank"
-                  ></a>
+                    target="_blank"></a>
                   <a
                     href="."
                     class="fa-brands fa-facebook icons-style-md"
-                    target="_blank"
-                  ></a>
+                    target="_blank"></a>
                   <a
                     href="."
                     class="fa-brands fa-github icons-style-md"
-                    target="_blank"
-                  ></a>
+                    target="_blank"></a>
                   <a
                     href="."
                     class="fa-brands fa-instagram icons-style-md"
-                    target="_blank"
-                  ></a>
+                    target="_blank"></a>
                   <a
                     href="."
                     class="fa-brands fa-twitch icons-style-md"
-                    target="_blank"
-                  ></a>
+                    target="_blank"></a>
                   <a
                     href="."
                     class="fa-brands fa-mastodon icons-style-md"
-                    target="_blank"
-                  ></a>
+                    target="_blank"></a>
                 </div>
                 <div class="tags-container pt-3">
                   <div
-                    class="tags-container__title d-flex align-items-center justify-content-between"
-                  >
+                    class="tags-container__title d-flex align-items-center justify-content-between">
                     <h6><b>My Tags</b></h6>
                     <a
                       href="."
                       class="fa-solid fa-gear icons-style-md"
-                      target="_blank"
-                    >
+                      target="_blank">
                     </a>
                   </div>
                   <div class="tags-container__list">
@@ -304,16 +306,14 @@
                 <div class="cards-container-menu d-flex flex-column gap-4">
                   <div class="card">
                     <div
-                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3"
-                    >
+                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3">
                       <div class="card-top__text">
                         <p class="card-title text-muted">Dev Community</p>
                       </div>
                       <div class="card-title__icon">
                         <a
                           href=""
-                          class="iconoir-more-horiz icons-style-sm"
-                        ></a>
+                          class="iconoir-more-horiz icons-style-sm"></a>
                       </div>
                     </div>
                     <div class="card-body">
@@ -332,16 +332,14 @@
                   </div>
                   <div class="card">
                     <div
-                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3"
-                    >
+                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3">
                       <div class="card-top__text">
                         <p class="card-title text-muted">Dev Community</p>
                       </div>
                       <div class="card-title__icon">
                         <a
                           href=""
-                          class="iconoir-more-horiz icons-style-sm"
-                        ></a>
+                          class="iconoir-more-horiz icons-style-sm"></a>
                       </div>
                     </div>
                     <div class="card-body">
@@ -377,23 +375,31 @@
                       class="nav-link main-menu__item__content"
                       aria-current="page"
                       href="#"
-                      >Relevant</a
+                      id="relevant-filter"
+                      ><p class="mb-0 fw-bold" id="anchor-filter-relevant">
+                        Relevant
+                      </p></a
                     >
                   </li>
                   <li class="nav-item main-menu__item">
-                    <a class="nav-link main-menu__item__content" href="#"
-                      >Latest</a
+                    <a
+                      class="nav-link main-menu__item__content"
+                      href="#"
+                      id="latest-filter"
+                      ><p class="mb-0" id="anchor-filter-latest">Latest</p></a
                     >
                   </li>
                   <li class="nav-item main-menu__item">
-                    <a class="nav-link main-menu__item__content" href="#"
-                      >Top</a
+                    <a
+                      class="nav-link main-menu__item__content"
+                      href="#"
+                      id="top-filter"
+                      ><p class="mb-0" id="anchor-filter-top">Top</p></a
                     >
                   </li>
                 </ul>
                 <div
-                  class="cards-container-main d-flex flex-column gap-4"
-                ></div>
+                  class="cards-container-main d-flex flex-column gap-4"></div>
               </main>
               <!-- * End of main section -->
 
@@ -402,16 +408,14 @@
                 <div class="cards-container-right d-flex flex-column gap-4">
                   <div class="card">
                     <div
-                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3"
-                    >
+                      class="card-top d-flex justify-content-between align-items-center pt-3 px-3">
                       <div class="card-top__text">
                         <p class="card-title text-muted">Dev Community</p>
                       </div>
                       <div class="card-title__icon">
                         <a
                           href=""
-                          class="iconoir-more-horiz icons-style-sm"
-                        ></a>
+                          class="iconoir-more-horiz icons-style-sm"></a>
                       </div>
                     </div>
                     <div class="card-body">
@@ -419,8 +423,7 @@
                         <img
                           src="https://res.cloudinary.com/practicaldev/image/fetch/s--kUZijgSE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gxs2kw7xsfruxa53bqz3.png"
                           alt=""
-                          class="w-100"
-                        />
+                          class="w-100" />
                         <h5>
                           <a href="." class="hyperlink"
                             >Join the GitHub + DEV hackaton!</a
@@ -436,8 +439,7 @@
                   </div>
                   <div class="card">
                     <div
-                      class="card-header d-flex justify-content-between align-items-center bg-white"
-                    >
+                      class="card-header d-flex justify-content-between align-items-center bg-white">
                       <p class="card-title fs-5 mb-0"><b>Listings</b></p>
                       <a href="" class="hyperlink--nohover">See All</a>
                     </div>
@@ -448,8 +450,7 @@
                           in the world
                         </p>
                         <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
+                          class="card-subtitle text-muted list-group-item--subtitle">
                           products
                         </p>
                       </li>
@@ -459,8 +460,7 @@
                           in the world
                         </p>
                         <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
+                          class="card-subtitle text-muted list-group-item--subtitle">
                           products
                         </p>
                       </li>
@@ -470,8 +470,7 @@
                           in the world
                         </p>
                         <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
+                          class="card-subtitle text-muted list-group-item--subtitle">
                           products
                         </p>
                       </li>
@@ -481,8 +480,7 @@
                           in the world
                         </p>
                         <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
+                          class="card-subtitle text-muted list-group-item--subtitle">
                           products
                         </p>
                       </li>
@@ -492,15 +490,13 @@
                           in the world
                         </p>
                         <p
-                          class="card-subtitle text-muted list-group-item--subtitle"
-                        >
+                          class="card-subtitle text-muted list-group-item--subtitle">
                           products
                         </p>
                       </li>
                     </ul>
                     <div
-                      class="card-body card-link-container d-flex justify-content-center p-2"
-                    >
+                      class="card-body card-link-container d-flex justify-content-center p-2">
                       <a href="#" class="card-link-container__item"
                         >Create a Listing</a
                       >
@@ -597,8 +593,7 @@
       class="offcanvas offcanvas-start w-75"
       tabindex="-1"
       id="offcanvas-menu"
-      aria-labelledby="offcanvas-menu-title"
-    >
+      aria-labelledby="offcanvas-menu-title">
       <div class="offcanvas-body">
         <div class="offcanvas-header pt-1 px-1">
           <h5 class="offcanvas-title" id="offcanvas-menu-title">
@@ -608,8 +603,7 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+            aria-label="Close"></button>
         </div>
         <div class="card-registry-container">
           <div class="card">
@@ -743,33 +737,27 @@
           <a
             href="."
             class="fa-brands fa-twitter icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-facebook icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-github icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-instagram icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-twitch icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
           <a
             href="."
             class="fa-brands fa-mastodon icons-style"
-            target="_blank"
-          ></a>
+            target="_blank"></a>
         </div>
       </div>
     </div>
@@ -778,12 +766,10 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://kit.fontawesome.com/42388cee6d.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/main.js"></script>
+      crossorigin="anonymous"></script>
+    <script src="./js/main.js" type="module"></script>
   </body>
 </html>

@@ -1,7 +1,8 @@
-const BASE_URL = `https://dev-clone-c0a56-default-rtdb.firebaseio.com/`;
+import { getAPost, modifyPost, savePost } from './db-connections.js';
+import { getUserfromStorage } from './userLogin.js';
 
-const ul = document.querySelector(".hashtags-add");
-const input = document.querySelector(".hashtags-add__input");
+const ul = document.querySelector('.hashtags-add');
+const input = document.querySelector('.hashtags-add__input');
 
 let maxTags = 4;
 
@@ -13,19 +14,19 @@ createTag();
 function countTags() {
   input.focus();
   if (tags.length === 4) {
-    input.classList.add("d-none");
+    input.classList.add('d-none');
   } else {
-    input.classList.remove("d-none");
+    input.classList.remove('d-none');
   }
   if (tags.length !== 0) {
-    input.placeholder = "Add another...";
+    input.placeholder = 'Add another...';
   }
 }
 
 function createTag() {
-  ul.querySelectorAll("li").forEach((li) => li.remove());
+  ul.querySelectorAll('li').forEach((li) => li.remove());
   tags.slice().forEach((tag) => {
-    input.querySelector(".hashtags-add__input");
+    input.querySelector('.hashtags-add__input');
     let liTag = createElementTag(tag);
     ul.insertBefore(liTag, input);
   });
@@ -33,12 +34,12 @@ function createTag() {
 }
 
 function createElementTag(tag) {
-  let listElement = document.createElement("li");
-  listElement.classList.add("d-flex", "align-items-center");
-  let icon = document.createElement("i");
+  let listElement = document.createElement('li');
+  listElement.classList.add('d-flex', 'align-items-center');
+  let icon = document.createElement('i');
   let tagText = document.createTextNode(tag);
-  icon.classList.add("iconoir-cancel", "fs-5");
-  icon.setAttribute("onclick", `remove(this, '${tag}')`);
+  icon.classList.add('iconoir-cancel', 'fs-5');
+  icon.setAttribute('onclick', `remove(this, '${tag}')`);
   listElement.append(tagText, icon);
   console.log(listElement);
   return listElement;
@@ -51,8 +52,8 @@ function remove(element, tag) {
   countTags();
 }
 
-input.addEventListener("keyup", (event) => {
-  if (event.key == "Enter") {
+input.addEventListener('keyup', (event) => {
+  if (event.key == 'Enter') {
     let tag = `#${event.target.value}`;
     if (tag.length > 1 && !tags.includes(tag)) {
       if (tags.length < 4) {
@@ -60,66 +61,66 @@ input.addEventListener("keyup", (event) => {
         createTag();
       }
     }
-    event.target.value = "";
+    event.target.value = '';
   }
 });
 
-let titleForm = document.getElementById("FormControlTextarea1");
+let titleForm = document.getElementById('FormControlTextarea1');
 console.log(titleForm);
 titleForm.onclick = function () {
   let cardPost = document
-    .getElementById("card-post")
-    .classList.remove("invisible");
+    .getElementById('card-post')
+    .classList.remove('invisible');
   let cardTags = document
-    .getElementById("card-tagging")
-    .classList.add("invisible");
+    .getElementById('card-tagging')
+    .classList.add('invisible');
   let editorCard = document
-    .getElementById("card-editor")
-    .classList.add("invisible");
+    .getElementById('card-editor')
+    .classList.add('invisible');
 };
 
-let tagsForm = document.getElementById("FormControlHashtags");
+let tagsForm = document.getElementById('FormControlHashtags');
 tagsForm.onclick = function () {
   let cardPost = document
-    .getElementById("card-post")
-    .classList.add("invisible");
+    .getElementById('card-post')
+    .classList.add('invisible');
   let cardTags = document
-    .getElementById("card-tagging")
-    .classList.remove("invisible");
+    .getElementById('card-tagging')
+    .classList.remove('invisible');
   let editorCard = document
-    .getElementById("card-editor")
-    .classList.add("invisible");
+    .getElementById('card-editor')
+    .classList.add('invisible');
 };
 
-let editorForm = document.getElementById("FormControlTextarea2");
+let editorForm = document.getElementById('FormControlTextarea2');
 console.log(editorForm);
 editorForm.onclick = function () {
   let cardPost = document
-    .getElementById("card-post")
-    .classList.add("invisible");
+    .getElementById('card-post')
+    .classList.add('invisible');
   let cardTags = document
-    .getElementById("card-tagging")
-    .classList.add("invisible");
+    .getElementById('card-tagging')
+    .classList.add('invisible');
   let editorCard = document
-    .getElementById("card-editor")
-    .classList.remove("invisible");
+    .getElementById('card-editor')
+    .classList.remove('invisible');
 };
 
-const textAreaTitle = document.getElementById("FormControlTextarea1");
+const textAreaTitle = document.getElementById('FormControlTextarea1');
 
-textAreaTitle.addEventListener("keyup", (event) => {
-  let textAreaTitle = document.getElementById("FormControlTextarea1");
+textAreaTitle.addEventListener('keyup', (event) => {
+  let textAreaTitle = document.getElementById('FormControlTextarea1');
   console.log(textAreaTitle.value);
 });
 
-const textAreaPost = document.getElementById("FormControlTextarea2");
+const textAreaPost = document.getElementById('FormControlTextarea2');
 
-textAreaPost.addEventListener("keyup", (event) => {
-  let textAreaPost = document.getElementById("FormControlTextarea2");
+textAreaPost.addEventListener('keyup', (event) => {
+  let textAreaPost = document.getElementById('FormControlTextarea2');
   console.log(textAreaPost.value);
 });
 
-let postImageInput = document.getElementById("post-image-input");
+let postImageInput = document.getElementById('post-image-input');
 console.log(postImageInput.value);
 
 const getHashtagsObject = () => {
@@ -140,7 +141,7 @@ let getDate = () => {
   let day = currentDate.getDate();
 
   // !reparar neecesita un cero antes del mes si es menor a 10
-  return `${day}/${month}/${year}`;
+  return `${year}-0${month}-${day + 1}`;
 };
 
 let getRandomRelevancy = () => {
@@ -148,50 +149,110 @@ let getRandomRelevancy = () => {
   return rand === 1 ? true : false;
 };
 
-const getUserfromStorage = () => {
-  let userNameLocal = localStorage.getItem("userID");
-  let userNameSession = sessionStorage.getItem("userID");
-  if (userNameLocal) {
-    return userNameLocal;
-  } else if (userNameSession) {
-    return userNameSession;
+const publishButton = document.getElementById('publish-btn');
+publishButton.onclick = async function () {
+  let params = new URLSearchParams(window.location.search);
+  let postID = params.get('id');
+  let postObject = createPostObject();
+  console.log(postObject);
+  if (postObject) {
+    if (!postID) {
+      await savePost(postObject);
+      window.open('/index.html', '_self');
+    } else {
+      console.log('Esta entrando aca');
+      await modifyPost(postObject, postID);
+      window.open(`../post-detail/post-detail.html?id=${postID}`, '_self');
+    }
   }
 };
 
-const savePost = async () => {
-  let post = createPostObject();
-  let response = await fetch(`${BASE_URL}posts/.json`, {
-    method: "POST",
-    body: JSON.stringify(post),
-  });
-  let data = await response.json();
-  return data;
-};
-
-const publishButton = document.getElementById("publish-btn");
-publishButton.onclick = async function () {
-  await savePost();
-  window.open("/index.html", "_self");
-};
-
 function createPostObject() {
-  const textAreaTitle = document.getElementById("FormControlTextarea1");
-  const textAreaPost = document.getElementById("FormControlTextarea2");
-  const postImageInput = document.getElementById("post-image-input");
+  const textAreaTitle = document.getElementById('FormControlTextarea1');
+  const textAreaPost = document.getElementById('FormControlTextarea2');
+  const postImageInput = document.getElementById('post-image-input');
   let postTitle = textAreaTitle.value;
   let postBody = textAreaPost.value;
   let postImg = postImageInput.value;
-  let userID = getUserfromStorage();
-  let isRelevant = getRandomRelevancy();
-  let postDate = getDate();
   let hashtags = getHashtagsObject();
+
+  if (!postTitle) {
+    let titleErrorParagraph = document.createElement('p');
+    let titleErrorText = document.createTextNode("title: can't be blank");
+    titleErrorParagraph.classList.add('mb-0');
+    titleErrorParagraph.appendChild(titleErrorText);
+    let errorCardBody = document.getElementById('error-card-body');
+    let errorCard = document.getElementById('error-card');
+    errorCardBody.appendChild(titleErrorParagraph);
+    errorCard.classList.remove('d-none');
+    return false;
+  }
+
+  if (!postBody) {
+    let titleErrorParagraph = document.createElement('p');
+    let titleErrorText = document.createTextNode("Body: can't be blank");
+    titleErrorParagraph.classList.add('mb-0');
+    titleErrorParagraph.appendChild(titleErrorText);
+    let errorCardBody = document.getElementById('error-card-body');
+    let errorCard = document.getElementById('error-card');
+    errorCard.classList.remove('d-none');
+    errorCardBody.appendChild(titleErrorParagraph);
+    return false;
+  }
+
+  if (!postImg) {
+    let titleErrorParagraph = document.createElement('p');
+    let titleErrorText = document.createTextNode("Img: can't be blank");
+    titleErrorParagraph.classList.add('mb-0');
+    titleErrorParagraph.appendChild(titleErrorText);
+    let errorCardBody = document.getElementById('error-card-body');
+    let errorCard = document.getElementById('error-card');
+    errorCardBody.appendChild(titleErrorParagraph);
+    errorCard.classList.remove('d-none');
+    return false;
+  }
+
+  if (tags.length != 4) {
+    let titleErrorParagraph = document.createElement('p');
+    let titleErrorText = document.createTextNode(
+      'hashtags: add at least 4 hashtags'
+    );
+    titleErrorParagraph.classList.add('mb-0');
+    titleErrorParagraph.appendChild(titleErrorText);
+    let errorCardBody = document.getElementById('error-card-body');
+    let errorCard = document.getElementById('error-card');
+    errorCardBody.appendChild(titleErrorParagraph);
+    errorCard.classList.remove('d-none');
+    return false;
+  }
   return {
     hashtags,
-    isRelevant,
     postBody,
-    postDate,
     postImg,
-    postTitle,
-    userID,
+    postTitle
   };
+}
+
+const EditType = async (id) => {
+  let post = await getAPost(id);
+  const textAreaTitle = document.getElementById('FormControlTextarea1');
+  const textAreaPost = document.getElementById('FormControlTextarea2');
+  const postImageInput = document.getElementById('post-image-input');
+  textAreaTitle.value = post.postTitle;
+  textAreaPost.value = post.postBody;
+  postImageInput.value = post.postImg;
+  tags = [
+    post.hashtags.first,
+    post.hashtags.second,
+    post.hashtags.third,
+    post.hashtags.fourth
+  ];
+  createTag();
+  console.log(tags);
+};
+
+let params = new URLSearchParams(window.location.search);
+let postID = params.get('id');
+if (postID) {
+  EditType(postID);
 }
