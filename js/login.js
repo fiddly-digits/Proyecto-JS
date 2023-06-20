@@ -1,4 +1,4 @@
-import { getUsers } from './db-connections.js';
+import { authUser, getUsers } from './db-connections.js';
 
 //* Esta codigo oculta el form de login
 
@@ -17,34 +17,37 @@ const getLoginObject = () => {
   return { email, password };
 };
 
-// * Compara los datos de la base de datos, con los valores de los input
-const compareInputsWithDatabase = async () => {
-  let userLogged = '';
-  let loginTry = getLoginObject();
-  let users = await getUsers();
-  for (let key in users) {
-    let { login } = users[key];
-    let isEmailValidated = loginTry.email === login.email;
-    let isPasswordValidated = loginTry.password === login.password;
-    if (isEmailValidated && isPasswordValidated) {
-      userLogged = key;
-    }
-  }
-  return userLogged;
-};
+// // * Compara los datos de la base de datos, con los valores de los input
+// const compareInputsWithDatabase = async () => {
+//   let userLogged = '';
+//   let loginTry = getLoginObject();
+//   let users = await getUsers();
+//   for (let key in users) {
+//     let { login } = users[key];
+//     let isEmailValidated = loginTry.email === login.email;
+//     let isPasswordValidated = loginTry.password === login.password;
+//     if (isEmailValidated && isPasswordValidated) {
+//       userLogged = key;
+//     }
+//   }
+//   return userLogged;
+// };
 
 // * llama el boton y le hace un evento del tipo click, y si la validacion es falsa,
 // * arroja un error
 let loginButton = document.getElementById('submit-btn');
 loginButton.addEventListener('click', async (event) => {
-  let isLogged = await compareInputsWithDatabase();
+  const loginObj = getLoginObject();
+  console.log(loginObj);
+  let isAuthenticated = await authUser(loginObj);
+  console.log(isAuthenticated.data);
 
-  if (!isLogged) {
+  if (!isAuthenticated?.data) {
     document.getElementById('card-error').classList.remove('d-none');
   } else {
     document.getElementById('check1').checked === true
-      ? localStorage.setItem('userID', isLogged)
-      : sessionStorage.setItem('userID', isLogged);
+      ? localStorage.setItem('token', isAuthenticated.data)
+      : sessionStorage.setItem('token', isAuthenticated.data);
     window.open(`/index.html`, '_self');
   }
 });

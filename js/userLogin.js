@@ -1,8 +1,8 @@
-import { getUsers } from './db-connections.js';
+import { getAPost, getUser } from './db-connections.js';
 
 export const isUserLogged = () => {
-  let username = getUserfromStorage();
-  if (username) {
+  let token = getUserfromStorage();
+  if (token) {
     document.getElementById('create-post-btn').classList.remove('d-none');
     document.getElementById('bell-icon').classList.remove('d-none');
     document.getElementById('profile-picture').classList.remove('d-none');
@@ -21,22 +21,36 @@ export const isUserLogged = () => {
   }
 };
 
-const getUserfromStorage = () => {
-  let userNameLocal = localStorage.getItem('userID');
-  let userNameSession = sessionStorage.getItem('userID');
-  if (userNameLocal) {
-    return userNameLocal;
-  } else if (userNameSession) {
-    return userNameSession;
+export const getUserfromStorage = () => {
+  let token = localStorage.getItem('token') || sessionStorage.getItem('token');
+  console.log(token);
+  if (token) {
+    const payload = token.split('.')[1];
+    const plainPayload = JSON.parse(atob(payload));
+    console.log(plainPayload.id);
+    return plainPayload.id;
   }
 };
 
 export const getProfileImage = async () => {
-  let username = getUserfromStorage();
-  let users = await getUsers();
-  for (let key in users) {
-    let { picture } = users[key];
-    if (key === username)
-      document.getElementById('profile-picture').setAttribute('src', picture);
+  let userID = getUserfromStorage();
+  let user = await getUser(userID);
+  document.getElementById('profile-picture').setAttribute('src', user.picture);
+};
+
+export const isUserOwner = async (id) => {
+  const post = await getAPost(id);
+  let { postOwner } = post;
+  const userLogged = getUserfromStorage();
+  console.log('post owner', postOwner);
+  console.log('usuario loggeado', userLogged);
+  if (postOwner === userLogged) {
+    document
+      .getElementById('dropdown-logged')
+      .classList.remove('visually-hidden');
   }
+};
+
+export const logout = () => {
+  localStorage.removeItem('token') || sessionStorage.removeItem('token');
 };

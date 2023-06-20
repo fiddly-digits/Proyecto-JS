@@ -72,16 +72,36 @@
             ><i class="iconoir-bell icons-style-md"></i
           ></a>
           <!-- ! profile image only active when user is logged -->
-          <img
-            src="https://randomuser.me/api/portraits/lego/6.jpg"
-            alt="user"
-            width="30"
-            height="30"
-            class="circle-profile-picture mt-1 d-none"
-            id="profile-picture"
-            tabindex="0"
-            data-bs-toggle="popover"
-            data-bs-title="Popover title" />
+          <div class="dropdown-center">
+            <img
+              src="https://randomuser.me/api/portraits/lego/6.jpg"
+              alt="user"
+              width="30"
+              height="30"
+              class="circle-profile-picture mt-1 d-none dropdown-toggle"
+              id="profile-picture"
+              tabindex="0"
+              data-bs-toggle="dropdown"
+              aria-expanded="false" />
+            <!-- FIXME: Crea la logica del dropdown -->
+            <ul class="dropdown-menu dropdown-menu-end">
+              <!-- <li>
+                <a class="dropdown-item" href="#"
+                  >Name <br />
+                  Username</a
+                >
+              </li> -->
+              <!-- <li><hr class="dropdown-divider" /></li> -->
+              <li><a class="dropdown-item" href="#">Dashboard</a></li>
+              <li><a class="dropdown-item" href="#">Create Post</a></li>
+              <li><a class="dropdown-item" href="#">Reading List</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" id="sign-out-anchor">Sign Out</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>

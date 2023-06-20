@@ -103,9 +103,16 @@ const createText = (postTitle, postID) => {
 //CREANDO SUBTITULO LISTO
 
 const createSubtitle = (postDate) => {
+  const parsedDate = new Date(postDate);
+  const month =
+    parsedDate.getMonth() + 1 > 10
+      ? `${parsedDate.getMonth() + 1}`
+      : `0${parsedDate.getMonth() + 1}`;
+  const year = parsedDate.getFullYear();
+  const day = parsedDate.getDate();
   let textSubtitleContainer = document.createElement('p');
   let dateSubtitle = document.createElement('span');
-  let texSubtitle = document.createTextNode(postDate); //DINAMICO
+  let texSubtitle = document.createTextNode(`${day}-${month}-${year}`); //DINAMICO
   textSubtitleContainer.classList.add('card-subtitle');
   dateSubtitle.classList.add('card-subtitle--date');
   dateSubtitle.appendChild(texSubtitle);
@@ -315,8 +322,11 @@ export const postData = (
   postBody,
   hashtags,
   postImg,
-  userPicture
+  userPicture,
+  likes,
+  bookmarks
 ) => {
+  console.log(likes);
   let usernameElement = document.getElementById('username');
   let dateElement = document.getElementById('post-date');
   let titleElement = document.getElementById('post-title');
@@ -327,6 +337,8 @@ export const postData = (
   let secondHashElement = document.getElementById('second-hash');
   let thirdHashElement = document.getElementById('third-hash');
   let fourthHashElement = document.getElementById('fourth-hash');
+  let likesElement = document.getElementById('like-counter');
+  let bookmarkElement = document.getElementById('bookmark-counter');
   let publishUsername = document.createTextNode(`${name.first} ${name.last}`);
   let publishDate = document.createTextNode(postDate);
   let publishTitle = document.createTextNode(postTitle);
@@ -335,11 +347,15 @@ export const postData = (
   let publishSecondHash = document.createTextNode(hashtags.second);
   let publishThirdHash = document.createTextNode(hashtags.third);
   let publishFourthHash = document.createTextNode(hashtags.fourth);
+  let publishLikes = document.createTextNode(likes);
+  let publishBookmarks = document.createTextNode(bookmarks);
   mainImgElement.setAttribute('src', postImg);
   paragraphElement.appendChild(publishBody);
   firstHashElement.appendChild(publishFirstHash);
   secondHashElement.appendChild(publishSecondHash);
   thirdHashElement.appendChild(publishThirdHash);
+  likesElement.appendChild(publishLikes);
+  bookmarkElement.appendChild(publishBookmarks);
   fourthHashElement.appendChild(publishFourthHash);
   creatorPictureElement.setAttribute('src', userPicture);
   usernameElement.appendChild(publishUsername);

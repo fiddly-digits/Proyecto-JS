@@ -2,7 +2,7 @@
 // * Aca trabaja Rob
 import { createMainCard, cardHashContainer } from './domCreation.js';
 import { getAPost, getPosts, getUsers } from './db-connections.js';
-import { isUserLogged, getProfileImage } from './userLogin.js';
+import { isUserLogged, getProfileImage, logout } from './userLogin.js';
 
 let getAccountButtons = document
   .querySelectorAll('.login')
@@ -12,7 +12,7 @@ let getAccountButtons = document
     };
   });
 
-const addSourceToAnchors = () => {
+const addSourceToAnchors = (postID) => {
   let getTitleAnchors = document
     .querySelectorAll('.card-text--article')
     .forEach((title) => {
@@ -31,10 +31,10 @@ const cleanList = () => {
 };
 
 const obtainPostComplete = async (post) => {
-  let { postTitle, postImg, postDate, userID, hashtags } = post;
+  let { postTitle, postImg, postDate, postOwner, hashtags } = post;
   let users = await getUsers();
   for (let key in users) {
-    if (userID === key) {
+    if (postOwner === users[key]._id) {
       let { picture, name } = users[key];
       let { first, last } = name;
       let fullName = `${first} ${last}`;
@@ -51,19 +51,6 @@ const obtainPostComplete = async (post) => {
   }
 };
 
-const popoverTriggerList = document.querySelectorAll(
-  '[data-bs-toggle="popover"]'
-);
-const popoverList = [...popoverTriggerList].map((popoverTriggerEl) => {
-  let popover = new bootstrap.Popover(popoverTriggerEl);
-  popover._config['html'] = true;
-  popover._config['template'] =
-    '<div class="popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div> <script src="./js/main.js"></script>';
-  popover._config['content'] =
-    '<a type="button" class="btn btn-secondary" onclick="logout(event)">Log out<a>';
-  return popover;
-});
-
 const addCardToDom = async () => {
   let postsInfo = await getPosts();
   for (let post in postsInfo) {
@@ -73,9 +60,9 @@ const addCardToDom = async () => {
     );
     let postComplete = await obtainPostComplete(postsInfo[post]);
     let mainContainer = document.querySelector('.cards-container-main');
-    let card = createMainCard(postComplete, post);
+    let card = createMainCard(postComplete, postsInfo[post]._id);
     mainContainer.appendChild(card);
-    addSourceToAnchors();
+    addSourceToAnchors(postsInfo[post]._id);
   }
 };
 
@@ -117,14 +104,15 @@ const filterSearch = async (searchInput) => {
   let posts = await getPosts();
   let result = [];
   for (let key in posts) {
-    let { postTitle, postBody } = posts[key];
+    console.log(posts[key]);
+    let { postTitle, postBody, _id } = posts[key];
     let isTitleCoincident = postTitle
       .toLowerCase()
       .includes(searchInput.toLowerCase());
     let isPostBodyCoincident = postBody
       .toLowerCase()
       .includes(searchInput.toLowerCase());
-    isTitleCoincident || isPostBodyCoincident ? result.push(key) : null;
+    isTitleCoincident || isPostBodyCoincident ? result.push(_id) : null;
   }
   return result;
 };
@@ -137,14 +125,18 @@ searchBar.addEventListener('keyup', async (event) => {
     let filteredID = await filterSearch(event.target.value);
     cleanList();
     filteredID.forEach(async (id) => {
+      console.log(id);
       let postComplete = await obtainPostComplete(await getAPost(id));
       let mainContainer = document.querySelector('.cards-container-main');
       let card = createMainCard(postComplete, id);
       mainContainer.appendChild(card);
-      let getTitleAnchor = document.querySelector(`[data-postid=${id}]`);
-      getTitleAnchor.onclick = function () {
-        location.href = `./internal/post-detail/post-detail.html?id=${id}`;
-      };
+      addSourceToAnchors(id);
+      // let getTitleAnchor = document.querySelector(`[data-postid]`);
+      // console.log(getTitleAnchor);
+      // getTitleAnchor.onclick = function () {
+      //   console.log('index', key);
+      //   location.href = `./internal/post-detail/post-detail.html?id=${id}`;
+      // };
     });
   }
 });
@@ -153,12 +145,8 @@ searchBar.addEventListener('keyup', async (event) => {
 
 const filterLatest = async () => {
   let posts = await getPosts();
-  let result = [];
-  for (let key in posts) {
-    let { postDate } = posts[key];
-    result.push({ postDate, key });
-  }
-  return result.sort((a, b) => (a.postDate < b.postDate ? 1 : -1));
+  let reversedPosts = await posts.toReversed();
+  return reversedPosts;
 };
 
 const latestButton = document.getElementById('latest-filter');
@@ -169,19 +157,17 @@ latestButton.addEventListener('click', async (event) => {
   top.classList.remove('fw-bold');
   latest.classList.add('fw-bold');
   relevant.classList.remove('fw-bold');
-  let latestObjects = await filterLatest();
+  let posts = await getPosts();
+  let reversedPosts = await posts.toReversed();
+  console.log(reversedPosts);
   cleanList();
-  console.log(latestObjects);
-  latestObjects.forEach(async (object) => {
-    let postComplete = await obtainPostComplete(await getAPost(object.key));
+  for (let key in reversedPosts) {
+    let postComplete = await obtainPostComplete(reversedPosts[key]);
     let mainContainer = document.querySelector('.cards-container-main');
-    let card = createMainCard(postComplete, object.key);
+    let card = createMainCard(postComplete, reversedPosts[key]._id);
     mainContainer.appendChild(card);
-    let getTitleAnchor = document.querySelector(`[data-postid=${object.key}]`);
-    getTitleAnchor.onclick = function () {
-      location.href = `./internal/post-detail/post-detail.html?id=${object.key}`;
-    };
-  });
+    addSourceToAnchors(reversedPosts[key]._id);
+  }
 });
 
 // FILTRO TOP
@@ -194,18 +180,22 @@ topButton.addEventListener('click', async (event) => {
   latest.classList.remove('fw-bold');
   relevant.classList.remove('fw-bold');
   let posts = await getPosts();
+  let shuffledPosts = await posts.sort((a, b) => 0.5 - Math.random());
   cleanList();
-  for (let key in posts) {
+  for (let key in shuffledPosts) {
     if (posts[key].isRelevant) {
-      let postComplete = await obtainPostComplete(posts[key]);
+      console.log(posts[key].isRelevant);
+      let postComplete = await obtainPostComplete(shuffledPosts[key]);
       let mainContainer = document.querySelector('.cards-container-main');
-      console.log(key);
-      let card = createMainCard(postComplete, key);
+      console.log(posts[key]._id);
+      let card = createMainCard(postComplete, shuffledPosts[key]._id);
       mainContainer.appendChild(card);
-      let getTitleAnchor = document.querySelector(`[data-postid=${key}]`);
-      getTitleAnchor.onclick = function () {
-        location.href = `./internal/post-detail/post-detail.html?id=${key}`;
-      };
+      addSourceToAnchors(shuffledPosts[key]._id);
+      // let getTitleAnchor = document.querySelector(`[data-postid]`);
+      // getTitleAnchor.onclick = function () {
+      //   console.log('key', posts[key]._id);
+      //   window.location.href = `./internal/post-detail/post-detail.html?id=${posts[key]._id}`;
+      // };
     }
   }
 });
@@ -243,8 +233,15 @@ const createAsideCard = async (input) => {
     .append(card);
 };
 
+let signOutAnchor = document.getElementById('sign-out-anchor');
+
+signOutAnchor.onclick = function signOut() {
+  logout();
+  location.reload();
+};
+
 isUserLogged();
 getProfileImage();
 addCardToDom();
-createAsideCard('#javascript');
-createAsideCard('#kodemia');
+createAsideCard('#webdev');
+createAsideCard('#frontend');

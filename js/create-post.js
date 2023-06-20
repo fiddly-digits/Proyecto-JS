@@ -1,4 +1,5 @@
-import { savePost } from './db-connections.js';
+import { getAPost, modifyPost, savePost } from './db-connections.js';
+import { getUserfromStorage } from './userLogin.js';
 
 const ul = document.querySelector('.hashtags-add');
 const input = document.querySelector('.hashtags-add__input');
@@ -148,23 +149,21 @@ let getRandomRelevancy = () => {
   return rand === 1 ? true : false;
 };
 
-const getUserfromStorage = () => {
-  let userNameLocal = localStorage.getItem('userID');
-  let userNameSession = sessionStorage.getItem('userID');
-  if (userNameLocal) {
-    return userNameLocal;
-  } else if (userNameSession) {
-    return userNameSession;
-  }
-};
-
 const publishButton = document.getElementById('publish-btn');
 publishButton.onclick = async function () {
+  let params = new URLSearchParams(window.location.search);
+  let postID = params.get('id');
   let postObject = createPostObject();
   console.log(postObject);
   if (postObject) {
-    await savePost(postObject);
-    window.open('/index.html', '_self');
+    if (!postID) {
+      await savePost(postObject);
+      window.open('/index.html', '_self');
+    } else {
+      console.log('Esta entrando aca');
+      await modifyPost(postObject, postID);
+      window.open(`../post-detail/post-detail.html?id=${postID}`, '_self');
+    }
   }
 };
 
@@ -175,9 +174,6 @@ function createPostObject() {
   let postTitle = textAreaTitle.value;
   let postBody = textAreaPost.value;
   let postImg = postImageInput.value;
-  let userID = getUserfromStorage();
-  let isRelevant = getRandomRelevancy();
-  let postDate = getDate();
   let hashtags = getHashtagsObject();
 
   if (!postTitle) {
@@ -231,11 +227,32 @@ function createPostObject() {
   }
   return {
     hashtags,
-    isRelevant,
     postBody,
-    postDate,
     postImg,
-    postTitle,
-    userID
+    postTitle
   };
+}
+
+const EditType = async (id) => {
+  let post = await getAPost(id);
+  const textAreaTitle = document.getElementById('FormControlTextarea1');
+  const textAreaPost = document.getElementById('FormControlTextarea2');
+  const postImageInput = document.getElementById('post-image-input');
+  textAreaTitle.value = post.postTitle;
+  textAreaPost.value = post.postBody;
+  postImageInput.value = post.postImg;
+  tags = [
+    post.hashtags.first,
+    post.hashtags.second,
+    post.hashtags.third,
+    post.hashtags.fourth
+  ];
+  createTag();
+  console.log(tags);
+};
+
+let params = new URLSearchParams(window.location.search);
+let postID = params.get('id');
+if (postID) {
+  EditType(postID);
 }
